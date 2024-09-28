@@ -1,1 +1,1 @@
-# Aphasia_speech_recognition
+# Aphasic_speech_recognition
