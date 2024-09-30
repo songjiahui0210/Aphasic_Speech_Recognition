@@ -1,3 +1,6 @@
+# copy from https://github.com/monirome/AphasiaBank/blob/main/clean_transcriptions.ipynb
+
+
 filepath = "..data/chat_file/English/Aphasia/Kempler"
 
 import pylangacq as pla
