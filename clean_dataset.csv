@@ -1,118 +1,109 @@
 mark_start,mark_end,transcriptions,sex,age,file,WAB_AQ,aphasia_type,file_cut,WAB_AQ_category,fluency_speech
 7309.0,8189.0,i don't kn,female,55,kempler02a.wav,78.5,Anomic,kempler02a_7.309_0.88.wav,Mild,Fluent
-10687.0,11627.0,F i don't know,female,55,kempler02a.wav,78.5,Anomic,kempler02a_10.687_0.94.wav,Mild,Fluent
-17217.0,18637.0,F good,female,55,kempler02a.wav,78.5,Anomic,kempler02a_17.217_1.42.wav,Mild,Fluent
+10687.0,11627.0,i don't know,female,55,kempler02a.wav,78.5,Anomic,kempler02a_10.687_0.94.wav,Mild,Fluent
+17217.0,18637.0,good,female,55,kempler02a.wav,78.5,Anomic,kempler02a_17.217_1.42.wav,Mild,Fluent
 21833.0,22383.0,that's all,female,55,kempler02a.wav,78.5,Anomic,kempler02a_21.833_0.55.wav,Mild,Fluent
-30281.0,44811.0,F F i think F july two years ago,female,55,kempler02a.wav,78.5,Anomic,kempler02a_30.281_14.53.wav,Mild,Fluent
-45607.0,52457.0,F that's all,female,55,kempler02a.wav,78.5,Anomic,kempler02a_45.607_6.85.wav,Mild,Fluent
-62927.0,65197.0,F i don't remember F,female,55,kempler02a.wav,78.5,Anomic,kempler02a_62.927_2.27.wav,Mild,Fluent
-,,,female,55,kempler02a.wav,78.5,Anomic,kempler02a_nan_nan.wav,Mild,Fluent
-72724.0,90014.0,F F i have F therapy in gordon college,female,55,kempler02a.wav,78.5,Anomic,kempler02a_72.724_17.29.wav,Mild,Fluent
-91429.0,104889.0,F and then emerson college i learn to speak m,female,55,kempler02a.wav,78.5,Anomic,kempler02a_91.429_13.46.wav,Mild,Fluent
-144898.0,153118.0,F F i like bermuda,female,55,kempler02a.wav,78.5,Anomic,kempler02a_144.898_8.22.wav,Mild,Fluent
-154026.0,159316.0,F it's an hour away,female,55,kempler02a.wav,78.5,Anomic,kempler02a_154.026_5.29.wav,Mild,Fluent
-160265.0,164725.0,F it's sunny out there,female,55,kempler02a.wav,78.5,Anomic,kempler02a_160.265_4.46.wav,Mild,Fluent
-,,,female,55,kempler02a.wav,78.5,Anomic,kempler02a_nan_nan.wav,Mild,Fluent
-167182.0,172382.0,F sunsets are beautiful,female,55,kempler02a.wav,78.5,Anomic,kempler02a_167.182_5.2.wav,Mild,Fluent
-173275.0,185725.0,F F i try to walk a beach,female,55,kempler02a.wav,78.5,Anomic,kempler02a_173.275_12.45.wav,Mild,Fluent
-186976.0,196276.0,F F F ride horses in the beach,female,55,kempler02a.wav,78.5,Anomic,kempler02a_186.976_9.3.wav,Mild,Fluent
-198492.0,215152.0,F F i F F F F F spend F F F shopping,female,55,kempler02a.wav,78.5,Anomic,kempler02a_198.492_16.66.wav,Mild,Fluent
-217530.0,220340.0,F beautiful clothes,female,55,kempler02a.wav,78.5,Anomic,kempler02a_217.53_2.81.wav,Mild,Fluent
-222365.0,228405.0,F it's neat,female,55,kempler02a.wav,78.5,Anomic,kempler02a_222.365_6.04.wav,Mild,Fluent
-,,,female,55,kempler02a.wav,78.5,Anomic,kempler02a_nan_nan.wav,Mild,Fluent
+30281.0,44811.0,i think july two years ago,female,55,kempler02a.wav,78.5,Anomic,kempler02a_30.281_14.53.wav,Mild,Fluent
+45607.0,52457.0,that's all,female,55,kempler02a.wav,78.5,Anomic,kempler02a_45.607_6.85.wav,Mild,Fluent
+62927.0,65197.0,i don't remember,female,55,kempler02a.wav,78.5,Anomic,kempler02a_62.927_2.27.wav,Mild,Fluent
+72724.0,90014.0,i have therapy in gordon college,female,55,kempler02a.wav,78.5,Anomic,kempler02a_72.724_17.29.wav,Mild,Fluent
+91429.0,104889.0,and then emerson college i learn to speak m,female,55,kempler02a.wav,78.5,Anomic,kempler02a_91.429_13.46.wav,Mild,Fluent
+144898.0,153118.0,i like bermuda,female,55,kempler02a.wav,78.5,Anomic,kempler02a_144.898_8.22.wav,Mild,Fluent
+154026.0,159316.0,it's an hour away,female,55,kempler02a.wav,78.5,Anomic,kempler02a_154.026_5.29.wav,Mild,Fluent
+160265.0,164725.0,it's sunny out there,female,55,kempler02a.wav,78.5,Anomic,kempler02a_160.265_4.46.wav,Mild,Fluent
+167182.0,172382.0,sunsets are beautiful,female,55,kempler02a.wav,78.5,Anomic,kempler02a_167.182_5.2.wav,Mild,Fluent
+173275.0,185725.0,i try to walk a beach,female,55,kempler02a.wav,78.5,Anomic,kempler02a_173.275_12.45.wav,Mild,Fluent
+186976.0,196276.0,ride horses in the beach,female,55,kempler02a.wav,78.5,Anomic,kempler02a_186.976_9.3.wav,Mild,Fluent
+198492.0,215152.0,i spend shopping,female,55,kempler02a.wav,78.5,Anomic,kempler02a_198.492_16.66.wav,Mild,Fluent
+217530.0,220340.0,beautiful clothes,female,55,kempler02a.wav,78.5,Anomic,kempler02a_217.53_2.81.wav,Mild,Fluent
+222365.0,228405.0,it's neat,female,55,kempler02a.wav,78.5,Anomic,kempler02a_222.365_6.04.wav,Mild,Fluent
 266619.0,272229.0,she said,female,55,kempler02a.wav,78.5,Anomic,kempler02a_266.619_5.61.wav,Mild,Fluent
 277806.0,279216.0,okay,female,55,kempler02a.wav,78.5,Anomic,kempler02a_277.806_1.41.wav,Mild,Fluent
 282182.0,282532.0,okay,female,55,kempler02a.wav,78.5,Anomic,kempler02a_282.182_0.35.wav,Mild,Fluent
-,,,female,55,kempler02a.wav,78.5,Anomic,kempler02a_nan_nan.wav,Mild,Fluent
-300584.0,320714.0,he F no> he F kicked the F ball and broke the window,female,55,kempler02a.wav,78.5,Anomic,kempler02a_300.584_20.13.wav,Mild,Fluent
-322802.0,345022.0,then F <LAU> F he F F,female,55,kempler02a.wav,78.5,Anomic,kempler02a_322.802_22.22.wav,Mild,Fluent
+300584.0,320714.0,he he kicked the ball and broke the window,female,55,kempler02a.wav,78.5,Anomic,kempler02a_300.584_20.13.wav,Mild,Fluent
+322802.0,345022.0,then he,female,55,kempler02a.wav,78.5,Anomic,kempler02a_322.802_22.22.wav,Mild,Fluent
 347265.0,347685.0,wait a minute,female,55,kempler02a.wav,78.5,Anomic,kempler02a_347.265_0.42.wav,Mild,Fluent
-352291.0,371211.0,F he's F F bruise the knee,female,55,kempler02a.wav,78.5,Anomic,kempler02a_352.291_18.92.wav,Mild,Fluent
-372581.0,387801.0,F then F he looked in window,female,55,kempler02a.wav,78.5,Anomic,kempler02a_372.581_15.22.wav,Mild,Fluent
+352291.0,371211.0,he's bruise the knee,female,55,kempler02a.wav,78.5,Anomic,kempler02a_352.291_18.92.wav,Mild,Fluent
+372581.0,387801.0,then he looked in window,female,55,kempler02a.wav,78.5,Anomic,kempler02a_372.581_15.22.wav,Mild,Fluent
 413293.0,413603.0,okay,female,55,kempler02a.wav,78.5,Anomic,kempler02a_413.293_0.31.wav,Mild,Fluent
-416388.0,420718.0,F she said F,female,55,kempler02a.wav,78.5,Anomic,kempler02a_416.388_4.33.wav,Mild,Fluent
-425306.0,429506.0,F bring the umbrella,female,55,kempler02a.wav,78.5,Anomic,kempler02a_425.306_4.2.wav,Mild,Fluent
-430898.0,434538.0,F he said,female,55,kempler02a.wav,78.5,Anomic,kempler02a_430.898_3.64.wav,Mild,Fluent
-434930.0,435150.0,F F no,female,55,kempler02a.wav,78.5,Anomic,kempler02a_434.93_0.22.wav,Mild,Fluent
-436626.0,441726.0,F F he said,female,55,kempler02a.wav,78.5,Anomic,kempler02a_436.626_5.1.wav,Mild,Fluent
+416388.0,420718.0,she said,female,55,kempler02a.wav,78.5,Anomic,kempler02a_416.388_4.33.wav,Mild,Fluent
+425306.0,429506.0,bring the umbrella,female,55,kempler02a.wav,78.5,Anomic,kempler02a_425.306_4.2.wav,Mild,Fluent
+430898.0,434538.0,he said,female,55,kempler02a.wav,78.5,Anomic,kempler02a_430.898_3.64.wav,Mild,Fluent
+434930.0,435150.0,no,female,55,kempler02a.wav,78.5,Anomic,kempler02a_434.93_0.22.wav,Mild,Fluent
+436626.0,441726.0,he said,female,55,kempler02a.wav,78.5,Anomic,kempler02a_436.626_5.1.wav,Mild,Fluent
 444904.0,445504.0,bye,female,55,kempler02a.wav,78.5,Anomic,kempler02a_444.904_0.6.wav,Mild,Fluent
 446964.0,448354.0,oh,female,55,kempler02a.wav,78.5,Anomic,kempler02a_446.964_1.39.wav,Mild,Fluent
-449149.0,461129.0,F F start to rain,female,55,kempler02a.wav,78.5,Anomic,kempler02a_449.149_11.98.wav,Mild,Fluent
-461256.0,467156.0,<LAU> he very mad,female,55,kempler02a.wav,78.5,Anomic,kempler02a_461.256_5.9.wav,Mild,Fluent
-468476.0,473276.0,F he is wet,female,55,kempler02a.wav,78.5,Anomic,kempler02a_468.476_4.8.wav,Mild,Fluent
-474785.0,484775.0,F next F F F time F bring an umbrella,female,55,kempler02a.wav,78.5,Anomic,kempler02a_474.785_9.99.wav,Mild,Fluent
-,,,female,55,kempler02a.wav,78.5,Anomic,kempler02a_nan_nan.wav,Mild,Fluent
-519054.0,522095.0,i like F cat,female,55,kempler02a.wav,78.5,Anomic,kempler02a_519.054_3.041.wav,Mild,Fluent
-522784.0,523754.0,it F very nice,female,55,kempler02a.wav,78.5,Anomic,kempler02a_522.784_0.97.wav,Mild,Fluent
-524599.0,531849.0,F he is scared,female,55,kempler02a.wav,78.5,Anomic,kempler02a_524.599_7.25.wav,Mild,Fluent
-532752.0,543112.0,F F dog is barking,female,55,kempler02a.wav,78.5,Anomic,kempler02a_532.752_10.36.wav,Mild,Fluent
-544479.0,559719.0,F F F soon the fire engine F F drove up,female,55,kempler02a.wav,78.5,Anomic,kempler02a_544.479_15.24.wav,Mild,Fluent
-564022.0,567542.0,F see the ladder,female,55,kempler02a.wav,78.5,Anomic,kempler02a_564.022_3.52.wav,Mild,Fluent
-568850.0,580450.0,F F see the girl yelling,female,55,kempler02a.wav,78.5,Anomic,kempler02a_568.85_11.6.wav,Mild,Fluent
-581535.0,588595.0,F see the F ladder,female,55,kempler02a.wav,78.5,Anomic,kempler02a_581.535_7.06.wav,Mild,Fluent
+449149.0,461129.0,start to rain,female,55,kempler02a.wav,78.5,Anomic,kempler02a_449.149_11.98.wav,Mild,Fluent
+461256.0,467156.0,he very mad,female,55,kempler02a.wav,78.5,Anomic,kempler02a_461.256_5.9.wav,Mild,Fluent
+468476.0,473276.0,he is wet,female,55,kempler02a.wav,78.5,Anomic,kempler02a_468.476_4.8.wav,Mild,Fluent
+474785.0,484775.0,next time bring an umbrella,female,55,kempler02a.wav,78.5,Anomic,kempler02a_474.785_9.99.wav,Mild,Fluent
+519054.0,522095.0,i like cat,female,55,kempler02a.wav,78.5,Anomic,kempler02a_519.054_3.041.wav,Mild,Fluent
+522784.0,523754.0,it very nice,female,55,kempler02a.wav,78.5,Anomic,kempler02a_522.784_0.97.wav,Mild,Fluent
+524599.0,531849.0,he is scared,female,55,kempler02a.wav,78.5,Anomic,kempler02a_524.599_7.25.wav,Mild,Fluent
+532752.0,543112.0,dog is barking,female,55,kempler02a.wav,78.5,Anomic,kempler02a_532.752_10.36.wav,Mild,Fluent
+544479.0,559719.0,soon the fire engine drove up,female,55,kempler02a.wav,78.5,Anomic,kempler02a_544.479_15.24.wav,Mild,Fluent
+564022.0,567542.0,see the ladder,female,55,kempler02a.wav,78.5,Anomic,kempler02a_564.022_3.52.wav,Mild,Fluent
+568850.0,580450.0,see the girl yelling,female,55,kempler02a.wav,78.5,Anomic,kempler02a_568.85_11.6.wav,Mild,Fluent
+581535.0,588595.0,see the ladder,female,55,kempler02a.wav,78.5,Anomic,kempler02a_581.535_7.06.wav,Mild,Fluent
 604436.0,604796.0,okay,female,55,kempler02a.wav,78.5,Anomic,kempler02a_604.436_0.36.wav,Mild,Fluent
-606577.0,611197.0,F she's scared,female,55,kempler02a.wav,78.5,Anomic,kempler02a_606.577_4.62.wav,Mild,Fluent
-613507.0,632237.0,F F what a lot of water F F F rushing F down the F F water,female,55,kempler02a.wav,78.5,Anomic,kempler02a_613.507_18.73.wav,Mild,Fluent
-643711.0,647741.0,F he's scared,female,55,kempler02a.wav,78.5,Anomic,kempler02a_643.711_4.03.wav,Mild,Fluent
-648800.0,662000.0,F F help is on the way,female,55,kempler02a.wav,78.5,Anomic,kempler02a_648.8_13.2.wav,Mild,Fluent
+606577.0,611197.0,she's scared,female,55,kempler02a.wav,78.5,Anomic,kempler02a_606.577_4.62.wav,Mild,Fluent
+613507.0,632237.0,what a lot of water rushing down the water,female,55,kempler02a.wav,78.5,Anomic,kempler02a_613.507_18.73.wav,Mild,Fluent
+643711.0,647741.0,he's scared,female,55,kempler02a.wav,78.5,Anomic,kempler02a_643.711_4.03.wav,Mild,Fluent
+648800.0,662000.0,help is on the way,female,55,kempler02a.wav,78.5,Anomic,kempler02a_648.8_13.2.wav,Mild,Fluent
 674839.0,675059.0,yes,female,55,kempler02a.wav,78.5,Anomic,kempler02a_674.839_0.22.wav,Mild,Fluent
 685609.0,685939.0,yes,female,55,kempler02a.wav,78.5,Anomic,kempler02a_685.609_0.33.wav,Mild,Fluent
 701551.0,701891.0,okay,female,55,kempler02a.wav,78.5,Anomic,kempler02a_701.551_0.34.wav,Mild,Fluent
 707288.0,708628.0,love the story,female,55,kempler02a.wav,78.5,Anomic,kempler02a_707.288_1.34.wav,Mild,Fluent
-,,,female,55,kempler02a.wav,78.5,Anomic,kempler02a_nan_nan.wav,Mild,Fluent
 859173.0,859483.0,okay,female,55,kempler02a.wav,78.5,Anomic,kempler02a_859.173_0.31.wav,Mild,Fluent
-864675.0,868915.0,F cinderella is F happy,female,55,kempler02a.wav,78.5,Anomic,kempler02a_864.675_4.24.wav,Mild,Fluent
-869749.0,880519.0,F move in F ugly stepgirls <LAU>,female,55,kempler02a.wav,78.5,Anomic,kempler02a_869.749_10.77.wav,Mild,Fluent
-884445.0,896985.0,F F then F the ball,female,55,kempler02a.wav,78.5,Anomic,kempler02a_884.445_12.54.wav,Mild,Fluent
-898648.0,908498.0,ugly F F stepgirls F see the F cinderella,female,55,kempler02a.wav,78.5,Anomic,kempler02a_898.648_9.85.wav,Mild,Fluent
-909330.0,929540.0,F F then glass slippers F F fit cinderella F shoes,female,55,kempler02a.wav,78.5,Anomic,kempler02a_909.33_20.21.wav,Mild,Fluent
+864675.0,868915.0,cinderella is happy,female,55,kempler02a.wav,78.5,Anomic,kempler02a_864.675_4.24.wav,Mild,Fluent
+869749.0,880519.0,move in ugly stepgirls,female,55,kempler02a.wav,78.5,Anomic,kempler02a_869.749_10.77.wav,Mild,Fluent
+884445.0,896985.0,then the ball,female,55,kempler02a.wav,78.5,Anomic,kempler02a_884.445_12.54.wav,Mild,Fluent
+898648.0,908498.0,ugly stepgirls see the cinderella,female,55,kempler02a.wav,78.5,Anomic,kempler02a_898.648_9.85.wav,Mild,Fluent
+909330.0,929540.0,then glass slippers fit cinderella shoes,female,55,kempler02a.wav,78.5,Anomic,kempler02a_909.33_20.21.wav,Mild,Fluent
 930703.0,933963.0,then get married,female,55,kempler02a.wav,78.5,Anomic,kempler02a_930.703_3.26.wav,Mild,Fluent
-,,F,female,55,kempler02a.wav,78.5,Anomic,kempler02a_nan_nan.wav,Mild,Fluent
-948039.0,958739.0,F F F take F F take the two pieces of bread,female,55,kempler02a.wav,78.5,Anomic,kempler02a_948.039_10.7.wav,Mild,Fluent
-959781.0,988731.0,F then F F then F butter F,female,55,kempler02a.wav,78.5,Anomic,kempler02a_959.781_28.95.wav,Mild,Fluent
+948039.0,958739.0,take take the two pieces of bread,female,55,kempler02a.wav,78.5,Anomic,kempler02a_948.039_10.7.wav,Mild,Fluent
+959781.0,988731.0,then then butter,female,55,kempler02a.wav,78.5,Anomic,kempler02a_959.781_28.95.wav,Mild,Fluent
 989827.0,990137.0,no,female,55,kempler02a.wav,78.5,Anomic,kempler02a_989.827_0.31.wav,Mild,Fluent
 993708.0,994978.0,knife knife,female,55,kempler02a.wav,78.5,Anomic,kempler02a_993.708_1.27.wav,Mild,Fluent
-995563.0,1000673.0,F knife in the butter,female,55,kempler02a.wav,78.5,Anomic,kempler02a_995.563_5.11.wav,Mild,Fluent
-1002425.0,1013065.0,F F then F jelly,female,55,kempler02a.wav,78.5,Anomic,kempler02a_1002.425_10.64.wav,Mild,Fluent
-1014106.0,1017476.0,F it's good,female,55,kempler02a.wav,78.5,Anomic,kempler02a_1014.106_3.37.wav,Mild,Fluent
+995563.0,1000673.0,knife in the butter,female,55,kempler02a.wav,78.5,Anomic,kempler02a_995.563_5.11.wav,Mild,Fluent
+1002425.0,1013065.0,then jelly,female,55,kempler02a.wav,78.5,Anomic,kempler02a_1002.425_10.64.wav,Mild,Fluent
+1014106.0,1017476.0,it's good,female,55,kempler02a.wav,78.5,Anomic,kempler02a_1014.106_3.37.wav,Mild,Fluent
 16743.0,20383.0,well better but no cigar,male,64,kempler03a.wav,60.7,Broca,kempler03a_16.743_3.64.wav,Moderate,Non Fluent
-,,,male,64,kempler03a.wav,60.7,Broca,kempler03a_nan_nan.wav,Moderate,Non Fluent
 23357.0,23837.0,better,male,64,kempler03a.wav,60.7,Broca,kempler03a_23.357_0.48.wav,Moderate,Non Fluent
 24749.0,25599.0,little bit better,male,64,kempler03a.wav,60.7,Broca,kempler03a_24.749_0.85.wav,Moderate,Non Fluent
-27551.0,31941.0,but F F speech a little bit tough <LAU>,male,64,kempler03a.wav,60.7,Broca,kempler03a_27.551_4.39.wav,Moderate,Non Fluent
-46536.0,54686.0,F F well F one nine nine three,male,64,kempler03a.wav,60.7,Broca,kempler03a_46.536_8.15.wav,Moderate,Non Fluent
-55859.0,57239.0,F the stroke,male,64,kempler03a.wav,60.7,Broca,kempler03a_55.859_1.38.wav,Moderate,Non Fluent
-58913.0,62223.0,F F <LAU> F F then downhill F <LAU>,male,64,kempler03a.wav,60.7,Broca,kempler03a_58.913_3.31.wav,Moderate,Non Fluent
-64072.0,67023.0,F and then maybe uphill F,male,64,kempler03a.wav,60.7,Broca,kempler03a_64.072_2.951.wav,Moderate,Non Fluent
+27551.0,31941.0,but speech a little bit tough,male,64,kempler03a.wav,60.7,Broca,kempler03a_27.551_4.39.wav,Moderate,Non Fluent
+46536.0,54686.0,well one nine nine three,male,64,kempler03a.wav,60.7,Broca,kempler03a_46.536_8.15.wav,Moderate,Non Fluent
+55859.0,57239.0,the stroke,male,64,kempler03a.wav,60.7,Broca,kempler03a_55.859_1.38.wav,Moderate,Non Fluent
+58913.0,62223.0,then downhill,male,64,kempler03a.wav,60.7,Broca,kempler03a_58.913_3.31.wav,Moderate,Non Fluent
+64072.0,67023.0,and then maybe uphill,male,64,kempler03a.wav,60.7,Broca,kempler03a_64.072_2.951.wav,Moderate,Non Fluent
 67192.0,69102.0,it's you know tough,male,64,kempler03a.wav,60.7,Broca,kempler03a_67.192_1.91.wav,Moderate,Non Fluent
-71197.0,72497.0,F sixteen years,male,64,kempler03a.wav,60.7,Broca,kempler03a_71.197_1.3.wav,Moderate,Non Fluent
+71197.0,72497.0,sixteen years,male,64,kempler03a.wav,60.7,Broca,kempler03a_71.197_1.3.wav,Moderate,Non Fluent
 77998.0,81058.0,well it's friday at three o'clock in the afternoon,male,64,kempler03a.wav,60.7,Broca,kempler03a_77.998_3.06.wav,Moderate,Non Fluent
-82140.0,83980.0,i F i <LAU> the,male,64,kempler03a.wav,60.7,Broca,kempler03a_82.14_1.84.wav,Moderate,Non Fluent
-85483.0,88763.0,well F xn stop working,male,64,kempler03a.wav,60.7,Broca,kempler03a_85.483_3.28.wav,Moderate,Non Fluent
+82140.0,83980.0,i i the,male,64,kempler03a.wav,60.7,Broca,kempler03a_82.14_1.84.wav,Moderate,Non Fluent
+85483.0,88763.0,well xn stop working,male,64,kempler03a.wav,60.7,Broca,kempler03a_85.483_3.28.wav,Moderate,Non Fluent
 90127.0,91637.0,the soil is dirty,male,64,kempler03a.wav,60.7,Broca,kempler03a_90.127_1.51.wav,Moderate,Non Fluent
-93064.0,104634.0,so come back F to F <to to to train> to the bus m,male,64,kempler03a.wav,60.7,Broca,kempler03a_93.064_11.57.wav,Moderate,Non Fluent
-106600.0,113670.0,the so the F the other one twenty stop a little bit F further down F,male,64,kempler03a.wav,60.7,Broca,kempler03a_106.6_7.07.wav,Moderate,Non Fluent
-114549.0,116459.0,F let's see,male,64,kempler03a.wav,60.7,Broca,kempler03a_114.549_1.91.wav,Moderate,Non Fluent
+93064.0,104634.0,so come back to to the bus m,male,64,kempler03a.wav,60.7,Broca,kempler03a_93.064_11.57.wav,Moderate,Non Fluent
+106600.0,113670.0,the so the the other one twenty stop a little bit further down,male,64,kempler03a.wav,60.7,Broca,kempler03a_106.6_7.07.wav,Moderate,Non Fluent
+114549.0,116459.0,let's see,male,64,kempler03a.wav,60.7,Broca,kempler03a_114.549_1.91.wav,Moderate,Non Fluent
 116670.0,117430.0,kangton,male,64,kempler03a.wav,60.7,Broca,kempler03a_116.67_0.76.wav,Moderate,Non Fluent
-118341.0,125651.0,F well F maybe a little bit north but sort of goes through the,male,64,kempler03a.wav,60.7,Broca,kempler03a_118.341_7.31.wav,Moderate,Non Fluent
-136390.0,140400.0,F <LAU> well you know how it is,male,64,kempler03a.wav,60.7,Broca,kempler03a_136.39_4.01.wav,Moderate,Non Fluent
-,,,male,64,kempler03a.wav,60.7,Broca,kempler03a_nan_nan.wav,Moderate,Non Fluent
+118341.0,125651.0,well maybe a little bit north but sort of goes through the,male,64,kempler03a.wav,60.7,Broca,kempler03a_118.341_7.31.wav,Moderate,Non Fluent
+136390.0,140400.0,well you know how it is,male,64,kempler03a.wav,60.7,Broca,kempler03a_136.39_4.01.wav,Moderate,Non Fluent
 142969.0,144409.0,walking the mall,male,64,kempler03a.wav,60.7,Broca,kempler03a_142.969_1.44.wav,Moderate,Non Fluent
 145110.0,146590.0,exercise the arm,male,64,kempler03a.wav,60.7,Broca,kempler03a_145.11_1.48.wav,Moderate,Non Fluent
 147859.0,149329.0,the the speech,male,64,kempler03a.wav,60.7,Broca,kempler03a_147.859_1.47.wav,Moderate,Non Fluent
 151089.0,151459.0,tough,male,64,kempler03a.wav,60.7,Broca,kempler03a_151.089_0.37.wav,Moderate,Non Fluent
-204671.0,210701.0,no F well there's five kids,male,64,kempler03a.wav,60.7,Broca,kempler03a_204.671_6.03.wav,Moderate,Non Fluent
+204671.0,210701.0,no well there's five kids,male,64,kempler03a.wav,60.7,Broca,kempler03a_204.671_6.03.wav,Moderate,Non Fluent
 211667.0,214307.0,nice all nice kids,male,64,kempler03a.wav,60.7,Broca,kempler03a_211.667_2.64.wav,Moderate,Non Fluent
-215417.0,217107.0,F east boston,male,64,kempler03a.wav,60.7,Broca,kempler03a_215.417_1.69.wav,Moderate,Non Fluent
-218219.0,218579.0,F F,male,64,kempler03a.wav,60.7,Broca,kempler03a_218.219_0.36.wav,Moderate,Non Fluent
-220980.0,224650.0,i F F grew grew up in east boston,male,64,kempler03a.wav,60.7,Broca,kempler03a_220.98_3.67.wav,Moderate,Non Fluent
+215417.0,217107.0,east boston,male,64,kempler03a.wav,60.7,Broca,kempler03a_215.417_1.69.wav,Moderate,Non Fluent
+218219.0,218579.0,,male,64,kempler03a.wav,60.7,Broca,kempler03a_218.219_0.36.wav,Moderate,Non Fluent
+220980.0,224650.0,i grew grew up in east boston,male,64,kempler03a.wav,60.7,Broca,kempler03a_220.98_3.67.wav,Moderate,Non Fluent
 225867.0,227527.0,yes or maybe no,male,64,kempler03a.wav,60.7,Broca,kempler03a_225.867_1.66.wav,Moderate,Non Fluent
-228666.0,232506.0,no F F F F two pills,male,64,kempler03a.wav,60.7,Broca,kempler03a_228.666_3.84.wav,Moderate,Non Fluent
+228666.0,232506.0,no two pills,male,64,kempler03a.wav,60.7,Broca,kempler03a_228.666_3.84.wav,Moderate,Non Fluent
 233648.0,235308.0,the pills oh they're awful,male,64,kempler03a.wav,60.7,Broca,kempler03a_233.648_1.66.wav,Moderate,Non Fluent
-236336.0,242516.0,thank god at F seventh street force danvers,male,64,kempler03a.wav,60.7,Broca,kempler03a_236.336_6.18.wav,Moderate,Non Fluent
+236336.0,242516.0,thank god at seventh street force danvers,male,64,kempler03a.wav,60.7,Broca,kempler03a_236.336_6.18.wav,Moderate,Non Fluent
 243709.0,243779.0,whew,male,64,kempler03a.wav,60.7,Broca,kempler03a_243.709_0.07.wav,Moderate,Non Fluent
 245198.0,246428.0,ah yeah you kid a bit,male,64,kempler03a.wav,60.7,Broca,kempler03a_245.198_1.23.wav,Moderate,Non Fluent
-248056.0,250856.0,F F F F F five kids wow,male,64,kempler03a.wav,60.7,Broca,kempler03a_248.056_2.8.wav,Moderate,Non Fluent
+248056.0,250856.0,five kids wow,male,64,kempler03a.wav,60.7,Broca,kempler03a_248.056_2.8.wav,Moderate,Non Fluent
 253100.0,254430.0,no it's serious,male,64,kempler03a.wav,60.7,Broca,kempler03a_253.1_1.33.wav,Moderate,Non Fluent
 255972.0,256601.0,thank god,male,64,kempler03a.wav,60.7,Broca,kempler03a_255.972_0.629.wav,Moderate,Non Fluent
 256959.0,258640.0,now it's all through college,male,64,kempler03a.wav,60.7,Broca,kempler03a_256.959_1.681.wav,Moderate,Non Fluent
@@ -120,201 +111,194 @@ mark_start,mark_end,transcriptions,sex,age,file,WAB_AQ,aphasia_type,file_cut,WAB
 261399.0,262369.0,bobby in college,male,64,kempler03a.wav,60.7,Broca,kempler03a_261.399_0.97.wav,Moderate,Non Fluent
 263204.0,264384.0,his senior year,male,64,kempler03a.wav,60.7,Broca,kempler03a_263.204_1.18.wav,Moderate,Non Fluent
 265869.0,265929.0,whew,male,64,kempler03a.wav,60.7,Broca,kempler03a_265.869_0.06.wav,Moderate,Non Fluent
-268130.0,268350.0,F,male,64,kempler03a.wav,60.7,Broca,kempler03a_268.13_0.22.wav,Moderate,Non Fluent
+268130.0,268350.0,,male,64,kempler03a.wav,60.7,Broca,kempler03a_268.13_0.22.wav,Moderate,Non Fluent
 270685.0,271905.0,the south pole,male,64,kempler03a.wav,60.7,Broca,kempler03a_270.685_1.22.wav,Moderate,Non Fluent
 272346.0,273506.0,the north pole,male,64,kempler03a.wav,60.7,Broca,kempler03a_272.346_1.16.wav,Moderate,Non Fluent
 274114.0,274704.0,water,male,64,kempler03a.wav,60.7,Broca,kempler03a_274.114_0.59.wav,Moderate,Non Fluent
-,,F,male,64,kempler03a.wav,60.7,Broca,kempler03a_nan_nan.wav,Moderate,Non Fluent
-279906.0,284046.0,F F F F ice or,male,64,kempler03a.wav,60.7,Broca,kempler03a_279.906_4.14.wav,Moderate,Non Fluent
-286289.0,288909.0,F but F F down water,male,64,kempler03a.wav,60.7,Broca,kempler03a_286.289_2.62.wav,Moderate,Non Fluent
+279906.0,284046.0,ice or,male,64,kempler03a.wav,60.7,Broca,kempler03a_279.906_4.14.wav,Moderate,Non Fluent
+286289.0,288909.0,but down water,male,64,kempler03a.wav,60.7,Broca,kempler03a_286.289_2.62.wav,Moderate,Non Fluent
 290719.0,292534.0,oh boy oh boy,male,64,kempler03a.wav,60.7,Broca,kempler03a_290.719_1.815.wav,Moderate,Non Fluent
-293687.0,300627.0,bobby maybe just F F maybe ace ace it,male,64,kempler03a.wav,60.7,Broca,kempler03a_293.687_6.94.wav,Moderate,Non Fluent
-302467.0,305127.0,F F F maybe school,male,64,kempler03a.wav,60.7,Broca,kempler03a_302.467_2.66.wav,Moderate,Non Fluent
+293687.0,300627.0,bobby maybe just maybe ace ace it,male,64,kempler03a.wav,60.7,Broca,kempler03a_293.687_6.94.wav,Moderate,Non Fluent
+302467.0,305127.0,maybe school,male,64,kempler03a.wav,60.7,Broca,kempler03a_302.467_2.66.wav,Moderate,Non Fluent
 305568.0,307278.0,maybe up the ladder,male,64,kempler03a.wav,60.7,Broca,kempler03a_305.568_1.71.wav,Moderate,Non Fluent
 308642.0,313262.0,the north pole the south pole studying studying water,male,64,kempler03a.wav,60.7,Broca,kempler03a_308.642_4.62.wav,Moderate,Non Fluent
 314074.0,314314.0,and then,male,64,kempler03a.wav,60.7,Broca,kempler03a_314.074_0.24.wav,Moderate,Non Fluent
 314368.0,315518.0,yeah yeah yeah,male,64,kempler03a.wav,60.7,Broca,kempler03a_314.368_1.15.wav,Moderate,Non Fluent
 316970.0,318170.0,i don't know maybe,male,64,kempler03a.wav,60.7,Broca,kempler03a_316.97_1.2.wav,Moderate,Non Fluent
-319976.0,322726.0,but F maybe maybe <LAU>,male,64,kempler03a.wav,60.7,Broca,kempler03a_319.976_2.75.wav,Moderate,Non Fluent
+319976.0,322726.0,but maybe maybe,male,64,kempler03a.wav,60.7,Broca,kempler03a_319.976_2.75.wav,Moderate,Non Fluent
 349640.0,350020.0,so,male,64,kempler03a.wav,60.7,Broca,kempler03a_349.64_0.38.wav,Moderate,Non Fluent
 352261.0,352541.0,yeah,male,64,kempler03a.wav,60.7,Broca,kempler03a_352.261_0.28.wav,Moderate,Non Fluent
 355745.0,356175.0,oh okay oh oh,male,64,kempler03a.wav,60.7,Broca,kempler03a_355.745_0.43.wav,Moderate,Non Fluent
-361193.0,367923.0,F the boy F is kicking the ball,male,64,kempler03a.wav,60.7,Broca,kempler03a_361.193_6.73.wav,Moderate,Non Fluent
-369656.0,377866.0,and the F the F F then F kicking,male,64,kempler03a.wav,60.7,Broca,kempler03a_369.656_8.21.wav,Moderate,Non Fluent
-382444.0,385334.0,it F,male,64,kempler03a.wav,60.7,Broca,kempler03a_382.444_2.89.wav,Moderate,Non Fluent
-,,F,male,64,kempler03a.wav,60.7,Broca,kempler03a_nan_nan.wav,Moderate,Non Fluent
-392618.0,393518.0,F kicking,male,64,kempler03a.wav,60.7,Broca,kempler03a_392.618_0.9.wav,Moderate,Non Fluent
-,,S,male,64,kempler03a.wav,60.7,Broca,kempler03a_nan_nan.wav,Moderate,Non Fluent
+361193.0,367923.0,the boy is kicking the ball,male,64,kempler03a.wav,60.7,Broca,kempler03a_361.193_6.73.wav,Moderate,Non Fluent
+369656.0,377866.0,and the the then kicking,male,64,kempler03a.wav,60.7,Broca,kempler03a_369.656_8.21.wav,Moderate,Non Fluent
+382444.0,385334.0,it,male,64,kempler03a.wav,60.7,Broca,kempler03a_382.444_2.89.wav,Moderate,Non Fluent
+392618.0,393518.0,kicking,male,64,kempler03a.wav,60.7,Broca,kempler03a_392.618_0.9.wav,Moderate,Non Fluent
 406941.0,408381.0,kicking the ball,male,64,kempler03a.wav,60.7,Broca,kempler03a_406.941_1.44.wav,Moderate,Non Fluent
-409556.0,410986.0,but F F F,male,64,kempler03a.wav,60.7,Broca,kempler03a_409.556_1.43.wav,Moderate,Non Fluent
-413291.0,414191.0,i can't say it F,male,64,kempler03a.wav,60.7,Broca,kempler03a_413.291_0.9.wav,Moderate,Non Fluent
-415222.0,418922.0,F kicking the ball F,male,64,kempler03a.wav,60.7,Broca,kempler03a_415.222_3.7.wav,Moderate,Non Fluent
+409556.0,410986.0,but,male,64,kempler03a.wav,60.7,Broca,kempler03a_409.556_1.43.wav,Moderate,Non Fluent
+413291.0,414191.0,i can't say it,male,64,kempler03a.wav,60.7,Broca,kempler03a_413.291_0.9.wav,Moderate,Non Fluent
+415222.0,418922.0,kicking the ball,male,64,kempler03a.wav,60.7,Broca,kempler03a_415.222_3.7.wav,Moderate,Non Fluent
 420140.0,422540.0,the window is broken,male,64,kempler03a.wav,60.7,Broca,kempler03a_420.14_2.4.wav,Moderate,Non Fluent
 424021.0,424671.0,broken,male,64,kempler03a.wav,60.7,Broca,kempler03a_424.021_0.65.wav,Moderate,Non Fluent
-425621.0,429851.0,F F the man F inside,male,64,kempler03a.wav,60.7,Broca,kempler03a_425.621_4.23.wav,Moderate,Non Fluent
+425621.0,429851.0,the man inside,male,64,kempler03a.wav,60.7,Broca,kempler03a_425.621_4.23.wav,Moderate,Non Fluent
 430995.0,432345.0,the kicking the ball,male,64,kempler03a.wav,60.7,Broca,kempler03a_430.995_1.35.wav,Moderate,Non Fluent
-434251.0,449371.0,<the man> F maybe the man and the F F the ball and maybe who or when or where,male,64,kempler03a.wav,60.7,Broca,kempler03a_434.251_15.12.wav,Moderate,Non Fluent
-450102.0,452852.0,<LAU> maybe the boy,male,64,kempler03a.wav,60.7,Broca,kempler03a_450.102_2.75.wav,Moderate,Non Fluent
-455448.0,456148.0,<LAU> i don't know but,male,64,kempler03a.wav,60.7,Broca,kempler03a_455.448_0.7.wav,Moderate,Non Fluent
-512409.0,512850.0,F okay,male,64,kempler03a.wav,60.7,Broca,kempler03a_512.409_0.441.wav,Moderate,Non Fluent
-516206.0,521885.0,F F the girl and the umbrella,male,64,kempler03a.wav,60.7,Broca,kempler03a_516.206_5.679.wav,Moderate,Non Fluent
-523524.0,530574.0,and the boy who maybe a F F F F F F F touching F touch F,male,64,kempler03a.wav,60.7,Broca,kempler03a_523.524_7.05.wav,Moderate,Non Fluent
-532020.0,536080.0,the boy and the F backpack,male,64,kempler03a.wav,60.7,Broca,kempler03a_532.02_4.06.wav,Moderate,Non Fluent
-538106.0,543376.0,F maybe the girl and the umbrella,male,64,kempler03a.wav,60.7,Broca,kempler03a_538.106_5.27.wav,Moderate,Non Fluent
+434251.0,449371.0,maybe the man and the the ball and maybe who or when or where,male,64,kempler03a.wav,60.7,Broca,kempler03a_434.251_15.12.wav,Moderate,Non Fluent
+450102.0,452852.0,maybe the boy,male,64,kempler03a.wav,60.7,Broca,kempler03a_450.102_2.75.wav,Moderate,Non Fluent
+455448.0,456148.0,i don't know but,male,64,kempler03a.wav,60.7,Broca,kempler03a_455.448_0.7.wav,Moderate,Non Fluent
+512409.0,512850.0,okay,male,64,kempler03a.wav,60.7,Broca,kempler03a_512.409_0.441.wav,Moderate,Non Fluent
+516206.0,521885.0,the girl and the umbrella,male,64,kempler03a.wav,60.7,Broca,kempler03a_516.206_5.679.wav,Moderate,Non Fluent
+523524.0,530574.0,and the boy who maybe a touching touch,male,64,kempler03a.wav,60.7,Broca,kempler03a_523.524_7.05.wav,Moderate,Non Fluent
+532020.0,536080.0,the boy and the backpack,male,64,kempler03a.wav,60.7,Broca,kempler03a_532.02_4.06.wav,Moderate,Non Fluent
+538106.0,543376.0,maybe the girl and the umbrella,male,64,kempler03a.wav,60.7,Broca,kempler03a_538.106_5.27.wav,Moderate,Non Fluent
 544120.0,545950.0,no never mind,male,64,kempler03a.wav,60.7,Broca,kempler03a_544.12_1.83.wav,Moderate,Non Fluent
 546431.0,550691.0,maybe the boy is walking,male,64,kempler03a.wav,60.7,Broca,kempler03a_546.431_4.26.wav,Moderate,Non Fluent
-551886.0,557156.0,and then the boy F F pouring,male,64,kempler03a.wav,60.7,Broca,kempler03a_551.886_5.27.wav,Moderate,Non Fluent
-560457.0,565997.0,F F the F F F boy is raining,male,64,kempler03a.wav,60.7,Broca,kempler03a_560.457_5.54.wav,Moderate,Non Fluent
-567294.0,579244.0,F the boy F all over the F F raining,male,64,kempler03a.wav,60.7,Broca,kempler03a_567.294_11.95.wav,Moderate,Non Fluent
+551886.0,557156.0,and then the boy pouring,male,64,kempler03a.wav,60.7,Broca,kempler03a_551.886_5.27.wav,Moderate,Non Fluent
+560457.0,565997.0,the boy is raining,male,64,kempler03a.wav,60.7,Broca,kempler03a_560.457_5.54.wav,Moderate,Non Fluent
+567294.0,579244.0,the boy all over the raining,male,64,kempler03a.wav,60.7,Broca,kempler03a_567.294_11.95.wav,Moderate,Non Fluent
 579997.0,582127.0,the boy is raining,male,64,kempler03a.wav,60.7,Broca,kempler03a_579.997_2.13.wav,Moderate,Non Fluent
-583784.0,586844.0,F F the wet,male,64,kempler03a.wav,60.7,Broca,kempler03a_583.784_3.06.wav,Moderate,Non Fluent
+583784.0,586844.0,the wet,male,64,kempler03a.wav,60.7,Broca,kempler03a_583.784_3.06.wav,Moderate,Non Fluent
 587551.0,590441.0,the boy is wet,male,64,kempler03a.wav,60.7,Broca,kempler03a_587.551_2.89.wav,Moderate,Non Fluent
-591852.0,600682.0,F the F F <the F girl is> F the umbrella F no no F <LAU>,male,64,kempler03a.wav,60.7,Broca,kempler03a_591.852_8.83.wav,Moderate,Non Fluent
-601152.0,603992.0,F the the the boy and the girl,male,64,kempler03a.wav,60.7,Broca,kempler03a_601.152_2.84.wav,Moderate,Non Fluent
-605167.0,605777.0,F raining,male,64,kempler03a.wav,60.7,Broca,kempler03a_605.167_0.61.wav,Moderate,Non Fluent
-607319.0,608119.0,F mad,male,64,kempler03a.wav,60.7,Broca,kempler03a_607.319_0.8.wav,Moderate,Non Fluent
-609429.0,617319.0,F and then the F the umbrella and the boy is walking along,male,64,kempler03a.wav,60.7,Broca,kempler03a_609.429_7.89.wav,Moderate,Non Fluent
-618237.0,619217.0,the umbrella F,male,64,kempler03a.wav,60.7,Broca,kempler03a_618.237_0.98.wav,Moderate,Non Fluent
-654151.0,655851.0,F F the cat,male,64,kempler03a.wav,60.7,Broca,kempler03a_654.151_1.7.wav,Moderate,Non Fluent
+591852.0,600682.0,the the umbrella no no,male,64,kempler03a.wav,60.7,Broca,kempler03a_591.852_8.83.wav,Moderate,Non Fluent
+601152.0,603992.0,the the the boy and the girl,male,64,kempler03a.wav,60.7,Broca,kempler03a_601.152_2.84.wav,Moderate,Non Fluent
+605167.0,605777.0,raining,male,64,kempler03a.wav,60.7,Broca,kempler03a_605.167_0.61.wav,Moderate,Non Fluent
+607319.0,608119.0,mad,male,64,kempler03a.wav,60.7,Broca,kempler03a_607.319_0.8.wav,Moderate,Non Fluent
+609429.0,617319.0,and then the the umbrella and the boy is walking along,male,64,kempler03a.wav,60.7,Broca,kempler03a_609.429_7.89.wav,Moderate,Non Fluent
+618237.0,619217.0,the umbrella,male,64,kempler03a.wav,60.7,Broca,kempler03a_618.237_0.98.wav,Moderate,Non Fluent
+654151.0,655851.0,the cat,male,64,kempler03a.wav,60.7,Broca,kempler03a_654.151_1.7.wav,Moderate,Non Fluent
 660882.0,661822.0,the branch,male,64,kempler03a.wav,60.7,Broca,kempler03a_660.882_0.94.wav,Moderate,Non Fluent
-664134.0,666354.0,F F picture the man,male,64,kempler03a.wav,60.7,Broca,kempler03a_664.134_2.22.wav,Moderate,Non Fluent
-668610.0,673940.0,F then the man F the branch,male,64,kempler03a.wav,60.7,Broca,kempler03a_668.61_5.33.wav,Moderate,Non Fluent
+664134.0,666354.0,picture the man,male,64,kempler03a.wav,60.7,Broca,kempler03a_664.134_2.22.wav,Moderate,Non Fluent
+668610.0,673940.0,then the man the branch,male,64,kempler03a.wav,60.7,Broca,kempler03a_668.61_5.33.wav,Moderate,Non Fluent
 674678.0,676098.0,the man scared,male,64,kempler03a.wav,60.7,Broca,kempler03a_674.678_1.42.wav,Moderate,Non Fluent
-677065.0,677885.0,F the branch,male,64,kempler03a.wav,60.7,Broca,kempler03a_677.065_0.82.wav,Moderate,Non Fluent
-680059.0,683239.0,F F the dog is barking,male,64,kempler03a.wav,60.7,Broca,kempler03a_680.059_3.18.wav,Moderate,Non Fluent
-685458.0,705368.0,F F F F <the ladder is> maybe F maybe the ladder is F swinging then fallen down,male,64,kempler03a.wav,60.7,Broca,kempler03a_685.458_19.91.wav,Moderate,Non Fluent
-706514.0,710184.0,F and then the man is is scared,male,64,kempler03a.wav,60.7,Broca,kempler03a_706.514_3.67.wav,Moderate,Non Fluent
-711488.0,720218.0,F F the girl <is in the> F is kidding skating skating,male,64,kempler03a.wav,60.7,Broca,kempler03a_711.488_8.73.wav,Moderate,Non Fluent
-721995.0,732465.0,F F F the bike F,male,64,kempler03a.wav,60.7,Broca,kempler03a_721.995_10.47.wav,Moderate,Non Fluent
-739380.0,761650.0,F F and then they maybe F F <the two> F F F F <the ladder> <the ladder> <the man> <two boys> F two men F into the ladder,male,64,kempler03a.wav,60.7,Broca,kempler03a_739.38_22.27.wav,Moderate,Non Fluent
-762408.0,764198.0,F then downhill,male,64,kempler03a.wav,60.7,Broca,kempler03a_762.408_1.79.wav,Moderate,Non Fluent
-765086.0,773406.0,F F F F xn F bird,male,64,kempler03a.wav,60.7,Broca,kempler03a_765.086_8.32.wav,Moderate,Non Fluent
-774641.0,778081.0,F F the the ladder,male,64,kempler03a.wav,60.7,Broca,kempler03a_774.641_3.44.wav,Moderate,Non Fluent
-778596.0,780376.0,F two guy ladders,male,64,kempler03a.wav,60.7,Broca,kempler03a_778.596_1.78.wav,Moderate,Non Fluent
-781203.0,785783.0,F F tow truck,male,64,kempler03a.wav,60.7,Broca,kempler03a_781.203_4.58.wav,Moderate,Non Fluent
-787778.0,789978.0,and F that's it,male,64,kempler03a.wav,60.7,Broca,kempler03a_787.778_2.2.wav,Moderate,Non Fluent
-832076.0,840936.0,maybe F F the water,male,64,kempler03a.wav,60.7,Broca,kempler03a_832.076_8.86.wav,Moderate,Non Fluent
-842095.0,844025.0,F maybe a little bit rough,male,64,kempler03a.wav,60.7,Broca,kempler03a_842.095_1.93.wav,Moderate,Non Fluent
-845421.0,850831.0,F F the boy and the girl is F,male,64,kempler03a.wav,60.7,Broca,kempler03a_845.421_5.41.wav,Moderate,Non Fluent
-852777.0,854737.0,F F <the tree> the tree,male,64,kempler03a.wav,60.7,Broca,kempler03a_852.777_1.96.wav,Moderate,Non Fluent
-856202.0,861632.0,and F F the F coat,male,64,kempler03a.wav,60.7,Broca,kempler03a_856.202_5.43.wav,Moderate,Non Fluent
-862092.0,869302.0,F the or F one caught on F,male,64,kempler03a.wav,60.7,Broca,kempler03a_862.092_7.21.wav,Moderate,Non Fluent
-877480.0,887750.0,F maybe the other girl maybe off off the the coat off,male,64,kempler03a.wav,60.7,Broca,kempler03a_877.48_10.27.wav,Moderate,Non Fluent
-888639.0,891709.0,F the girl is is scared,male,64,kempler03a.wav,60.7,Broca,kempler03a_888.639_3.07.wav,Moderate,Non Fluent
-893190.0,903540.0,F F F over here F belt,male,64,kempler03a.wav,60.7,Broca,kempler03a_893.19_10.35.wav,Moderate,Non Fluent
-904928.0,919348.0,F then the other belt maybe on maybe in the the tree the F the water,male,64,kempler03a.wav,60.7,Broca,kempler03a_904.928_14.42.wav,Moderate,Non Fluent
-,,,male,64,kempler03a.wav,60.7,Broca,kempler03a_nan_nan.wav,Moderate,Non Fluent
-,,,male,64,kempler03a.wav,60.7,Broca,kempler03a_nan_nan.wav,Moderate,Non Fluent
-,,,male,64,kempler03a.wav,60.7,Broca,kempler03a_nan_nan.wav,Moderate,Non Fluent
+677065.0,677885.0,the branch,male,64,kempler03a.wav,60.7,Broca,kempler03a_677.065_0.82.wav,Moderate,Non Fluent
+680059.0,683239.0,the dog is barking,male,64,kempler03a.wav,60.7,Broca,kempler03a_680.059_3.18.wav,Moderate,Non Fluent
+685458.0,705368.0,maybe maybe the ladder is swinging then fallen down,male,64,kempler03a.wav,60.7,Broca,kempler03a_685.458_19.91.wav,Moderate,Non Fluent
+706514.0,710184.0,and then the man is is scared,male,64,kempler03a.wav,60.7,Broca,kempler03a_706.514_3.67.wav,Moderate,Non Fluent
+711488.0,720218.0,the girl is kidding skating skating,male,64,kempler03a.wav,60.7,Broca,kempler03a_711.488_8.73.wav,Moderate,Non Fluent
+721995.0,732465.0,the bike,male,64,kempler03a.wav,60.7,Broca,kempler03a_721.995_10.47.wav,Moderate,Non Fluent
+739380.0,761650.0,and then they maybe two men into the ladder,male,64,kempler03a.wav,60.7,Broca,kempler03a_739.38_22.27.wav,Moderate,Non Fluent
+762408.0,764198.0,then downhill,male,64,kempler03a.wav,60.7,Broca,kempler03a_762.408_1.79.wav,Moderate,Non Fluent
+765086.0,773406.0,xn bird,male,64,kempler03a.wav,60.7,Broca,kempler03a_765.086_8.32.wav,Moderate,Non Fluent
+774641.0,778081.0,the the ladder,male,64,kempler03a.wav,60.7,Broca,kempler03a_774.641_3.44.wav,Moderate,Non Fluent
+778596.0,780376.0,two guy ladders,male,64,kempler03a.wav,60.7,Broca,kempler03a_778.596_1.78.wav,Moderate,Non Fluent
+781203.0,785783.0,tow truck,male,64,kempler03a.wav,60.7,Broca,kempler03a_781.203_4.58.wav,Moderate,Non Fluent
+787778.0,789978.0,and that's it,male,64,kempler03a.wav,60.7,Broca,kempler03a_787.778_2.2.wav,Moderate,Non Fluent
+832076.0,840936.0,maybe the water,male,64,kempler03a.wav,60.7,Broca,kempler03a_832.076_8.86.wav,Moderate,Non Fluent
+842095.0,844025.0,maybe a little bit rough,male,64,kempler03a.wav,60.7,Broca,kempler03a_842.095_1.93.wav,Moderate,Non Fluent
+845421.0,850831.0,the boy and the girl is,male,64,kempler03a.wav,60.7,Broca,kempler03a_845.421_5.41.wav,Moderate,Non Fluent
+852777.0,854737.0,the tree,male,64,kempler03a.wav,60.7,Broca,kempler03a_852.777_1.96.wav,Moderate,Non Fluent
+856202.0,861632.0,and the coat,male,64,kempler03a.wav,60.7,Broca,kempler03a_856.202_5.43.wav,Moderate,Non Fluent
+862092.0,869302.0,the or one caught on,male,64,kempler03a.wav,60.7,Broca,kempler03a_862.092_7.21.wav,Moderate,Non Fluent
+877480.0,887750.0,maybe the other girl maybe off off the the coat off,male,64,kempler03a.wav,60.7,Broca,kempler03a_877.48_10.27.wav,Moderate,Non Fluent
+888639.0,891709.0,the girl is is scared,male,64,kempler03a.wav,60.7,Broca,kempler03a_888.639_3.07.wav,Moderate,Non Fluent
+893190.0,903540.0,over here belt,male,64,kempler03a.wav,60.7,Broca,kempler03a_893.19_10.35.wav,Moderate,Non Fluent
+904928.0,919348.0,then the other belt maybe on maybe in the the tree the the water,male,64,kempler03a.wav,60.7,Broca,kempler03a_904.928_14.42.wav,Moderate,Non Fluent
 1227935.0,1229365.0,cinderella,male,64,kempler03a.wav,60.7,Broca,kempler03a_1227.935_1.43.wav,Moderate,Non Fluent
-1232007.0,1232337.0,F F,male,64,kempler03a.wav,60.7,Broca,kempler03a_1232.007_0.33.wav,Moderate,Non Fluent
-1264860.0,1272220.0,F cinderella F F <all alone> all alone,male,64,kempler03a.wav,60.7,Broca,kempler03a_1264.86_7.36.wav,Moderate,Non Fluent
-1273039.0,1275359.0,F F two girls,male,64,kempler03a.wav,60.7,Broca,kempler03a_1273.039_2.32.wav,Moderate,Non Fluent
-1275549.0,1283219.0,F the F the F <three girls> F two girls are mad,male,64,kempler03a.wav,60.7,Broca,kempler03a_1275.549_7.67.wav,Moderate,Non Fluent
-1284200.0,1291340.0,F F F cinderella F the the the letter,male,64,kempler03a.wav,60.7,Broca,kempler03a_1284.2_7.14.wav,Moderate,Non Fluent
+1232007.0,1232337.0,,male,64,kempler03a.wav,60.7,Broca,kempler03a_1232.007_0.33.wav,Moderate,Non Fluent
+1264860.0,1272220.0,cinderella all alone,male,64,kempler03a.wav,60.7,Broca,kempler03a_1264.86_7.36.wav,Moderate,Non Fluent
+1273039.0,1275359.0,two girls,male,64,kempler03a.wav,60.7,Broca,kempler03a_1273.039_2.32.wav,Moderate,Non Fluent
+1275549.0,1283219.0,the the two girls are mad,male,64,kempler03a.wav,60.7,Broca,kempler03a_1275.549_7.67.wav,Moderate,Non Fluent
+1284200.0,1291340.0,cinderella the the the letter,male,64,kempler03a.wav,60.7,Broca,kempler03a_1284.2_7.14.wav,Moderate,Non Fluent
 1297100.0,1298530.0,demanded in a letter,male,64,kempler03a.wav,60.7,Broca,kempler03a_1297.1_1.43.wav,Moderate,Non Fluent
-1299670.0,1303540.0,two F F F maybe one F F boy,male,64,kempler03a.wav,60.7,Broca,kempler03a_1299.67_3.87.wav,Moderate,Non Fluent
-1306574.0,1317554.0,and then maybe the F the F F the F the other on top of a hill,male,64,kempler03a.wav,60.7,Broca,kempler03a_1306.574_10.98.wav,Moderate,Non Fluent
-1318293.0,1326543.0,there's F F no good dress tearing apart,male,64,kempler03a.wav,60.7,Broca,kempler03a_1318.293_8.25.wav,Moderate,Non Fluent
-1327955.0,1332875.0,F F F two girls ripped ripped the dress,male,64,kempler03a.wav,60.7,Broca,kempler03a_1327.955_4.92.wav,Moderate,Non Fluent
-1333500.0,1338050.0,and F F all then all alone,male,64,kempler03a.wav,60.7,Broca,kempler03a_1333.5_4.55.wav,Moderate,Non Fluent
-1339017.0,1349467.0,F then F <two girl> one girl and F magic wand,male,64,kempler03a.wav,60.7,Broca,kempler03a_1339.017_10.45.wav,Moderate,Non Fluent
-1351262.0,1358792.0,F and then new F skirt,male,64,kempler03a.wav,60.7,Broca,kempler03a_1351.262_7.53.wav,Moderate,Non Fluent
-1360608.0,1363278.0,F new skirt,male,64,kempler03a.wav,60.7,Broca,kempler03a_1360.608_2.67.wav,Moderate,Non Fluent
-1364509.0,1371619.0,F and then F F F F xn one two three four F,male,64,kempler03a.wav,60.7,Broca,kempler03a_1364.509_7.11.wav,Moderate,Non Fluent
-1374660.0,1379910.0,F <the horse> four F four horses,male,64,kempler03a.wav,60.7,Broca,kempler03a_1374.66_5.25.wav,Moderate,Non Fluent
-1380625.0,1400835.0,and the carriage and the F the the dress F new skirt and the birds F maybe F thank you <LAU>,male,64,kempler03a.wav,60.7,Broca,kempler03a_1380.625_20.21.wav,Moderate,Non Fluent
+1299670.0,1303540.0,two maybe one boy,male,64,kempler03a.wav,60.7,Broca,kempler03a_1299.67_3.87.wav,Moderate,Non Fluent
+1306574.0,1317554.0,and then maybe the the the the other on top of a hill,male,64,kempler03a.wav,60.7,Broca,kempler03a_1306.574_10.98.wav,Moderate,Non Fluent
+1318293.0,1326543.0,there's no good dress tearing apart,male,64,kempler03a.wav,60.7,Broca,kempler03a_1318.293_8.25.wav,Moderate,Non Fluent
+1327955.0,1332875.0,two girls ripped ripped the dress,male,64,kempler03a.wav,60.7,Broca,kempler03a_1327.955_4.92.wav,Moderate,Non Fluent
+1333500.0,1338050.0,and all then all alone,male,64,kempler03a.wav,60.7,Broca,kempler03a_1333.5_4.55.wav,Moderate,Non Fluent
+1339017.0,1349467.0,then one girl and magic wand,male,64,kempler03a.wav,60.7,Broca,kempler03a_1339.017_10.45.wav,Moderate,Non Fluent
+1351262.0,1358792.0,and then new skirt,male,64,kempler03a.wav,60.7,Broca,kempler03a_1351.262_7.53.wav,Moderate,Non Fluent
+1360608.0,1363278.0,new skirt,male,64,kempler03a.wav,60.7,Broca,kempler03a_1360.608_2.67.wav,Moderate,Non Fluent
+1364509.0,1371619.0,and then xn one two three four,male,64,kempler03a.wav,60.7,Broca,kempler03a_1364.509_7.11.wav,Moderate,Non Fluent
+1374660.0,1379910.0,four four horses,male,64,kempler03a.wav,60.7,Broca,kempler03a_1374.66_5.25.wav,Moderate,Non Fluent
+1380625.0,1400835.0,and the carriage and the the the dress new skirt and the birds maybe thank you,male,64,kempler03a.wav,60.7,Broca,kempler03a_1380.625_20.21.wav,Moderate,Non Fluent
 1401482.0,1403642.0,the the the the cinderella,male,64,kempler03a.wav,60.7,Broca,kempler03a_1401.482_2.16.wav,Moderate,Non Fluent
 1404946.0,1405456.0,thank you,male,64,kempler03a.wav,60.7,Broca,kempler03a_1404.946_0.51.wav,Moderate,Non Fluent
-1406115.0,1409545.0,and then they're F on top of the hill,male,64,kempler03a.wav,60.7,Broca,kempler03a_1406.115_3.43.wav,Moderate,Non Fluent
-1410461.0,1418521.0,the coach and the F the skirt and the F F two girls mad,male,64,kempler03a.wav,60.7,Broca,kempler03a_1410.461_8.06.wav,Moderate,Non Fluent
-1422829.0,1441449.0,F <cinderella and the the other man F is> F maybe cinderella and the girl boy is F F F F F F F dancing or F F F F something like that,male,64,kempler03a.wav,60.7,Broca,kempler03a_1422.829_18.62.wav,Moderate,Non Fluent
-1452044.0,1454964.0,F F dancing,male,64,kempler03a.wav,60.7,Broca,kempler03a_1452.044_2.92.wav,Moderate,Non Fluent
-1456181.0,1458901.0,and then F midnight,male,64,kempler03a.wav,60.7,Broca,kempler03a_1456.181_2.72.wav,Moderate,Non Fluent
+1406115.0,1409545.0,and then they're on top of the hill,male,64,kempler03a.wav,60.7,Broca,kempler03a_1406.115_3.43.wav,Moderate,Non Fluent
+1410461.0,1418521.0,the coach and the the skirt and the two girls mad,male,64,kempler03a.wav,60.7,Broca,kempler03a_1410.461_8.06.wav,Moderate,Non Fluent
+1422829.0,1441449.0,maybe cinderella and the girl boy is dancing or something like that,male,64,kempler03a.wav,60.7,Broca,kempler03a_1422.829_18.62.wav,Moderate,Non Fluent
+1452044.0,1454964.0,dancing,male,64,kempler03a.wav,60.7,Broca,kempler03a_1452.044_2.92.wav,Moderate,Non Fluent
+1456181.0,1458901.0,and then midnight,male,64,kempler03a.wav,60.7,Broca,kempler03a_1456.181_2.72.wav,Moderate,Non Fluent
 1459213.0,1460633.0,oh boy,male,64,kempler03a.wav,60.7,Broca,kempler03a_1459.213_1.42.wav,Moderate,Non Fluent
 1461977.0,1462717.0,cinderella,male,64,kempler03a.wav,60.7,Broca,kempler03a_1461.977_0.74.wav,Moderate,Non Fluent
 1463536.0,1464686.0,hey i gotta go,male,64,kempler03a.wav,60.7,Broca,kempler03a_1463.536_1.15.wav,Moderate,Non Fluent
-1465387.0,1470867.0,so F F F F down down down,male,64,kempler03a.wav,60.7,Broca,kempler03a_1465.387_5.48.wav,Moderate,Non Fluent
-1471444.0,1474654.0,and the the shoe the F the,male,64,kempler03a.wav,60.7,Broca,kempler03a_1471.444_3.21.wav,Moderate,Non Fluent
-1476411.0,1482721.0,F cinderella one more minute but i don't care,male,64,kempler03a.wav,60.7,Broca,kempler03a_1476.411_6.31.wav,Moderate,Non Fluent
-1483254.0,1490114.0,cinderella in the horse four horses on F,male,64,kempler03a.wav,60.7,Broca,kempler03a_1483.254_6.86.wav,Moderate,Non Fluent
-1493710.0,1509190.0,F now F the boy and and the F cinderella F the man F the shoe F,male,64,kempler03a.wav,60.7,Broca,kempler03a_1493.71_15.48.wav,Moderate,Non Fluent
-1511246.0,1523746.0,F then maybe two girls F F F no good,male,64,kempler03a.wav,60.7,Broca,kempler03a_1511.246_12.5.wav,Moderate,Non Fluent
-1524279.0,1533669.0,F one two girls F mad F shoe F shoe no good,male,64,kempler03a.wav,60.7,Broca,kempler03a_1524.279_9.39.wav,Moderate,Non Fluent
-1534601.0,1544681.0,then the other F F cinderella F F F cinderella i the girl the shoe,male,64,kempler03a.wav,60.7,Broca,kempler03a_1534.601_10.08.wav,Moderate,Non Fluent
-1547390.0,1552250.0,cinderella take F the F thank god,male,64,kempler03a.wav,60.7,Broca,kempler03a_1547.39_4.86.wav,Moderate,Non Fluent
-1553602.0,1558982.0,F and then the man and the woman is married,male,64,kempler03a.wav,60.7,Broca,kempler03a_1553.602_5.38.wav,Moderate,Non Fluent
-,,F,male,64,kempler03a.wav,60.7,Broca,kempler03a_nan_nan.wav,Moderate,Non Fluent
-1577252.0,1582682.0,well F all alone,male,64,kempler03a.wav,60.7,Broca,kempler03a_1577.252_5.43.wav,Moderate,Non Fluent
-1583950.0,1586980.0,F maybe the bread,male,64,kempler03a.wav,60.7,Broca,kempler03a_1583.95_3.03.wav,Moderate,Non Fluent
-1588469.0,1591479.0,maybe two F bread,male,64,kempler03a.wav,60.7,Broca,kempler03a_1588.469_3.01.wav,Moderate,Non Fluent
-1592994.0,1599864.0,and F F sandwich peanut butter bread,male,64,kempler03a.wav,60.7,Broca,kempler03a_1592.994_6.87.wav,Moderate,Non Fluent
-1601394.0,1607874.0,F i forget the name,male,64,kempler03a.wav,60.7,Broca,kempler03a_1601.394_6.48.wav,Moderate,Non Fluent
-1610486.0,1614306.0,the F sandwich butter,male,64,kempler03a.wav,60.7,Broca,kempler03a_1610.486_3.82.wav,Moderate,Non Fluent
-1615326.0,1622056.0,and F i forget the name,male,64,kempler03a.wav,60.7,Broca,kempler03a_1615.326_6.73.wav,Moderate,Non Fluent
-1623483.0,1627273.0,but F the sandwich and the callers,male,64,kempler03a.wav,60.7,Broca,kempler03a_1623.483_3.79.wav,Moderate,Non Fluent
-1629643.0,1630013.0,two F F F,male,64,kempler03a.wav,60.7,Broca,kempler03a_1629.643_0.37.wav,Moderate,Non Fluent
-1634028.0,1637118.0,butter F and the other one,male,64,kempler03a.wav,60.7,Broca,kempler03a_1634.028_3.09.wav,Moderate,Non Fluent
+1465387.0,1470867.0,so down down down,male,64,kempler03a.wav,60.7,Broca,kempler03a_1465.387_5.48.wav,Moderate,Non Fluent
+1471444.0,1474654.0,and the the shoe the the,male,64,kempler03a.wav,60.7,Broca,kempler03a_1471.444_3.21.wav,Moderate,Non Fluent
+1476411.0,1482721.0,cinderella one more minute but i don't care,male,64,kempler03a.wav,60.7,Broca,kempler03a_1476.411_6.31.wav,Moderate,Non Fluent
+1483254.0,1490114.0,cinderella in the horse four horses on,male,64,kempler03a.wav,60.7,Broca,kempler03a_1483.254_6.86.wav,Moderate,Non Fluent
+1493710.0,1509190.0,now the boy and and the cinderella the man the shoe,male,64,kempler03a.wav,60.7,Broca,kempler03a_1493.71_15.48.wav,Moderate,Non Fluent
+1511246.0,1523746.0,then maybe two girls no good,male,64,kempler03a.wav,60.7,Broca,kempler03a_1511.246_12.5.wav,Moderate,Non Fluent
+1524279.0,1533669.0,one two girls mad shoe shoe no good,male,64,kempler03a.wav,60.7,Broca,kempler03a_1524.279_9.39.wav,Moderate,Non Fluent
+1534601.0,1544681.0,then the other cinderella cinderella i the girl the shoe,male,64,kempler03a.wav,60.7,Broca,kempler03a_1534.601_10.08.wav,Moderate,Non Fluent
+1547390.0,1552250.0,cinderella take the thank god,male,64,kempler03a.wav,60.7,Broca,kempler03a_1547.39_4.86.wav,Moderate,Non Fluent
+1553602.0,1558982.0,and then the man and the woman is married,male,64,kempler03a.wav,60.7,Broca,kempler03a_1553.602_5.38.wav,Moderate,Non Fluent
+1577252.0,1582682.0,well all alone,male,64,kempler03a.wav,60.7,Broca,kempler03a_1577.252_5.43.wav,Moderate,Non Fluent
+1583950.0,1586980.0,maybe the bread,male,64,kempler03a.wav,60.7,Broca,kempler03a_1583.95_3.03.wav,Moderate,Non Fluent
+1588469.0,1591479.0,maybe two bread,male,64,kempler03a.wav,60.7,Broca,kempler03a_1588.469_3.01.wav,Moderate,Non Fluent
+1592994.0,1599864.0,and sandwich peanut butter bread,male,64,kempler03a.wav,60.7,Broca,kempler03a_1592.994_6.87.wav,Moderate,Non Fluent
+1601394.0,1607874.0,i forget the name,male,64,kempler03a.wav,60.7,Broca,kempler03a_1601.394_6.48.wav,Moderate,Non Fluent
+1610486.0,1614306.0,the sandwich butter,male,64,kempler03a.wav,60.7,Broca,kempler03a_1610.486_3.82.wav,Moderate,Non Fluent
+1615326.0,1622056.0,and i forget the name,male,64,kempler03a.wav,60.7,Broca,kempler03a_1615.326_6.73.wav,Moderate,Non Fluent
+1623483.0,1627273.0,but the sandwich and the callers,male,64,kempler03a.wav,60.7,Broca,kempler03a_1623.483_3.79.wav,Moderate,Non Fluent
+1629643.0,1630013.0,two,male,64,kempler03a.wav,60.7,Broca,kempler03a_1629.643_0.37.wav,Moderate,Non Fluent
+1634028.0,1637118.0,butter and the other one,male,64,kempler03a.wav,60.7,Broca,kempler03a_1634.028_3.09.wav,Moderate,Non Fluent
 1637710.0,1639570.0,the other one i can't forget,male,64,kempler03a.wav,60.7,Broca,kempler03a_1637.71_1.86.wav,Moderate,Non Fluent
-1640709.0,1647059.0,the but one two three then four F,male,64,kempler03a.wav,60.7,Broca,kempler03a_1640.709_6.35.wav,Moderate,Non Fluent
-1647342.0,1650512.0,then eating sandwich F,male,64,kempler03a.wav,60.7,Broca,kempler03a_1647.342_3.17.wav,Moderate,Non Fluent
+1640709.0,1647059.0,the but one two three then four,male,64,kempler03a.wav,60.7,Broca,kempler03a_1640.709_6.35.wav,Moderate,Non Fluent
+1647342.0,1650512.0,then eating sandwich,male,64,kempler03a.wav,60.7,Broca,kempler03a_1647.342_3.17.wav,Moderate,Non Fluent
 11687.0,12719.0,terrible,female,60,kempler04a.wav,54.6,Broca,kempler04a_11.687_1.032.wav,Moderate,Non Fluent
 12719.0,14327.0,it is terrible,female,60,kempler04a.wav,54.6,Broca,kempler04a_12.719_1.608.wav,Moderate,Non Fluent
-15295.0,17151.0,it is F terrible F else you,female,60,kempler04a.wav,54.6,Broca,kempler04a_15.295_1.856.wav,Moderate,Non Fluent
-17151.0,24000.0,it was because <i can't> F <it was> <i was> i F i F,female,60,kempler04a.wav,54.6,Broca,kempler04a_17.151_6.849.wav,Moderate,Non Fluent
+15295.0,17151.0,it is terrible else you,female,60,kempler04a.wav,54.6,Broca,kempler04a_15.295_1.856.wav,Moderate,Non Fluent
+17151.0,24000.0,it was because i i,female,60,kempler04a.wav,54.6,Broca,kempler04a_17.151_6.849.wav,Moderate,Non Fluent
 24000.0,25146.0,oh jesus,female,60,kempler04a.wav,54.6,Broca,kempler04a_24.0_1.146.wav,Moderate,Non Fluent
-25146.0,30953.0,i i'm so F and then boomo,female,60,kempler04a.wav,54.6,Broca,kempler04a_25.146_5.807.wav,Moderate,Non Fluent
-30953.0,35132.0,F down F none none none none none,female,60,kempler04a.wav,54.6,Broca,kempler04a_30.953_4.179.wav,Moderate,Non Fluent
-35132.0,36240.0,F yeah,female,60,kempler04a.wav,54.6,Broca,kempler04a_35.132_1.108.wav,Moderate,Non Fluent
-42897.0,48329.0,F i F <i went out to> i went out to say  ja,female,60,kempler04a.wav,54.6,Broca,kempler04a_42.897_5.432.wav,Moderate,Non Fluent
-48329.0,56706.0,and everything F <everything was> F everything  ja,female,60,kempler04a.wav,54.6,Broca,kempler04a_48.329_8.377.wav,Moderate,Non Fluent
-56706.0,63485.0,and i went up to take <my nap> F my nap,female,60,kempler04a.wav,54.6,Broca,kempler04a_56.706_6.779.wav,Moderate,Non Fluent
+25146.0,30953.0,i i'm so and then boomo,female,60,kempler04a.wav,54.6,Broca,kempler04a_25.146_5.807.wav,Moderate,Non Fluent
+30953.0,35132.0,down none none none none none,female,60,kempler04a.wav,54.6,Broca,kempler04a_30.953_4.179.wav,Moderate,Non Fluent
+35132.0,36240.0,yeah,female,60,kempler04a.wav,54.6,Broca,kempler04a_35.132_1.108.wav,Moderate,Non Fluent
+42897.0,48329.0,i i went out to say ja,female,60,kempler04a.wav,54.6,Broca,kempler04a_42.897_5.432.wav,Moderate,Non Fluent
+48329.0,56706.0,and everything everything ja,female,60,kempler04a.wav,54.6,Broca,kempler04a_48.329_8.377.wav,Moderate,Non Fluent
+56706.0,63485.0,and i went up to take my nap,female,60,kempler04a.wav,54.6,Broca,kempler04a_56.706_6.779.wav,Moderate,Non Fluent
 63485.0,65367.0,and i said,female,60,kempler04a.wav,54.6,Broca,kempler04a_63.485_1.882.wav,Moderate,Non Fluent
-65367.0,68655.0,and so i just thought xn  ja,female,60,kempler04a.wav,54.6,Broca,kempler04a_65.367_3.288.wav,Moderate,Non Fluent
-68655.0,73382.0,<and the> F and <the girl the girl  e,female,60,kempler04a.wav,54.6,Broca,kempler04a_68.655_4.727.wav,Moderate,Non Fluent
+65367.0,68655.0,and so i just thought xn ja,female,60,kempler04a.wav,54.6,Broca,kempler04a_65.367_3.288.wav,Moderate,Non Fluent
+68655.0,73382.0,and girl the girl e,female,60,kempler04a.wav,54.6,Broca,kempler04a_68.655_4.727.wav,Moderate,Non Fluent
 73382.0,75038.0,they said,female,60,kempler04a.wav,54.6,Broca,kempler04a_73.382_1.656.wav,Moderate,Non Fluent
-75038.0,96098.0,oh my god <she's not> <she's not> F <she's not> <she's not> she she she's not F,female,60,kempler04a.wav,54.6,Broca,kempler04a_75.038_21.06.wav,Moderate,Non Fluent
+75038.0,96098.0,oh my god she she she's not,female,60,kempler04a.wav,54.6,Broca,kempler04a_75.038_21.06.wav,Moderate,Non Fluent
 96000.0,97314.0,oh and i don't know,female,60,kempler04a.wav,54.6,Broca,kempler04a_96.0_1.314.wav,Moderate,Non Fluent
-99156.0,100356.0,oh sure F,female,60,kempler04a.wav,54.6,Broca,kempler04a_99.156_1.2.wav,Moderate,Non Fluent
+99156.0,100356.0,oh sure,female,60,kempler04a.wav,54.6,Broca,kempler04a_99.156_1.2.wav,Moderate,Non Fluent
 100356.0,101371.0,let me see,female,60,kempler04a.wav,54.6,Broca,kempler04a_100.356_1.015.wav,Moderate,Non Fluent
-109420.0,126382.0,F i i F i took F writing F and and F writing and F writing and writing and F F F everything,female,60,kempler04a.wav,54.6,Broca,kempler04a_109.42_16.962.wav,Moderate,Non Fluent
-128414.0,136395.0,F F F F the F the girls,female,60,kempler04a.wav,54.6,Broca,kempler04a_128.414_7.981.wav,Moderate,Non Fluent
-136395.0,138220.0,no no no <LAU>,female,60,kempler04a.wav,54.6,Broca,kempler04a_136.395_1.825.wav,Moderate,Non Fluent
+109420.0,126382.0,i i i took writing and and writing and writing and writing and everything,female,60,kempler04a.wav,54.6,Broca,kempler04a_109.42_16.962.wav,Moderate,Non Fluent
+128414.0,136395.0,the the girls,female,60,kempler04a.wav,54.6,Broca,kempler04a_128.414_7.981.wav,Moderate,Non Fluent
+136395.0,138220.0,no no no,female,60,kempler04a.wav,54.6,Broca,kempler04a_136.395_1.825.wav,Moderate,Non Fluent
 138220.0,140020.0,the girls,female,60,kempler04a.wav,54.6,Broca,kempler04a_138.22_1.8.wav,Moderate,Non Fluent
 140020.0,140904.0,no no no,female,60,kempler04a.wav,54.6,Broca,kempler04a_140.02_0.884.wav,Moderate,Non Fluent
-140904.0,149550.0,F F F F i i F F F it's a F awful lot of things,female,60,kempler04a.wav,54.6,Broca,kempler04a_140.904_8.646.wav,Moderate,Non Fluent
-150494.0,150982.0,F yeah,female,60,kempler04a.wav,54.6,Broca,kempler04a_150.494_0.488.wav,Moderate,Non Fluent
-180337.0,195804.0,F F F we <the girls> the F the the the girls bought firstnamem and firstnamef,female,60,kempler04a.wav,54.6,Broca,kempler04a_180.337_15.467.wav,Moderate,Non Fluent
-195804.0,197589.0,<they're fun> they're fun,female,60,kempler04a.wav,54.6,Broca,kempler04a_195.804_1.785.wav,Moderate,Non Fluent
+140904.0,149550.0,i i it's a awful lot of things,female,60,kempler04a.wav,54.6,Broca,kempler04a_140.904_8.646.wav,Moderate,Non Fluent
+150494.0,150982.0,yeah,female,60,kempler04a.wav,54.6,Broca,kempler04a_150.494_0.488.wav,Moderate,Non Fluent
+180337.0,195804.0,we the the the the girls bought firstnamem and firstnamef,female,60,kempler04a.wav,54.6,Broca,kempler04a_180.337_15.467.wav,Moderate,Non Fluent
+195804.0,197589.0,they're fun,female,60,kempler04a.wav,54.6,Broca,kempler04a_195.804_1.785.wav,Moderate,Non Fluent
 198211.0,198763.0,yeah,female,60,kempler04a.wav,54.6,Broca,kempler04a_198.211_0.552.wav,Moderate,Non Fluent
-198763.0,210725.0,and firstnamem is F F F F facebook facebook you know F facebook,female,60,kempler04a.wav,54.6,Broca,kempler04a_198.763_11.962.wav,Moderate,Non Fluent
-211413.0,231615.0,<and so i F F and F F F little F little> F firstnamef <she is getting F the F F she's getting her her,female,60,kempler04a.wav,54.6,Broca,kempler04a_211.413_20.202.wav,Moderate,Non Fluent
-231615.0,232695.0,F wait a minute,female,60,kempler04a.wav,54.6,Broca,kempler04a_231.615_1.08.wav,Moderate,Non Fluent
-232695.0,237247.0,F she's F F,female,60,kempler04a.wav,54.6,Broca,kempler04a_232.695_4.552.wav,Moderate,Non Fluent
-237247.0,238760.0,F jesus,female,60,kempler04a.wav,54.6,Broca,kempler04a_237.247_1.513.wav,Moderate,Non Fluent
-238760.0,248457.0,F she's having her F F F F,female,60,kempler04a.wav,54.6,Broca,kempler04a_238.76_9.697.wav,Moderate,Non Fluent
-248457.0,251169.0,<no not> no,female,60,kempler04a.wav,54.6,Broca,kempler04a_248.457_2.712.wav,Moderate,Non Fluent
-251169.0,260720.0,you know she's F F <she's xn her> i'm sending her,female,60,kempler04a.wav,54.6,Broca,kempler04a_251.169_9.551.wav,Moderate,Non Fluent
-260720.0,265676.0,<but it> send <but it> F F and,female,60,kempler04a.wav,54.6,Broca,kempler04a_260.72_4.956.wav,Moderate,Non Fluent
-265676.0,267224.0,oh F jesus,female,60,kempler04a.wav,54.6,Broca,kempler04a_265.676_1.548.wav,Moderate,Non Fluent
-268175.0,270068.0,no F because she's only little,female,60,kempler04a.wav,54.6,Broca,kempler04a_268.175_1.893.wav,Moderate,Non Fluent
-270945.0,273753.0,yes F it's F F jesus christ yeah,female,60,kempler04a.wav,54.6,Broca,kempler04a_270.945_2.808.wav,Moderate,Non Fluent
-273753.0,278060.0,<LAU> but F she's wearing,female,60,kempler04a.wav,54.6,Broca,kempler04a_273.753_4.307.wav,Moderate,Non Fluent
+198763.0,210725.0,and firstnamem is facebook facebook you know facebook,female,60,kempler04a.wav,54.6,Broca,kempler04a_198.763_11.962.wav,Moderate,Non Fluent
+211413.0,231615.0,firstnamef is getting the she's getting her her,female,60,kempler04a.wav,54.6,Broca,kempler04a_211.413_20.202.wav,Moderate,Non Fluent
+231615.0,232695.0,wait a minute,female,60,kempler04a.wav,54.6,Broca,kempler04a_231.615_1.08.wav,Moderate,Non Fluent
+232695.0,237247.0,she's,female,60,kempler04a.wav,54.6,Broca,kempler04a_232.695_4.552.wav,Moderate,Non Fluent
+237247.0,238760.0,jesus,female,60,kempler04a.wav,54.6,Broca,kempler04a_237.247_1.513.wav,Moderate,Non Fluent
+238760.0,248457.0,she's having her,female,60,kempler04a.wav,54.6,Broca,kempler04a_238.76_9.697.wav,Moderate,Non Fluent
+248457.0,251169.0,no,female,60,kempler04a.wav,54.6,Broca,kempler04a_248.457_2.712.wav,Moderate,Non Fluent
+251169.0,260720.0,you know she's i'm sending her,female,60,kempler04a.wav,54.6,Broca,kempler04a_251.169_9.551.wav,Moderate,Non Fluent
+260720.0,265676.0,send and,female,60,kempler04a.wav,54.6,Broca,kempler04a_260.72_4.956.wav,Moderate,Non Fluent
+265676.0,267224.0,oh jesus,female,60,kempler04a.wav,54.6,Broca,kempler04a_265.676_1.548.wav,Moderate,Non Fluent
+268175.0,270068.0,no because she's only little,female,60,kempler04a.wav,54.6,Broca,kempler04a_268.175_1.893.wav,Moderate,Non Fluent
+270945.0,273753.0,yes it's jesus christ yeah,female,60,kempler04a.wav,54.6,Broca,kempler04a_270.945_2.808.wav,Moderate,Non Fluent
+273753.0,278060.0,but she's wearing,female,60,kempler04a.wav,54.6,Broca,kempler04a_273.753_4.307.wav,Moderate,Non Fluent
 278060.0,278481.0,what,female,60,kempler04a.wav,54.6,Broca,kempler04a_278.06_0.421.wav,Moderate,Non Fluent
 278481.0,282525.0,you know those things,female,60,kempler04a.wav,54.6,Broca,kempler04a_278.481_4.044.wav,Moderate,Non Fluent
-283865.0,286232.0,yes yes F for her communion yes yes yes yes,female,60,kempler04a.wav,54.6,Broca,kempler04a_283.865_2.367.wav,Moderate,Non Fluent
-286232.0,290648.0,and she's her getting <her F pretty> make her fancy things,female,60,kempler04a.wav,54.6,Broca,kempler04a_286.232_4.416.wav,Moderate,Non Fluent
+283865.0,286232.0,yes yes for her communion yes yes yes yes,female,60,kempler04a.wav,54.6,Broca,kempler04a_283.865_2.367.wav,Moderate,Non Fluent
+286232.0,290648.0,and she's her getting make her fancy things,female,60,kempler04a.wav,54.6,Broca,kempler04a_286.232_4.416.wav,Moderate,Non Fluent
 291242.0,292513.0,that's very very nice,female,60,kempler04a.wav,54.6,Broca,kempler04a_291.242_1.271.wav,Moderate,Non Fluent
-293560.0,295001.0,F yeah yeah it's nice,female,60,kempler04a.wav,54.6,Broca,kempler04a_293.56_1.441.wav,Moderate,Non Fluent
-296217.0,299385.0,they're F they're F grand,female,60,kempler04a.wav,54.6,Broca,kempler04a_296.217_3.168.wav,Moderate,Non Fluent
-299385.0,301858.0,no they're F F no F,female,60,kempler04a.wav,54.6,Broca,kempler04a_299.385_2.473.wav,Moderate,Non Fluent
-301858.0,304271.0,they're F are they're F,female,60,kempler04a.wav,54.6,Broca,kempler04a_301.858_2.413.wav,Moderate,Non Fluent
-304271.0,306079.0,no they're F,female,60,kempler04a.wav,54.6,Broca,kempler04a_304.271_1.808.wav,Moderate,Non Fluent
+293560.0,295001.0,yeah yeah it's nice,female,60,kempler04a.wav,54.6,Broca,kempler04a_293.56_1.441.wav,Moderate,Non Fluent
+296217.0,299385.0,they're they're grand,female,60,kempler04a.wav,54.6,Broca,kempler04a_296.217_3.168.wav,Moderate,Non Fluent
+299385.0,301858.0,no they're no,female,60,kempler04a.wav,54.6,Broca,kempler04a_299.385_2.473.wav,Moderate,Non Fluent
+301858.0,304271.0,they're are they're,female,60,kempler04a.wav,54.6,Broca,kempler04a_301.858_2.413.wav,Moderate,Non Fluent
+304271.0,306079.0,no they're,female,60,kempler04a.wav,54.6,Broca,kempler04a_304.271_1.808.wav,Moderate,Non Fluent
 306079.0,307134.0,you know that,female,60,kempler04a.wav,54.6,Broca,kempler04a_306.079_1.055.wav,Moderate,Non Fluent
 307719.0,308583.0,that,female,60,kempler04a.wav,54.6,Broca,kempler04a_307.719_0.864.wav,Moderate,Non Fluent
-324071.0,337256.0,F the the the boy,female,60,kempler04a.wav,54.6,Broca,kempler04a_324.071_13.185.wav,Moderate,Non Fluent
-337256.0,338551.0,F what's the thing,female,60,kempler04a.wav,54.6,Broca,kempler04a_337.256_1.295.wav,Moderate,Non Fluent
-338551.0,339339.0,F and he's,female,60,kempler04a.wav,54.6,Broca,kempler04a_338.551_0.788.wav,Moderate,Non Fluent
+324071.0,337256.0,the the the boy,female,60,kempler04a.wav,54.6,Broca,kempler04a_324.071_13.185.wav,Moderate,Non Fluent
+337256.0,338551.0,what's the thing,female,60,kempler04a.wav,54.6,Broca,kempler04a_337.256_1.295.wav,Moderate,Non Fluent
+338551.0,339339.0,and he's,female,60,kempler04a.wav,54.6,Broca,kempler04a_338.551_0.788.wav,Moderate,Non Fluent
 339339.0,340839.0,oh my god,female,60,kempler04a.wav,54.6,Broca,kempler04a_339.339_1.5.wav,Moderate,Non Fluent
 340839.0,342378.0,it says,female,60,kempler04a.wav,54.6,Broca,kempler04a_340.839_1.539.wav,Moderate,Non Fluent
 342378.0,345055.0,oh my god look at everything,female,60,kempler04a.wav,54.6,Broca,kempler04a_342.378_2.677.wav,Moderate,Non Fluent
@@ -323,75 +307,75 @@ mark_start,mark_end,transcriptions,sex,age,file,WAB_AQ,aphasia_type,file_cut,WAB
 350369.0,351736.0,but that's all,female,60,kempler04a.wav,54.6,Broca,kempler04a_350.369_1.367.wav,Moderate,Non Fluent
 353896.0,356289.0,okay yes yes yes,female,60,kempler04a.wav,54.6,Broca,kempler04a_353.896_2.393.wav,Moderate,Non Fluent
 370699.0,382564.0,oh isn't that nice,female,60,kempler04a.wav,54.6,Broca,kempler04a_370.699_11.865.wav,Moderate,Non Fluent
-382564.0,387100.0,F the the boy was,female,60,kempler04a.wav,54.6,Broca,kempler04a_382.564_4.536.wav,Moderate,Non Fluent
+382564.0,387100.0,the the boy was,female,60,kempler04a.wav,54.6,Broca,kempler04a_382.564_4.536.wav,Moderate,Non Fluent
 387100.0,387765.0,and she thought,female,60,kempler04a.wav,54.6,Broca,kempler04a_387.1_0.665.wav,Moderate,Non Fluent
-387765.0,392926.0,well well she F she F <she didn't> she didn't,female,60,kempler04a.wav,54.6,Broca,kempler04a_387.765_5.161.wav,Moderate,Non Fluent
-392926.0,394433.0,oh and i'll F i'll go,female,60,kempler04a.wav,54.6,Broca,kempler04a_392.926_1.507.wav,Moderate,Non Fluent
+387765.0,392926.0,well well she she she didn't,female,60,kempler04a.wav,54.6,Broca,kempler04a_387.765_5.161.wav,Moderate,Non Fluent
+392926.0,394433.0,oh and i'll i'll go,female,60,kempler04a.wav,54.6,Broca,kempler04a_392.926_1.507.wav,Moderate,Non Fluent
 394433.0,395530.0,he says,female,60,kempler04a.wav,54.6,Broca,kempler04a_394.433_1.097.wav,Moderate,Non Fluent
-395530.0,400444.0,oh my god it's F it's F F it's F,female,60,kempler04a.wav,54.6,Broca,kempler04a_395.53_4.914.wav,Moderate,Non Fluent
-400444.0,404599.0,F watching while,female,60,kempler04a.wav,54.6,Broca,kempler04a_400.444_4.155.wav,Moderate,Non Fluent
+395530.0,400444.0,oh my god it's it's it's,female,60,kempler04a.wav,54.6,Broca,kempler04a_395.53_4.914.wav,Moderate,Non Fluent
+400444.0,404599.0,watching while,female,60,kempler04a.wav,54.6,Broca,kempler04a_400.444_4.155.wav,Moderate,Non Fluent
 404599.0,410394.0,watching watching watching,female,60,kempler04a.wav,54.6,Broca,kempler04a_404.599_5.795.wav,Moderate,Non Fluent
 410394.0,411154.0,and he says,female,60,kempler04a.wav,54.6,Broca,kempler04a_410.394_0.76.wav,Moderate,Non Fluent
 411154.0,413227.0,oh my god it's too raining,female,60,kempler04a.wav,54.6,Broca,kempler04a_411.154_2.073.wav,Moderate,Non Fluent
-413227.0,414250.0,and he F,female,60,kempler04a.wav,54.6,Broca,kempler04a_413.227_1.023.wav,Moderate,Non Fluent
-414250.0,418163.0,F oh my god F F i want one of those things F,female,60,kempler04a.wav,54.6,Broca,kempler04a_414.25_3.913.wav,Moderate,Non Fluent
+413227.0,414250.0,and he,female,60,kempler04a.wav,54.6,Broca,kempler04a_413.227_1.023.wav,Moderate,Non Fluent
+414250.0,418163.0,oh my god i want one of those things,female,60,kempler04a.wav,54.6,Broca,kempler04a_414.25_3.913.wav,Moderate,Non Fluent
 418163.0,419835.0,and he went byebye,female,60,kempler04a.wav,54.6,Broca,kempler04a_418.163_1.672.wav,Moderate,Non Fluent
 435881.0,448809.0,little girl said,female,60,kempler04a.wav,54.6,Broca,kempler04a_435.881_12.928.wav,Moderate,Non Fluent
 448809.0,449640.0,help,female,60,kempler04a.wav,54.6,Broca,kempler04a_448.809_0.831.wav,Moderate,Non Fluent
-449640.0,458321.0,F there F there must be F a big F,female,60,kempler04a.wav,54.6,Broca,kempler04a_449.64_8.681.wav,Moderate,Non Fluent
+449640.0,458321.0,there there must be a big,female,60,kempler04a.wav,54.6,Broca,kempler04a_449.64_8.681.wav,Moderate,Non Fluent
 458321.0,465338.0,,female,60,kempler04a.wav,54.6,Broca,kempler04a_458.321_7.017.wav,Moderate,Non Fluent
 466866.0,467692.0,yep yep,female,60,kempler04a.wav,54.6,Broca,kempler04a_466.866_0.826.wav,Moderate,Non Fluent
-467692.0,472779.0,F F F picture <the baby> the F,female,60,kempler04a.wav,54.6,Broca,kempler04a_467.692_5.087.wav,Moderate,Non Fluent
+467692.0,472779.0,picture the,female,60,kempler04a.wav,54.6,Broca,kempler04a_467.692_5.087.wav,Moderate,Non Fluent
 472779.0,473203.0,no,female,60,kempler04a.wav,54.6,Broca,kempler04a_472.779_0.424.wav,Moderate,Non Fluent
-473203.0,477252.0,the baby she is all F F,female,60,kempler04a.wav,54.6,Broca,kempler04a_473.203_4.049.wav,Moderate,Non Fluent
-477252.0,480549.0,what is that in xn F,female,60,kempler04a.wav,54.6,Broca,kempler04a_477.252_3.297.wav,Moderate,Non Fluent
+473203.0,477252.0,the baby she is all,female,60,kempler04a.wav,54.6,Broca,kempler04a_473.203_4.049.wav,Moderate,Non Fluent
+477252.0,480549.0,what is that in xn,female,60,kempler04a.wav,54.6,Broca,kempler04a_477.252_3.297.wav,Moderate,Non Fluent
 480549.0,483008.0,it's,female,60,kempler04a.wav,54.6,Broca,kempler04a_480.549_2.459.wav,Moderate,Non Fluent
-483008.0,488293.0,F al F il,female,60,kempler04a.wav,54.6,Broca,kempler04a_483.008_5.285.wav,Moderate,Non Fluent
-491028.0,493685.0,F i do but i don't know,female,60,kempler04a.wav,54.6,Broca,kempler04a_491.028_2.657.wav,Moderate,Non Fluent
-494340.0,495045.0,F no,female,60,kempler04a.wav,54.6,Broca,kempler04a_494.34_0.705.wav,Moderate,Non Fluent
-495045.0,509891.0,F F well she's puts F the thing,female,60,kempler04a.wav,54.6,Broca,kempler04a_495.045_14.846.wav,Moderate,Non Fluent
+483008.0,488293.0,al il,female,60,kempler04a.wav,54.6,Broca,kempler04a_483.008_5.285.wav,Moderate,Non Fluent
+491028.0,493685.0,i do but i don't know,female,60,kempler04a.wav,54.6,Broca,kempler04a_491.028_2.657.wav,Moderate,Non Fluent
+494340.0,495045.0,no,female,60,kempler04a.wav,54.6,Broca,kempler04a_494.34_0.705.wav,Moderate,Non Fluent
+495045.0,509891.0,well she's puts the thing,female,60,kempler04a.wav,54.6,Broca,kempler04a_495.045_14.846.wav,Moderate,Non Fluent
 509891.0,510276.0,and she said,female,60,kempler04a.wav,54.6,Broca,kempler04a_509.891_0.385.wav,Moderate,Non Fluent
-510276.0,510967.0,F help,female,60,kempler04a.wav,54.6,Broca,kempler04a_510.276_0.691.wav,Moderate,Non Fluent
-510967.0,514624.0,F the don't worry the baby's some some,female,60,kempler04a.wav,54.6,Broca,kempler04a_510.967_3.657.wav,Moderate,Non Fluent
-514624.0,515528.0,F she said,female,60,kempler04a.wav,54.6,Broca,kempler04a_514.624_0.904.wav,Moderate,Non Fluent
-515528.0,516888.0,F here's the baby,female,60,kempler04a.wav,54.6,Broca,kempler04a_515.528_1.36.wav,Moderate,Non Fluent
-516888.0,518984.0,F her,female,60,kempler04a.wav,54.6,Broca,kempler04a_516.888_2.096.wav,Moderate,Non Fluent
-518984.0,527681.0,and while he F and while there's there's oh my god there's F getting not down,female,60,kempler04a.wav,54.6,Broca,kempler04a_518.984_8.697.wav,Moderate,Non Fluent
-527681.0,533333.0,F,female,60,kempler04a.wav,54.6,Broca,kempler04a_527.681_5.652.wav,Moderate,Non Fluent
+510276.0,510967.0,help,female,60,kempler04a.wav,54.6,Broca,kempler04a_510.276_0.691.wav,Moderate,Non Fluent
+510967.0,514624.0,the don't worry the baby's some some,female,60,kempler04a.wav,54.6,Broca,kempler04a_510.967_3.657.wav,Moderate,Non Fluent
+514624.0,515528.0,she said,female,60,kempler04a.wav,54.6,Broca,kempler04a_514.624_0.904.wav,Moderate,Non Fluent
+515528.0,516888.0,here's the baby,female,60,kempler04a.wav,54.6,Broca,kempler04a_515.528_1.36.wav,Moderate,Non Fluent
+516888.0,518984.0,her,female,60,kempler04a.wav,54.6,Broca,kempler04a_516.888_2.096.wav,Moderate,Non Fluent
+518984.0,527681.0,and while he and while there's there's oh my god there's getting not down,female,60,kempler04a.wav,54.6,Broca,kempler04a_518.984_8.697.wav,Moderate,Non Fluent
+527681.0,533333.0,,female,60,kempler04a.wav,54.6,Broca,kempler04a_527.681_5.652.wav,Moderate,Non Fluent
 533333.0,534890.0,but i don't know,female,60,kempler04a.wav,54.6,Broca,kempler04a_533.333_1.557.wav,Moderate,Non Fluent
 548134.0,551759.0,,female,60,kempler04a.wav,54.6,Broca,kempler04a_548.134_3.625.wav,Moderate,Non Fluent
-552583.0,554495.0,F yes i will,female,60,kempler04a.wav,54.6,Broca,kempler04a_552.583_1.912.wav,Moderate,Non Fluent
-555198.0,560633.0,F F the she she F she went,female,60,kempler04a.wav,54.6,Broca,kempler04a_555.198_5.435.wav,Moderate,Non Fluent
+552583.0,554495.0,yes i will,female,60,kempler04a.wav,54.6,Broca,kempler04a_552.583_1.912.wav,Moderate,Non Fluent
+555198.0,560633.0,the she she she went,female,60,kempler04a.wav,54.6,Broca,kempler04a_555.198_5.435.wav,Moderate,Non Fluent
 560633.0,563700.0,and she said,female,60,kempler04a.wav,54.6,Broca,kempler04a_560.633_3.067.wav,Moderate,Non Fluent
 563700.0,564864.0,help help,female,60,kempler04a.wav,54.6,Broca,kempler04a_563.7_1.164.wav,Moderate,Non Fluent
 564864.0,566113.0,and she said,female,60,kempler04a.wav,54.6,Broca,kempler04a_564.864_1.249.wav,Moderate,Non Fluent
-566113.0,572000.0,F it's it's F let me go,female,60,kempler04a.wav,54.6,Broca,kempler04a_566.113_5.887.wav,Moderate,Non Fluent
-572000.0,575926.0,oh she's strong F,female,60,kempler04a.wav,54.6,Broca,kempler04a_572.0_3.926.wav,Moderate,Non Fluent
-575926.0,577717.0,F he said,female,60,kempler04a.wav,54.6,Broca,kempler04a_575.926_1.791.wav,Moderate,Non Fluent
+566113.0,572000.0,it's it's let me go,female,60,kempler04a.wav,54.6,Broca,kempler04a_566.113_5.887.wav,Moderate,Non Fluent
+572000.0,575926.0,oh she's strong,female,60,kempler04a.wav,54.6,Broca,kempler04a_572.0_3.926.wav,Moderate,Non Fluent
+575926.0,577717.0,he said,female,60,kempler04a.wav,54.6,Broca,kempler04a_575.926_1.791.wav,Moderate,Non Fluent
 577717.0,580357.0,i'll come help for you,female,60,kempler04a.wav,54.6,Broca,kempler04a_577.717_2.64.wav,Moderate,Non Fluent
 580357.0,581573.0,and i'll get you,female,60,kempler04a.wav,54.6,Broca,kempler04a_580.357_1.216.wav,Moderate,Non Fluent
 581573.0,583357.0,i'll xn you,female,60,kempler04a.wav,54.6,Broca,kempler04a_581.573_1.784.wav,Moderate,Non Fluent
 583357.0,585111.0,please help me,female,60,kempler04a.wav,54.6,Broca,kempler04a_583.357_1.754.wav,Moderate,Non Fluent
-585111.0,588175.0,<and he said> and he said,female,60,kempler04a.wav,54.6,Broca,kempler04a_585.111_3.064.wav,Moderate,Non Fluent
+585111.0,588175.0,and he said,female,60,kempler04a.wav,54.6,Broca,kempler04a_585.111_3.064.wav,Moderate,Non Fluent
 588175.0,590370.0,hi i'll get you out,female,60,kempler04a.wav,54.6,Broca,kempler04a_588.175_2.195.wav,Moderate,Non Fluent
 590370.0,592088.0,i'll get you out,female,60,kempler04a.wav,54.6,Broca,kempler04a_590.37_1.718.wav,Moderate,Non Fluent
-607502.0,610768.0,F F yes but not F F bit F,female,60,kempler04a.wav,54.6,Broca,kempler04a_607.502_3.266.wav,Moderate,Non Fluent
+607502.0,610768.0,yes but not bit,female,60,kempler04a.wav,54.6,Broca,kempler04a_607.502_3.266.wav,Moderate,Non Fluent
 613022.0,614110.0,yeah good enough,female,60,kempler04a.wav,54.6,Broca,kempler04a_613.022_1.088.wav,Moderate,Non Fluent
 630898.0,755000.0,,female,60,kempler04a.wav,54.6,Broca,kempler04a_630.898_124.102.wav,Moderate,Non Fluent
 769357.0,770606.0,okay,female,60,kempler04a.wav,54.6,Broca,kempler04a_769.357_1.249.wav,Moderate,Non Fluent
-770606.0,777910.0,F <there were> there was F the little girl in it,female,60,kempler04a.wav,54.6,Broca,kempler04a_770.606_7.304.wav,Moderate,Non Fluent
-777910.0,780422.0,<and there was> and they F,female,60,kempler04a.wav,54.6,Broca,kempler04a_777.91_2.512.wav,Moderate,Non Fluent
-780422.0,782790.0,oh my <what a> what a F jesus,female,60,kempler04a.wav,54.6,Broca,kempler04a_780.422_2.368.wav,Moderate,Non Fluent
+770606.0,777910.0,there was the little girl in it,female,60,kempler04a.wav,54.6,Broca,kempler04a_770.606_7.304.wav,Moderate,Non Fluent
+777910.0,780422.0,and they,female,60,kempler04a.wav,54.6,Broca,kempler04a_777.91_2.512.wav,Moderate,Non Fluent
+780422.0,782790.0,oh my what a jesus,female,60,kempler04a.wav,54.6,Broca,kempler04a_780.422_2.368.wav,Moderate,Non Fluent
 782790.0,784136.0,and they said,female,60,kempler04a.wav,54.6,Broca,kempler04a_782.79_1.346.wav,Moderate,Non Fluent
 784136.0,786896.0,oh my god watch jesus,female,60,kempler04a.wav,54.6,Broca,kempler04a_784.136_2.76.wav,Moderate,Non Fluent
-786896.0,790584.0,<and say> F and said,female,60,kempler04a.wav,54.6,Broca,kempler04a_786.896_3.688.wav,Moderate,Non Fluent
-790584.0,793489.0,come come come F,female,60,kempler04a.wav,54.6,Broca,kempler04a_790.584_2.905.wav,Moderate,Non Fluent
-793489.0,797641.0,<he says> and and they said,female,60,kempler04a.wav,54.6,Broca,kempler04a_793.489_4.152.wav,Moderate,Non Fluent
-797641.0,800721.0,look F F F we don't like you,female,60,kempler04a.wav,54.6,Broca,kempler04a_797.641_3.08.wav,Moderate,Non Fluent
+786896.0,790584.0,and said,female,60,kempler04a.wav,54.6,Broca,kempler04a_786.896_3.688.wav,Moderate,Non Fluent
+790584.0,793489.0,come come come,female,60,kempler04a.wav,54.6,Broca,kempler04a_790.584_2.905.wav,Moderate,Non Fluent
+793489.0,797641.0,and and they said,female,60,kempler04a.wav,54.6,Broca,kempler04a_793.489_4.152.wav,Moderate,Non Fluent
+797641.0,800721.0,look we don't like you,female,60,kempler04a.wav,54.6,Broca,kempler04a_797.641_3.08.wav,Moderate,Non Fluent
 800721.0,802618.0,we we don't like you,female,60,kempler04a.wav,54.6,Broca,kempler04a_800.721_1.897.wav,Moderate,Non Fluent
 802618.0,803602.0,and she's going,female,60,kempler04a.wav,54.6,Broca,kempler04a_802.618_0.984.wav,Moderate,Non Fluent
-803602.0,814390.0,well hey what what F we F we we we <we don't> we don't like us and we're going to tell us,female,60,kempler04a.wav,54.6,Broca,kempler04a_803.602_10.788.wav,Moderate,Non Fluent
-814390.0,817087.0,so this little F old lady,female,60,kempler04a.wav,54.6,Broca,kempler04a_814.39_2.697.wav,Moderate,Non Fluent
+803602.0,814390.0,well hey what what we we we we we don't like us and we're going to tell us,female,60,kempler04a.wav,54.6,Broca,kempler04a_803.602_10.788.wav,Moderate,Non Fluent
+814390.0,817087.0,so this little old lady,female,60,kempler04a.wav,54.6,Broca,kempler04a_814.39_2.697.wav,Moderate,Non Fluent
 817087.0,817887.0,and she says,female,60,kempler04a.wav,54.6,Broca,kempler04a_817.087_0.8.wav,Moderate,Non Fluent
 817887.0,819455.0,oh come with me,female,60,kempler04a.wav,54.6,Broca,kempler04a_817.887_1.568.wav,Moderate,Non Fluent
 819455.0,823655.0,and she has a beautiful dress you know everything,female,60,kempler04a.wav,54.6,Broca,kempler04a_819.455_4.2.wav,Moderate,Non Fluent
@@ -399,40 +383,40 @@ mark_start,mark_end,transcriptions,sex,age,file,WAB_AQ,aphasia_type,file_cut,WAB
 825552.0,826736.0,oh my god,female,60,kempler04a.wav,54.6,Broca,kempler04a_825.552_1.184.wav,Moderate,Non Fluent
 826736.0,827703.0,oh my god,female,60,kempler04a.wav,54.6,Broca,kempler04a_826.736_0.967.wav,Moderate,Non Fluent
 827703.0,829648.0,,female,60,kempler04a.wav,54.6,Broca,kempler04a_827.703_1.945.wav,Moderate,Non Fluent
-829648.0,834753.0,<and she> F oh and she went with this beautiful F F dress,female,60,kempler04a.wav,54.6,Broca,kempler04a_829.648_5.105.wav,Moderate,Non Fluent
+829648.0,834753.0,oh and she went with this beautiful dress,female,60,kempler04a.wav,54.6,Broca,kempler04a_829.648_5.105.wav,Moderate,Non Fluent
 834753.0,835401.0,and she said,female,60,kempler04a.wav,54.6,Broca,kempler04a_834.753_0.648.wav,Moderate,Non Fluent
 835401.0,838089.0,oh let's do the gates,female,60,kempler04a.wav,54.6,Broca,kempler04a_835.401_2.688.wav,Moderate,Non Fluent
-838089.0,840513.0,and she dance and F F,female,60,kempler04a.wav,54.6,Broca,kempler04a_838.089_2.424.wav,Moderate,Non Fluent
+838089.0,840513.0,and she dance and,female,60,kempler04a.wav,54.6,Broca,kempler04a_838.089_2.424.wav,Moderate,Non Fluent
 840513.0,842253.0,and they they look and he said,female,60,kempler04a.wav,54.6,Broca,kempler04a_840.513_1.74.wav,Moderate,Non Fluent
 842253.0,843270.0,oh my god,female,60,kempler04a.wav,54.6,Broca,kempler04a_842.253_1.017.wav,Moderate,Non Fluent
 843270.0,845429.0,and they they xn,female,60,kempler04a.wav,54.6,Broca,kempler04a_843.27_2.159.wav,Moderate,Non Fluent
 845429.0,846005.0,and they said,female,60,kempler04a.wav,54.6,Broca,kempler04a_845.429_0.576.wav,Moderate,Non Fluent
 846005.0,846749.0,oh my god,female,60,kempler04a.wav,54.6,Broca,kempler04a_846.005_0.744.wav,Moderate,Non Fluent
-846749.0,849718.0,they F the thing,female,60,kempler04a.wav,54.6,Broca,kempler04a_846.749_2.969.wav,Moderate,Non Fluent
+846749.0,849718.0,they the thing,female,60,kempler04a.wav,54.6,Broca,kempler04a_846.749_2.969.wav,Moderate,Non Fluent
 849718.0,850646.0,he said,female,60,kempler04a.wav,54.6,Broca,kempler04a_849.718_0.928.wav,Moderate,Non Fluent
 850646.0,852711.0,oh my god,female,60,kempler04a.wav,54.6,Broca,kempler04a_850.646_2.065.wav,Moderate,Non Fluent
 852711.0,853078.0,she said,female,60,kempler04a.wav,54.6,Broca,kempler04a_852.711_0.367.wav,Moderate,Non Fluent
 853078.0,853534.0,oh,female,60,kempler04a.wav,54.6,Broca,kempler04a_853.078_0.456.wav,Moderate,Non Fluent
-853534.0,856487.0,and then F F the purse <it said> it said,female,60,kempler04a.wav,54.6,Broca,kempler04a_853.534_2.953.wav,Moderate,Non Fluent
+853534.0,856487.0,and then the purse it said,female,60,kempler04a.wav,54.6,Broca,kempler04a_853.534_2.953.wav,Moderate,Non Fluent
 856487.0,858503.0,a little bit,female,60,kempler04a.wav,54.6,Broca,kempler04a_856.487_2.016.wav,Moderate,Non Fluent
-858503.0,864856.0,F F she said big,female,60,kempler04a.wav,54.6,Broca,kempler04a_858.503_6.353.wav,Moderate,Non Fluent
-864856.0,869425.0,her F <her mother> <her mother> hers,female,60,kempler04a.wav,54.6,Broca,kempler04a_864.856_4.569.wav,Moderate,Non Fluent
+858503.0,864856.0,she said big,female,60,kempler04a.wav,54.6,Broca,kempler04a_858.503_6.353.wav,Moderate,Non Fluent
+864856.0,869425.0,her hers,female,60,kempler04a.wav,54.6,Broca,kempler04a_864.856_4.569.wav,Moderate,Non Fluent
 869425.0,872385.0,and there was little not the little,female,60,kempler04a.wav,54.6,Broca,kempler04a_869.425_2.96.wav,Moderate,Non Fluent
 872385.0,872943.0,and she said,female,60,kempler04a.wav,54.6,Broca,kempler04a_872.385_0.558.wav,Moderate,Non Fluent
 872943.0,874272.0,oh my god,female,60,kempler04a.wav,54.6,Broca,kempler04a_872.943_1.329.wav,Moderate,Non Fluent
 874272.0,874809.0,here,female,60,kempler04a.wav,54.6,Broca,kempler04a_874.272_0.537.wav,Moderate,Non Fluent
-874809.0,879732.0,F and they're F happily ever after,female,60,kempler04a.wav,54.6,Broca,kempler04a_874.809_4.923.wav,Moderate,Non Fluent
+874809.0,879732.0,and they're happily ever after,female,60,kempler04a.wav,54.6,Broca,kempler04a_874.809_4.923.wav,Moderate,Non Fluent
 881684.0,883653.0,,female,60,kempler04a.wav,54.6,Broca,kempler04a_881.684_1.969.wav,Moderate,Non Fluent
 891728.0,894976.0,how you make a sandwich,female,60,kempler04a.wav,54.6,Broca,kempler04a_891.728_3.248.wav,Moderate,Non Fluent
-895496.0,907045.0,well you F F a F F F F bread,female,60,kempler04a.wav,54.6,Broca,kempler04a_895.496_11.549.wav,Moderate,Non Fluent
-907045.0,915718.0,and F F F,female,60,kempler04a.wav,54.6,Broca,kempler04a_907.045_8.673.wav,Moderate,Non Fluent
-915718.0,924119.0,and F you know <whole wheat> whole wheat,female,60,kempler04a.wav,54.6,Broca,kempler04a_915.718_8.401.wav,Moderate,Non Fluent
+895496.0,907045.0,well you a bread,female,60,kempler04a.wav,54.6,Broca,kempler04a_895.496_11.549.wav,Moderate,Non Fluent
+907045.0,915718.0,and,female,60,kempler04a.wav,54.6,Broca,kempler04a_907.045_8.673.wav,Moderate,Non Fluent
+915718.0,924119.0,and you know whole wheat,female,60,kempler04a.wav,54.6,Broca,kempler04a_915.718_8.401.wav,Moderate,Non Fluent
 924744.0,925256.0,yeah,female,60,kempler04a.wav,54.6,Broca,kempler04a_924.744_0.512.wav,Moderate,Non Fluent
-925256.0,935519.0,and <you sort of> F F you do peanut butter,female,60,kempler04a.wav,54.6,Broca,kempler04a_925.256_10.263.wav,Moderate,Non Fluent
+925256.0,935519.0,and you do peanut butter,female,60,kempler04a.wav,54.6,Broca,kempler04a_925.256_10.263.wav,Moderate,Non Fluent
 935519.0,938000.0,have have the peanut butter,female,60,kempler04a.wav,54.6,Broca,kempler04a_935.519_2.481.wav,Moderate,Non Fluent
-938626.0,952925.0,and then you put the thing above F F F F F,female,60,kempler04a.wav,54.6,Broca,kempler04a_938.626_14.299.wav,Moderate,Non Fluent
+938626.0,952925.0,and then you put the thing above,female,60,kempler04a.wav,54.6,Broca,kempler04a_938.626_14.299.wav,Moderate,Non Fluent
 952925.0,954217.0,what do,female,60,kempler04a.wav,54.6,Broca,kempler04a_952.925_1.292.wav,Moderate,Non Fluent
-954617.0,959362.0,F the jelly jelly,female,60,kempler04a.wav,54.6,Broca,kempler04a_954.617_4.745.wav,Moderate,Non Fluent
-959362.0,962218.0,and put put this thing F boomo,female,60,kempler04a.wav,54.6,Broca,kempler04a_959.362_2.856.wav,Moderate,Non Fluent
+954617.0,959362.0,the jelly jelly,female,60,kempler04a.wav,54.6,Broca,kempler04a_954.617_4.745.wav,Moderate,Non Fluent
+959362.0,962218.0,and put put this thing boomo,female,60,kempler04a.wav,54.6,Broca,kempler04a_959.362_2.856.wav,Moderate,Non Fluent
 962218.0,962922.0,byebye,female,60,kempler04a.wav,54.6,Broca,kempler04a_962.218_0.704.wav,Moderate,Non Fluent
-962922.0,965115.0,<that's why> that's right,female,60,kempler04a.wav,54.6,Broca,kempler04a_962.922_2.193.wav,Moderate,Non Fluent
+962922.0,965115.0,that's right,female,60,kempler04a.wav,54.6,Broca,kempler04a_962.922_2.193.wav,Moderate,Non Fluent

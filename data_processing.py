@@ -1,7 +1,7 @@
-# copy from https://github.com/monirome/AphasiaBank/blob/main/clean_transcriptions.ipynb
+# based on https://github.com/monirome/AphasiaBank/blob/main/clean_transcriptions.ipynb
 
 
-filepath = "..data/chat_file/English/Aphasia/Kempler"
+filepath = "../data/chat_file/English/Aphasia/Kempler"
 
 import pylangacq as pla
 import pandas as pd
@@ -211,9 +211,29 @@ p='é|æ|ɑ|ɔ|ɕ|ç|ḏ|ḍ|ð|ə|ɚ|ɛ|ɝ|ḡ|ʰ|ḥ|ḫ|ẖ|ɪ|ỉ|ɨ|ʲ|ǰ|�
 df=df.loc[~df['transcriptions'].str.contains(p, regex=True)]  #remove words with phonemes
 df = df.reset_index(drop=True)
 
+# Added by Liting
+# 1. remove rows where 'mark_start' or 'mark_end' columns are empty
+df.dropna(subset=['mark_start', 'mark_end'], inplace=True)
+# 2. remove everything inside <> or every word that starts with < or ends with >
+df['transcriptions'] = df['transcriptions'].str.replace(r'<.*?>', '', regex=True)
+df['transcriptions'] = df['transcriptions'].str.replace(r'\s*<\w*|\w*>\s*', ' ', regex=True)
+# 3. remove single capital letter like F and S
+df['transcriptions'] = df['transcriptions'].apply(
+    lambda x: ' '.join([word for word in x.split() if word != 'F' and word != 'S'])
+)
+# # 4. capitalize the single word i or word starting with i', then capitalize the first letter of the sentence
+# df['transcriptions'] = df['transcriptions'].apply(
+#     lambda x: ' '.join([
+#         word.capitalize() if word == 'i' or word.startswith("i'") else word for word in x.split()
+#     ])
+# )
+# df['transcriptions'] = df['transcriptions'].apply(lambda x: x.capitalize())
+
+
 df=df[~df["transcriptions"].isnull()] #remove nulls 
 df["transcriptions"] = df["transcriptions"].str.rstrip() #remove blanks at the beginning 
-df["transcriptions"] = df["transcriptions"].str.lstrip() #remove blanks at the end 
+df["transcriptions"] = df["transcriptions"].str.lstrip() #remove blanks at the end
+df['transcriptions'] = df['transcriptions'].str.replace(r'\s+', ' ', regex=True) # replace multiple spaces with a single space
 
 #Check all the characters of the transcripts
 unique_chars = set(" ".join(df["transcriptions"].values))
