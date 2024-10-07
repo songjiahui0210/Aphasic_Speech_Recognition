@@ -33,8 +33,12 @@ done
 
 # combine all the individual csv into one
 echo "combining all csv files into one..."
-head -n 1 "$TEMP_DIR"/*_clean_dataset.csv > $OUTPUT_CSV # add header from the first file
-tail -n +2 -q "$TEMP_DIR"/*_clean_dataset.csv >> $OUTPUT_CSV # combine the rest without headers
+# add header from the first file
+head -n 1 "$(ls "$TEMP_DIR"/*_clean_dataset.csv | head -n 1)" > "$OUTPUT_CSV"
+# combine the rest without headers
+for file in "$TEMP_DIR"/*_clean_dataset.csv; do
+    tail -n +2 "$file" >> "$OUTPUT_CSV"
+done
 
 # clean up temporary csv files
 rm -rf $TEMP_DIR
