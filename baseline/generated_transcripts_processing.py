@@ -33,19 +33,22 @@ def process_generated_transcriptions(generated_transcriptions):
     Returns:
     list: A list of processed transcription strings.
     """
-    # 1. Remove "Um"
+    # 1. Remove "Um", "um"
     generated_transcriptions = [re.sub(r'\bum\b', '', x, flags=re.IGNORECASE) for x in generated_transcriptions]
-    
-    # 2. Remove all punctuations except apostrophes
-    generated_transcriptions = [re.sub(r"[^\w\s']", '', x) for x in generated_transcriptions]
 
-    # 3. translate all numbers to english words
+    # 2. Remove "Uh", "uh"
+    generated_transcriptions = [re.sub(r'\buh\b', '', x, flags=re.IGNORECASE) for x in generated_transcriptions]
+    
+    # 3. Remove all punctuations except apostrophes
+    # generated_transcriptions = [re.sub(r"[^\w\s']", '', x) for x in generated_transcriptions]
+
+    # 4. translate all numbers to english words
     generated_transcriptions = [convert_numbers_to_words(x) for x in generated_transcriptions]
     
-    # 4. Convert to lowercase
-    generated_transcriptions = [x.lower() for x in generated_transcriptions]
+    # 5. Convert to lowercase
+    # generated_transcriptions = [x.lower() for x in generated_transcriptions]
     
-    # 5. Strip extra spaces
+    # 6. Strip extra spaces
     generated_transcriptions = [re.sub(r'\s+', ' ', x.strip()) for x in generated_transcriptions]
 
     return generated_transcriptions
