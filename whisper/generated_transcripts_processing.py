@@ -3,8 +3,8 @@
 # since the reference transcripts have some special characteristics,
 # such as they user words to represent numbers, no filler words like "Um"
 # example:
-# Generated transcription:  Um, it's twenty.
-# Reference transcription: it's 20
+# Generated transcription:  Um, it's 20.
+# Reference transcription: it's twenty
 # they are generally the same, I would say the WER for this case is 0%
 ##########
 
@@ -14,14 +14,13 @@ import inflect
 p = inflect.engine()
 
 def convert_numbers_to_words(text):
-    # Split the text into words
-    words = text.split()
-
-    # Convert each word to its corresponding word form if it's a digit
-    converted_words = [p.number_to_words(word) if word.isdigit() else word for word in words]
-
-    # Join the words back into a single string
-    return ' '.join(converted_words)
+    # Replace ordinal numbers (like 14th) with their word equivalents
+    text = re.sub(r'\b(\d+)(st|nd|rd|th)\b', lambda x: p.number_to_words(int(x.group(1))) + x.group(2), text)
+    
+    # Replace cardinal numbers (like 2000) with their word equivalents
+    text = re.sub(r'\b\d+\b', lambda x: p.number_to_words(int(x.group())), text)
+    
+    return text
 
 def process_generated_transcriptions(generated_transcriptions):
     # 1. Remove "Um", "um"
