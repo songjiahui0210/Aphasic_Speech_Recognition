@@ -17,6 +17,8 @@ transformed_references = []
 transformation = jiwer.Compose([
     jiwer.ToLowerCase(),           
     jiwer.RemovePunctuation(),
+    jiwer.RemoveMultipleSpaces(),
+    jiwer.Strip(),
 ])
 
 for index, row in df.iterrows():
