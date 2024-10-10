@@ -27,6 +27,12 @@ def clean_dataset(file_path):
     else:
         print("No differences larger than 30,000 found.")
     
+    if not small_differences.empty:
+        num_small_differences = small_differences.shape[0]
+        print(f"Number of rows with differences smaller than 300: {num_small_differences}") # 7237
+    else:
+        print("No differences smaller than 300 found.")
+    
     if not empty_transcripts.empty:
         num_empty_transcripts = empty_transcripts.shape[0]
         print(f"Number of rows with empty_transcripts: {num_empty_transcripts}") #760
@@ -45,7 +51,7 @@ def clean_dataset(file_path):
 
     # get total number of rows after cleaning
     num_rows_cleaned = df.shape[0]
-    print(f"Total rows after cleaning: {num_rows_cleaned}") # 128334
+    print(f"Total rows after cleaning: {num_rows_cleaned}") # 121201
 
     # get the total duration after cleaning
     sum_duration_cleaned = df['difference'].sum()/1000/60/60 # 138 hours
@@ -58,4 +64,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
