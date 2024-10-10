@@ -1,6 +1,5 @@
 # based on https://github.com/monirome/AphasiaBank/blob/main/clean_transcriptions.ipynb
 
-
 import pylangacq as pla
 import pandas as pd
 import numpy as np
@@ -157,7 +156,6 @@ def process_folder(folder_path):
 
     df['transcriptions'] = df['transcriptions'].map(filterWordsPhonetic)
 
-
     #A massive weird character cleanup is done
     chars_to_ignore_regex = '[\,\?\.\!\-\;\:\"\“\%\‘\”\�\‡\„\$\^\/\//\0\↓\≠\↑]' 
     for i in range(len(df['transcriptions'])):
@@ -258,7 +256,6 @@ def process_folder(folder_path):
     # 4. remove single word 'xn'
     df['transcriptions'] = df['transcriptions'].apply(lambda x: re.sub(r'\s*xn\s*', '', str(x)))
 
-
     df=df[~df["transcriptions"].isnull()] #remove nulls
     df["transcriptions"] = df["transcriptions"].str.rstrip() #remove blanks at the beginning 
     df["transcriptions"] = df["transcriptions"].str.lstrip() #remove blanks at the end
@@ -283,4 +280,3 @@ if __name__ == "__main__":
     
     folder_path = sys.argv[1]
     process_folder(folder_path)
-    

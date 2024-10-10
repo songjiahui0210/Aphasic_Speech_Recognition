@@ -38,11 +38,6 @@ def clean_dataset(file_path):
     if not rows_to_drop.empty:
         num_rows_dropped = rows_to_drop.shape[0]
         print(f"Dropping {num_rows_dropped} rows due to large differences or empty transcripts.")
-        
-        # save dropped rows to a file for further analysis or debugging
-        dropped_rows_file = "dropped_rows.csv"
-        rows_to_drop.to_csv(dropped_rows_file, index=False)
-
         df = df.drop(rows_to_drop.index)
     else:
         print("No rows to drop based on the given criteria.")
