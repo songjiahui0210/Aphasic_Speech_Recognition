@@ -16,8 +16,9 @@ def clean_dataset(file_path):
     sum_duration = df['difference'].sum()/1000/60/60 # 143 hours
     print(f"The total duration of all audios: {sum_duration} hours")
 
-    # get the rows with differences larger than 30,000 and empty transcripts
+    # get the rows with differences larger than 30,000, or smaller than 300, or empty transcripts
     large_differences = df[df['difference'] > 30000]
+    small_differences = df[df['difference'] < 300]
     empty_transcripts = df[df['transcriptions'].isnull() | (df['transcriptions'].str.strip() == '')]
 
     if not large_differences.empty:
@@ -26,16 +27,22 @@ def clean_dataset(file_path):
     else:
         print("No differences larger than 30,000 found.")
     
+    if not small_differences.empty:
+        num_small_differences = small_differences.shape[0]
+        print(f"Number of rows with differences smaller than 300: {num_small_differences}")
+    else:
+        print("No differences smaller than 300 found.")
+    
     if not empty_transcripts.empty:
         num_empty_transcripts = empty_transcripts.shape[0]
         print(f"Number of rows with empty_transcripts: {num_empty_transcripts}")
     else:
         print("No empty transcripts found.")
 
-    rows_to_drop = pd.concat([large_differences, empty_transcripts]).drop_duplicates()
+    rows_to_drop = pd.concat([large_differences, small_differences, empty_transcripts]).drop_duplicates()
     if not rows_to_drop.empty:
         num_rows_dropped = rows_to_drop.shape[0]
-        print(f"Dropping {num_rows_dropped} rows due to large differences or empty transcripts.")
+        print(f"Dropping {num_rows_dropped} rows.")
         df = df.drop(rows_to_drop.index)
     else:
         print("No rows to drop based on the given criteria.")
