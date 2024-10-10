@@ -1,6 +1,5 @@
 # based on https://github.com/monirome/AphasiaBank/blob/main/clean_transcriptions.ipynb
 
-
 import pylangacq as pla
 import pandas as pd
 import numpy as np
@@ -26,6 +25,7 @@ def read_chat_files(file_directory):
     #Time Mark (milisecond)
     cols = ['mark_start','mark_end']
     lst = []
+    # revised by Liting
     for i in range(len(ds.utterances(participants="PAR"))):
         time_mark = ds.utterances(participants="PAR")[i].time_marks
         # Check if time_mark is None or has the correct structure
@@ -34,6 +34,7 @@ def read_chat_files(file_directory):
         else:
             lst.append((time_mark[0], time_mark[1]))  # Append start and end as a tuple
 
+    # original version
     # for i in range(len(ds.utterances(participants="PAR"))):
     #     lst.append(ds.utterances(participants="PAR")[i].time_marks)
     df = pd.DataFrame(lst, columns=cols) #create datrafame
@@ -117,7 +118,7 @@ def process_folder(folder_path):
     df.loc[((df['aphasia_type'])== 'Broca') | ((df['aphasia_type'])== 'Global') | ((df['aphasia_type'])== 'TransMotor'), 'fluency_speech'] = 'Non Fluent'
     df.loc[((df['aphasia_type'])== 'NotAphasicByWAB') , 'fluency_speech'] = 'Unknown'
 
-    # Add a new column with the folder name
+    # Add a new column with the folder name (Liting)
     folder_name = os.path.basename(os.path.normpath(folder_path))
     df = df.assign(folder_name=folder_name)
 
@@ -155,7 +156,6 @@ def process_folder(folder_path):
 
     df['transcriptions'] = df['transcriptions'].map(filterWordsPhonetic)
 
-
     #A massive weird character cleanup is done
     chars_to_ignore_regex = '[\,\?\.\!\-\;\:\"\“\%\‘\”\�\‡\„\$\^\/\//\0\↓\≠\↑]' 
     for i in range(len(df['transcriptions'])):
@@ -173,7 +173,7 @@ def process_folder(folder_path):
         df['transcriptions'][i]=re.sub('&.([a-z]*)','F',str(df["transcriptions"][i])) #quita las trasncripciones tipo &word
         
         df['transcriptions'][i]=re.sub('\+', ' ',str(df["transcriptions"][i]))
-        df['transcriptions'][i]=re.sub('[/&=] *','S',str(df["transcriptions"][i])) #strange here
+        df['transcriptions'][i]=re.sub('[/&=] *','S',str(df["transcriptions"][i])) #fix bug, Liting
 
         df['transcriptions'][i]=re.sub('dada@b',"F", str(df["transcriptions"][i]))    
         df['transcriptions'][i]=re.sub('_',' ',df["transcriptions"][i] )
@@ -253,16 +253,10 @@ def process_folder(folder_path):
     df['transcriptions'] = df['transcriptions'].apply(
         lambda x: ' '.join([word for word in x.split() if word != 'F' and word != 'S'])
     )
-    # # 4. capitalize the single word i or word starting with i', then capitalize the first letter of the sentence
-    # df['transcriptions'] = df['transcriptions'].apply(
-    #     lambda x: ' '.join([
-    #         word.capitalize() if word == 'i' or word.startswith("i'") else word for word in x.split()
-    #     ])
-    # )
-    # df['transcriptions'] = df['transcriptions'].apply(lambda x: x.capitalize())
+    # 4. remove single word 'xn'
+    df['transcriptions'] = df['transcriptions'].apply(lambda x: re.sub(r'\s*xn\s*', '', str(x)))
 
-
-    df=df[~df["transcriptions"].isnull()] #remove nulls 
+    df=df[~df["transcriptions"].isnull()] #remove nulls
     df["transcriptions"] = df["transcriptions"].str.rstrip() #remove blanks at the beginning 
     df["transcriptions"] = df["transcriptions"].str.lstrip() #remove blanks at the end
     df['transcriptions'] = df['transcriptions'].str.replace(r'\s+', ' ', regex=True) # replace multiple spaces with a single space
@@ -286,4 +280,3 @@ if __name__ == "__main__":
     
     folder_path = sys.argv[1]
     process_folder(folder_path)
-    
