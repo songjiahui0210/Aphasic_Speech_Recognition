@@ -9,7 +9,6 @@ df = df.rename(columns=columns_to_read)
 
 df['processed_generated_transcriptions'] = process_generated_transcriptions(df['generated_transcriptions'])
 
-
 row_wers = []
 transformed_predictions =[]
 transformed_references = []
@@ -34,6 +33,7 @@ for index, row in df.iterrows():
         row_wers.append(None)
 
 df['transformed_predictions'] = transformed_predictions
+df['transformed_references'] = transformed_references
 df['wer'] = row_wers
 df.to_csv('generated_transcriptions_large.csv', index=False)
 

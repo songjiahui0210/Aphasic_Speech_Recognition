@@ -1,5 +1,5 @@
 import torch
-from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
+from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline, WhisperTimeStampLogitsProcessor
 import pandas as pd
 import warnings
 import re 
@@ -25,12 +25,14 @@ model = AutoModelForSpeechSeq2Seq.from_pretrained(
 model.to(device)
 
 processor = AutoProcessor.from_pretrained(model_id)
+logits_processor = WhisperTimeStampLogitsProcessor()
 
 pipe = pipeline(
     "automatic-speech-recognition",
     model=model,
     tokenizer=processor.tokenizer,
     feature_extractor=processor.feature_extractor,
+    logits_processor=logits_processor,
     torch_dtype=torch_dtype,
     device=device,
 )
@@ -52,7 +54,7 @@ for index, row in df.iterrows():
 
     # Generate transcription
     try:
-        result = pipe(audio_file_path, return_timestamps = True, generate_kwargs = {"language": "english"})
+        result = pipe(audio_file_path, return_timestamps = True, generate_kwargs = {"language": "en"})
         generated_transcription = result["text"]
         df.at[index, 'generated_transcriptions_large'] = generated_transcription
     except Exception as e:

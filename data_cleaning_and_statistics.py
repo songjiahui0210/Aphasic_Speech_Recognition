@@ -23,8 +23,6 @@ def clean_dataset(file_path):
     if not large_differences.empty:
         num_large_differences = large_differences.shape[0]
         print(f"Number of rows with differences larger than 30,000: {num_large_differences}")
-        # print("Differences larger than 30,000 found in the following rows:")
-        # print(large_differences)
     else:
         print("No differences larger than 30,000 found.")
     
@@ -46,7 +44,7 @@ def clean_dataset(file_path):
 
     # get total number of rows after cleaning
     num_rows_cleaned = df.shape[0]
-    print(f"Total rows after cleaning: {num_rows_cleaned}") # 128334
+    print(f"Total rows after cleaning: {num_rows_cleaned}") # 128212
 
     # get the total duration after cleaning
     sum_duration_cleaned = df['difference'].sum()/1000/60/60 # 139 hours
