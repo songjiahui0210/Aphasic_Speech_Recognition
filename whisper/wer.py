@@ -3,9 +3,8 @@ import pandas as pd
 from generated_transcripts_processing import process_generated_transcriptions
 
 # load transcripts
-columns_to_read = {'generated_transcriptions_large':'generated_transcriptions', 'transcriptions':'reference_transcriptions'}
-df = pd.read_csv('../../data_processed/clean_dataset.csv', usecols=columns_to_read.keys())
-df = df.rename(columns=columns_to_read)
+csv_file_path = 'generated_transcriptions_large.csv'
+df = pd.read_csv(csv_file_path)
 
 df['processed_generated_transcriptions'] = process_generated_transcriptions(df['generated_transcriptions'])
 
@@ -13,7 +12,6 @@ row_wers = []
 transformed_predictions =[]
 transformed_references = []
 
-# initialize the WER metric
 transformation = jiwer.Compose([
     jiwer.ToLowerCase(),           
     jiwer.RemovePunctuation(),

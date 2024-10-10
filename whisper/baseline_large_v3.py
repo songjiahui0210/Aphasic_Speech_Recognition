@@ -1,5 +1,5 @@
 import torch
-from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline, WhisperTimeStampLogitsProcessor
+from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
 import pandas as pd
 import warnings
 import re 
@@ -25,21 +25,19 @@ model = AutoModelForSpeechSeq2Seq.from_pretrained(
 model.to(device)
 
 processor = AutoProcessor.from_pretrained(model_id)
-logits_processor = WhisperTimeStampLogitsProcessor()
 
 pipe = pipeline(
     "automatic-speech-recognition",
     model=model,
     tokenizer=processor.tokenizer,
     feature_extractor=processor.feature_extractor,
-    logits_processor=logits_processor,
     torch_dtype=torch_dtype,
     device=device,
 )
 
-# Add 'generated_transcriptions_large' column if it doesn't exist
-if 'generated_transcriptions_large' not in df.columns:
-    df['generated_transcriptions_large'] = ""
+# Add 'generated_transcriptions' column if it doesn't exist
+if 'generated_transcriptions' not in df.columns:
+    df['generated_transcriptions'] = ""
 
 
 # path to the audio files
@@ -48,17 +46,14 @@ for index, row in df.iterrows():
     print(f"Processing row{index+1}")
     audio_file_path = audio_base_path + row['folder_name'] + "/" + row['file_cut'] 
 
-    # Skip if 'generated_transcriptions_large' is not empty
-    if row['generated_transcriptions_large'].strip() != "":
-        continue
-
-    # Generate transcription
     try:
         result = pipe(audio_file_path, return_timestamps = True, generate_kwargs = {"language": "en"})
         generated_transcription = result["text"]
-        df.at[index, 'generated_transcriptions_large'] = generated_transcription
+        df.at[index, 'generated_transcriptions'] = generated_transcription
     except Exception as e:
         print(f"Error processing {audio_file_path}: {e}")
-        df.at[index, 'generated_transcriptions_large'] = None
+        df.at[index, 'generated_transcriptions'] = None
 
-df.to_csv(csv_file_path, index=False)
+df = df.rename(columns={'transcriptions': 'reference_transcriptions'})
+output_df = df[['reference_transcriptions', 'generated_transcriptions']]
+output_df.to_csv("generated_transcriptions_large.csv", index=False)
