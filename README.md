@@ -10,7 +10,7 @@ cd Aphasic_speech_recognition
 chmod +x open_zip.sh
 ./open_zip.sh
 ```
-Then, manually change the name of the second folder "Adler" to "adler", make it consistent.
+Then, go to /data_processed/transcripts/, manually change the name of the second folder "Adler" to "adler", make it consistent.
 
 ### Step 2: process the transcripts
 
