@@ -12,6 +12,17 @@ chmod +x open_zip.sh
 ```
 Then, go to /data_processed/transcripts/, manually change the name of the second folder "Adler" to "adler", make it consistent.
 
+Before Step 2
+
+```
+pip install pylangacq
+```
+
+Upgrade to python-dateutil-2.9.0
+
+```
+--upgrade python-dateutil --user
+```
 ### Step 2: process the transcripts
 
 ```
