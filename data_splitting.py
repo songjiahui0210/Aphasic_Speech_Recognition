@@ -6,7 +6,7 @@ data_path = '../data_processed/clean_dataset.csv'
 df = pd.read_csv(data_path)
 
 # Create a new folder for the splitted data
-split_data_folder = '../data_processed/data-splitted'
+split_data_folder = '../data-splitted'
 os.makedirs(split_data_folder, exist_ok=True)
 
 # Step 2: Initialize a dictionary to store the splits
