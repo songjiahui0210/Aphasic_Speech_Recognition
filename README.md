@@ -33,7 +33,7 @@ python3 generate_audio_chunks.py
 Note: Steps 2, 3 and 4 are very time-consuming.
 
 ### Step 5: check data statistics and do more data cleaning
-Delete the rows with empty transcriptions and with audio longer than 30 seconds.
+Delete the rows with empty transcriptions, audios longer than 30 seconds, and audios shorter than 0.3 seconds.
 ```
 python3 data_cleaning_and_statistics.py
 ```
