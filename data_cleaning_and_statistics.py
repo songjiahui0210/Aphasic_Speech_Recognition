@@ -20,6 +20,7 @@ def clean_dataset(file_path):
     large_differences = df[df['difference'] > 30000]
     small_differences = df[df['difference'] < 300]
     empty_transcripts = df[df['transcriptions'].isnull() | (df['transcriptions'].str.strip() == '')]
+    unkown_speaker_names = df[(df['name']=="Unknown") | (df['name']=="Participant")]
 
     if not large_differences.empty:
         num_large_differences = large_differences.shape[0] 
@@ -38,6 +39,12 @@ def clean_dataset(file_path):
         print(f"Number of rows with empty_transcripts: {num_empty_transcripts}") #760
     else:
         print("No empty transcripts found.")
+
+    if not unkown_speaker_names.empty:
+        num_unknown_speakers = unkown_speaker_names.shape[0]
+        print(f"Number of rows with unkown_speaker_names: {num_unknown_speakers}") #
+    else:
+        print("No unkown speaker names found.")
 
     rows_to_drop = pd.concat([large_differences, small_differences, empty_transcripts]).drop_duplicates()
     if not rows_to_drop.empty:
