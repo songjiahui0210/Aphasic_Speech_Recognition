@@ -42,9 +42,15 @@ def clean_dataset(file_path):
 
     if not unkown_speaker_names.empty:
         num_unknown_speakers = unkown_speaker_names.shape[0]
-        print(f"Number of rows with unkown_speaker_names: {num_unknown_speakers}") #
+        print(f"Number of rows with unkown_speaker_names: {num_unknown_speakers}") # 51616
     else:
         print("No unkown speaker names found.")
+
+    # calculate the distinct speaker names, excluding "Participant" as well
+    distinct_speaker_names = df[df['name'].str.strip().str.lower() != "participant"].name.unique()
+    num_distinct_speaker_names = len(distinct_speaker_names)
+    print(f"Distinct speaker names: {num_distinct_speaker_names}") # 431 unique names
+
 
     rows_to_drop = pd.concat([large_differences, small_differences, empty_transcripts]).drop_duplicates()
     if not rows_to_drop.empty:
