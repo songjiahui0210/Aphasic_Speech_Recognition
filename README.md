@@ -10,8 +10,19 @@ cd Aphasic_speech_recognition
 chmod +x open_zip.sh
 ./open_zip.sh
 ```
-Then, manually change the name of the second folder "Adler" to "adler", make it consistent.
+Then, go to /data_processed/transcripts/, manually change the name of the second folder "Adler" to "adler", make it consistent.
 
+Before Step 2
+
+```
+pip install pylangacq
+```
+
+Upgrade to python-dateutil-2.9.0
+
+```
+--upgrade python-dateutil --user
+```
 ### Step 2: process the transcripts
 
 ```
@@ -33,7 +44,7 @@ python3 generate_audio_chunks.py
 Note: Steps 2, 3 and 4 are very time-consuming.
 
 ### Step 5: check data statistics and do more data cleaning
-Delete the rows with empty transcriptions and with audio longer than 30 seconds.
+Delete the rows with empty transcriptions, audios longer than 30 seconds, and audios shorter than 0.3 seconds.
 ```
 python3 data_cleaning_and_statistics.py
 ```
