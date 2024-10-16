@@ -46,6 +46,7 @@ def read_chat_files(file_directory):
     df=df.assign(transcriptions=transcriptions)
 
     #pacient information
+    v_name=[] # add speaker name (Liting)
     v_sex=[]
     v_age=[]
     v_WAB_AQ=[]
@@ -57,10 +58,16 @@ def read_chat_files(file_directory):
         size=len(participant)
         for j in range(size):
             header=ds2.headers()
+            # Liting: Added speaker names
+            try:
+                name = header[0]['Participants']['PAR'].get('name', 'Unknown')
+            except KeyError:
+                name = 'Unknown'
             sex=header[0]['Participants']['PAR']['sex'] #sex information
             age=header[0]['Participants']['PAR']['age'] #age information
             WAB_AQ=header[0]['Participants']['PAR']['custom'] #WAB_AQ information
             aphasia_type=header[0]['Participants']['PAR']['group'] #fluency_speech information
+            v_name.append(name)  # Liting: Added speaker names
             v_sex.append(sex)
             v_age.append(age)
             v_WAB_AQ.append(WAB_AQ)
@@ -68,7 +75,7 @@ def read_chat_files(file_directory):
             for k in range (len(ds2.file_paths())):
                 v_file_name.append(ds2.file_paths()[k]) #file name 
 
-                
+    df = df.assign(name=v_name) #added by Liting
     df=df.assign(sex=v_sex)
     df=df.assign(age=v_age)
     df=df.assign(file=v_file_name)
