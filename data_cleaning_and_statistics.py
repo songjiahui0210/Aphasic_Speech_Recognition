@@ -20,7 +20,7 @@ def clean_dataset(file_path):
     large_differences = df[df['difference'] > 30000]
     small_differences = df[df['difference'] < 300]
     empty_transcripts = df[df['transcriptions'].isnull() | (df['transcriptions'].str.strip() == '')]
-    unkown_speaker_names = df[(df['name']=="Unknown") | (df['name']=="Participant")]
+    # unkown_speaker_names = df[(df['name']=="Unknown") | (df['name']=="Participant")]
 
     # print number of rows with audios longer than 30 seconds
     if not large_differences.empty:
