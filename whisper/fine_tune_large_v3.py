@@ -3,30 +3,33 @@
 from transformers import WhisperFeatureExtractor
 from transformers import WhisperTokenizer
 from transformers import WhisperProcessor
-from datasets import Dataset
-
+import soundfile as sf
+from datasets import Dataset, DatasetDict, Audio
 import pandas as pd
+import os 
 
 # load dataset
 csv_file_path = '../final_clean_dataset.csv'
 df = pd.read_csv(csv_file_path)
 
-feature_extractor = WhisperFeatureExtractor.from_pretrained("openai/whisper-small")
-tokenizer = WhisperTokenizer.from_pretrained("openai/whisper-small", language="English", task="transcribe")
-processor = WhisperProcessor.from_pretrained("openai/whisper-small", language="Hindi", task="transcribe")
+def load_audio(batch):
+    audio_file_path = os.path.join("../../data_processed/audios", batch["folder_name"], batch["file_cut"])
+    audio, _ = sf.read(audio_file_path)
+    batch["audio"] = {"array": audio}
+    return batch
 
 dataset = Dataset.from_pandas(df)
-print(dataset[0])
+# load_audio(dataset[0])
+# map the function to load audio files
+dataset = dataset.map(load_audio)
 
-# input_str = df["transcriptions"][0]
-# labels = tokenizer(input_str).input_ids
-# decoded_with_special = tokenizer.decode(labels, skip_special_tokens=False)
-# decoded_str = tokenizer.decode(labels, skip_special_tokens=True)
 
-# print(f"Input:                 {input_str}")
-# print(f"Decoded w/ special:    {decoded_with_special}")
-# print(f"Decoded w/out special: {decoded_str}")
-# print(f"Are equal:             {input_str == decoded_str}")
+# feature_extractor = WhisperFeatureExtractor.from_pretrained("openai/whisper-small")
+# tokenizer = WhisperTokenizer.from_pretrained("openai/whisper-small", language="English", task="transcribe")
+# processor = WhisperProcessor.from_pretrained("openai/whisper-small", language="Hindi", task="transcribe")
+
+# dataset = Dataset.from_pandas(df)
+# print(dataset[0])
 
 def prepare_dataset(batch):
     # load and resample audio data from 48 to 16kHz
