@@ -4,7 +4,8 @@ import torch
 from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
 import pandas as pd
 import warnings
-import re
+import re 
+import time
 
 # suppress some warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -15,6 +16,10 @@ df = pd.read_csv(csv_file_path)
 
 # get the test dataset
 df = df[df['split'] == 'test']
+num_rows = df.shape[0]
+print(f"total rows: {num_rows}")
+# get 100 rows
+df = df.head(100)
 
 # Check device and dtype
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
@@ -45,6 +50,7 @@ if 'generated_transcriptions' not in df.columns:
 
 # path to the audio files
 audio_base_path = "../../data_processed/audios/"
+start_time = time.time()
 for index, row in df.iterrows():
     print(f"Processing row{index+1}")
     audio_file_path = audio_base_path + row['folder_name'] + "/" + row['file_cut'] 
@@ -57,6 +63,11 @@ for index, row in df.iterrows():
         print(f"Error processing {audio_file_path}: {e}")
         df.at[index, 'generated_transcriptions'] = None
 
-df = df.rename(columns={'transcriptions': 'reference_transcriptions'})
-output_df = df[['reference_transcriptions', 'generated_transcriptions']]
-output_df.to_csv("generated_transcriptions_large.csv", index=False)
+end_time = time.time()
+# Calculate elapsed time
+elapsed_time = end_time - start_time
+print(f"Total time taken: {elapsed_time} seconds")
+
+# Estimate total time based on the number of rows processed
+estimated_total_time = (elapsed_time / 100) * num_rows/60/60
+print(f"Estimated total time for full dataset: {estimated_total_time} hours")
