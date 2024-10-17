@@ -4,6 +4,10 @@ After git clone the repo, enter the directory
 ```
 cd Aphasic_speech_recognition
 ```
+
+```
+module load python/3.8.1
+```
 ### Step 1: unzip the transcripts
 
 ```
@@ -21,7 +25,7 @@ pip install pylangacq
 Upgrade to python-dateutil-2.9.0
 
 ```
---upgrade python-dateutil --user
+pip install --upgrade python-dateutil --user
 ```
 ### Step 2: process the transcripts
 
@@ -47,4 +51,11 @@ Note: Steps 2, 3 and 4 are very time-consuming.
 Delete the rows with empty transcriptions, audios longer than 30 seconds, and audios shorter than 0.3 seconds.
 ```
 python3 data_cleaning_and_statistics.py
+```
+
+### Step 6: split data 
+Split the dataset into training (80%), validation (10%), and test (10%) sets based on the unique speakers within each WAB_AQ_category
+
+```
+python3 data_splitting.py
 ```
