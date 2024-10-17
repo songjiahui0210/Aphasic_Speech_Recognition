@@ -6,6 +6,10 @@ from sklearn.model_selection import train_test_split
 # Ensure that no speaker appears in more than one split by grouping data by 'name_unique_speaker'
 # The splits are done based on the unique speakers within each WAB_AQ_category
 
+# pre: Check if the output file already exists and delete it if it does
+output_path = '../data_processed/dataset_splitted.csv'
+if os.path.exists(output_path):
+    os.remove(output_path)
 
 # Step 1: Load the dataset
 data_path = 'final_clean_dataset.csv'
@@ -47,3 +51,15 @@ df.to_csv(output_path, index=False)
 
 print(f"Data splitting completed and saved to '{output_path}'!")
 
+
+# Step 5:  Verification of the splits
+train_speakers = set(df[df['split'] == 'train']['name_unique_speaker'])
+val_speakers = set(df[df['split'] == 'validation']['name_unique_speaker'])
+test_speakers = set(df[df['split'] == 'test']['name_unique_speaker'])
+
+# Check for intersection (should be empty sets)
+assert train_speakers.isdisjoint(val_speakers), "Error: Some speakers are in both Train and Validation!"
+assert train_speakers.isdisjoint(test_speakers), "Error: Some speakers are in both Train and Test!"
+assert val_speakers.isdisjoint(test_speakers), "Error: Some speakers are in both Validation and Test!"
+
+print("Speaker uniqueness check passed!")
