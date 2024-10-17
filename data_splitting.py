@@ -2,6 +2,10 @@ import pandas as pd
 import os
 from sklearn.model_selection import train_test_split
 
+#Split the dataset into training (80%), validation (10%), and test (10%) sets 
+# Ensure that no speaker appears in more than one split by grouping data by 'name_unique_speaker'
+# The splits are done based on the unique speakers within each WAB_AQ_category
+
 
 # Step 1: Load the dataset
 data_path = 'final_clean_dataset.csv'
