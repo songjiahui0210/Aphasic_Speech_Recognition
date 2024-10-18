@@ -7,6 +7,9 @@ def clean_dataset(file_path):
         print(f"Error reading the CSV file: {e}")
         return
     
+    # three audios of UMD/MMA20a, UNH/UNH10b, UNH/UNH11b are missing, remove them
+    df = df[~df['file'].isin(['MMA20a.wav', 'UNH10b.wav', 'UNH11b.wav'])]
+    
     # get total number of rows
     num_rows = df.shape[0]
     print(f"Total rows: {num_rows}") # 129295
