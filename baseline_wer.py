@@ -125,7 +125,7 @@ def run_all_models(csv_path, audio_root, models, detailed_results_folder, summar
 # Main script to run the models and calculations
 csv_path = "../data_processed/dataset_splitted.csv"
 audio_root = "../data_processed/audios"
-models = ["base","small", "medium", "large", "large-v2", "large-v3"]
+models = ["medium", "large", "large-v2", "large-v3"]
 detailed_results_folder = "../data_processed/detailed_wer_results"
 summary_csv = "../data_processed/summary_wer_results.csv"
 
