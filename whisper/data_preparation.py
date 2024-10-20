@@ -5,7 +5,7 @@ import argparse
 from transformers import WhisperFeatureExtractor
 from transformers import WhisperTokenizer
 import soundfile as sf
-from datasets import Dataset, DatasetDict, Audio
+from datasets import Dataset, DatasetDict, Audio,load_from_disk
 import pandas as pd
 import os 
 
@@ -27,16 +27,19 @@ def process_dataset(model_size):
     csv_file_path = '../../data_processed/dataset_splitted.csv'
     df = pd.read_csv(csv_file_path)
 
-    # dataset = Dataset.from_pandas(df)
+    columns_to_drop = ['mark_start', 'mark_end', 'name','sex','age','file','WAB_AQ','aphasia_type','WAB_AQ_category','fluency_speech','original_file_length','difference','name_extracted_from_filename','name_unique_speaker']
+    df = df.drop(columns=columns_to_drop)
+    dataset = Dataset.from_pandas(df)
 
-    # # split dataset based on the 'split' column
-    # train_dataset = dataset.filter(lambda example: example["split"] == "train")
-    # eval_dataset = dataset.filter(lambda example: example["split"] == "validation")
-    # test_dataset = dataset.filter(lambda example: example["split"] == "test")
+    dataset_dict=DatasetDict()
+    dataset_dict["train"] = dataset.filter(lambda example: example["split"] == "train")
+    dataset_dict["eval"] = dataset.filter(lambda example: example["split"] == "validation")
+    dataset_dict["test"] = dataset.filter(lambda example: example["split"] == "test")
 
-    # directory to save the processed dataset
+    print("Data splitting finished.")
+
+    # directory to save the processed audio dataset
     processed_audio_data_path = f'../../data_processed/processed_audio_dataset_{model_size}'
-    final_processed_data_path = f'../../data_processed/final_processed_dataset_{model_size}'
 
     # list to keep track of missing audio files
     missing_files = []
@@ -60,16 +63,11 @@ def process_dataset(model_size):
 
     # check if the processed dataset already exists
     if os.path.exists(processed_audio_data_path):
-        # load preprocessed dataset
-        dataset = Dataset.load_from_disk(processed_audio_data_path)
-        print("Loaded existing dataset!")
+        dataset_dict = load_from_disk(processed_audio_data_path)
+        print("Loaded existing audio dataset!")
     else:
-        # create dataset from the CSV and map the function to load audio files
-        dataset = Dataset.from_pandas(df)
-        dataset = dataset.map(load_audio)
-        
-        # save the processed dataset for future use
-        dataset.save_to_disk(processed_audio_data_path)
+        dataset_dict = dataset_dict.map(load_audio)
+        dataset_dict.save_to_disk(processed_audio_data_path)
         print("Processed audio dataset saved.")
 
     # save the missing files to a CSV
@@ -92,8 +90,8 @@ def process_dataset(model_size):
             batch["labels"] = None
             return batch
         
-        # compute log-Mel input features from input audio array
         try:
+            # compute log-Mel input features from input audio array
             batch["input_features"] = feature_extractor(audio["array"], sampling_rate=audio["sampling_rate"]).input_features[0]
             # encode target text to label ids
             batch["labels"] = tokenizer(batch["transcriptions"]).input_ids
@@ -101,38 +99,17 @@ def process_dataset(model_size):
             print(f"Error processing audio: {e}")
             batch["input_features"] = None
             batch["labels"] = None
-            return None
         return batch
 
-    if os.path.exists(final_processed_data_path):
-        # load fully preprocessed dataset
-        dataset = Dataset.load_from_disk(final_processed_data_path)
-        print("Loaded final processed dataset.")
-    else:
-        # prepare the dataset
-        dataset = dataset.map(prepare_dataset, num_proc=4)
-        # dataset = dataset.filter(lambda batch: batch["input_features"] is not None)
-        
-        # save the fully processed dataset for future use
-        dataset.save_to_disk(final_processed_data_path)
-        print("Final processed dataset saved.")
-    
-    # split dataset into train, validation, and test based on the 'split' column
-    train_dataset = dataset.filter(lambda example: example["split"] == "train")
-    eval_dataset = dataset.filter(lambda example: example["split"] == "validation")
-    test_dataset = dataset.filter(lambda example: example["split"] == "test")
+    # prepare the datasets
+    dataset_dict = dataset_dict.map(prepare_dataset, num_proc=8)
 
-    # Package the datasets into a DatasetDict
-    dataset_dict = DatasetDict({
-        "train": train_dataset,
-        "validation": eval_dataset,
-        "test": test_dataset
-    })
+    print("finished preparing dataset")
 
-    # save the dataset splits
-    dataset_dict.save_to_disk(final_processed_data_path)
-    print("Dataset split into train, validation, and test sets and saved to disk.")
-
+    # save the dataset_dict
+    dataset_dict_path = f'../../data_processed/dataset_dict_{model_size}'
+    dataset_dict.save_to_disk(dataset_dict_path)
+    print("Dataset_dict saved to disk.")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Prepare a dataset with Whisper model.")
