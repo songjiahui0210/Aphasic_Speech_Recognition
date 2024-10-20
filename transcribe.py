@@ -12,7 +12,7 @@ def transcribe_and_save(csv_path, audio_root, model_pipeline, detailed_csv):
     test_rows = df[df['split'] == 'test']
     
     # Process each row in the test set
-    first_write = True  # Ensures header is written once
+    first_write = True  
     with open(detailed_csv, mode='a') as f:
         for index, row in test_rows.iterrows():
             file_name = row['file_cut']
@@ -55,11 +55,11 @@ def run_all_transcriptions(csv_path, audio_root, models, detailed_results_folder
         model_pipeline = pipeline(
             "automatic-speech-recognition",
             model=model_name,
-            device="cuda:0" if torch.cuda.is_available() else "cpu"
+            device="cuda:0" 
         )
-
+        file_name = model_name.replace("/", "_")
         # Transcribe and save results for this model
-        detailed_csv = f"{detailed_results_folder}/detailed_{model_name}_results.csv"
+        detailed_csv = f"{detailed_results_folder}/detailed_{file_name}_results.csv"
         transcribe_and_save(csv_path, audio_root, model_pipeline, detailed_csv)
 
         torch.cuda.empty_cache()
