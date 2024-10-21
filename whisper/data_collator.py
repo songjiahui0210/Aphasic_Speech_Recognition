@@ -16,6 +16,9 @@ class DataCollatorSpeechSeq2SeqWithPadding:
         input_features = [{"input_features": feature["input_features"]} for feature in features]
         batch = self.processor.feature_extractor.pad(input_features, return_tensors="pt")
 
+        # compute the attention mask for the input features
+        batch["attention_mask"] = torch.ones(batch["input_features"].shape[:-1], dtype=torch.long)
+
         # get the tokenized label sequences
         label_features = [{"input_ids": feature["labels"]} for feature in features]
         # pad the labels to max length

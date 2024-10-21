@@ -4,7 +4,7 @@ import evaluate
 
 metric = evaluate.load("wer")
 
-def compute_metrics(pred):
+def compute_metrics(pred,tokenizer):
     pred_ids = pred.predictions
     label_ids = pred.label_ids
 
