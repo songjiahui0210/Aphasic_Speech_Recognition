@@ -59,3 +59,9 @@ Split the dataset into training (80%), validation (10%), and test (10%) sets bas
 ```
 python3 data_splitting.py
 ```
+
+### Step 7: Calculating baseline WER
+ ```
+python3 transcribe.py
+python3 wer_calculation.py
+```
