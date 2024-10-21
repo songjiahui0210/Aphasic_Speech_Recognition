@@ -75,11 +75,11 @@ cd Aphasic_speech_recognition/vanilla_training/
 ### step 1: Prepare data
 prepare data, including loading audio files, compute log-Mel input features, and encode transcriptions to label ids
 ```
-python3 python3 data_preparation.py "small"  --remember to change model size
+python3 data_preparation.py "small"
 ```
 Select model size from "tiny", "small", "medium" and "large".
 ### step 2: train the model
 ```
-python3 training.py "small"  --remember to change model size
+python3 training.py "small"
 ```
 Select model size from "tiny", "small", "medium" and "large".
