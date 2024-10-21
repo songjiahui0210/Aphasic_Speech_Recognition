@@ -2,7 +2,7 @@
 
 After git clone the repo, enter the directory
 ```
-cd Aphasic_speech_recognition
+cd Aphasic_speech_recognition/
 ```
 
 ```
@@ -60,8 +60,26 @@ Split the dataset into training (80%), validation (10%), and test (10%) sets bas
 python3 data_splitting.py
 ```
 
+# Baseline
+
 ### Step 7: Calculating baseline WER
- ```
+```
 python3 transcribe.py
 python3 wer_calculation.py
 ```
+
+# Vanilla fine-tuning
+```
+cd Aphasic_speech_recognition/vanilla_training/
+```
+### step 1: Prepare data
+prepare data, including loading audio files, compute log-Mel input features, and encode transcriptions to label ids
+```
+python3 python3 data_preparation.py "small"  --remember to change model size
+```
+Select model size from "tiny", "small", "medium" and "large".
+### step 2: train the model
+```
+python3 training.py "small"  --remember to change model size
+```
+Select model size from "tiny", "small", "medium" and "large".
