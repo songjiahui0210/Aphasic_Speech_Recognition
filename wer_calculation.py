@@ -9,17 +9,17 @@ def convert_numbers_to_words(text):
     p = inflect.engine()
     words = text.split()
     
-    converted_text = ""
+    converted_text = []
     
     for word in words:
-        if word.isdigit():
+        if word.isdigit():  
             try:
-                word = p.number_to_words(word)
-            except inflect.NumOutOfRangeError:
+                word = p.number_to_words(word, andword='', group=2)
+            except (inflect.NumOutOfRangeError, ValueError):
                 pass
-        converted_text += word + " "
+        converted_text.append(word)
     
-    return converted_text.strip()
+    return " ".join(converted_text)
 
 
 def calculate_overall_wer_from_csv(detailed_csv):
@@ -66,7 +66,7 @@ def run_all_wer_calculations(models, detailed_results_folder, summary_csv):
 
 # Main script to calculate WER from the saved transcriptions
 #, "openai/whisper-large", "openai/whisper-large-v2", "openai/whisper-large-v3"
-models = ["openai/whisper-medium"]
+models = ["openai/whisper-small", "openai/whisper-medium", "openai/whisper-large-v3"]
 detailed_results_folder = "../data_processed/detailed_wer_results"
 summary_csv = "../data_processed/summary_wer_results.csv"
 

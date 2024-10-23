@@ -67,7 +67,7 @@ def run_all_transcriptions(csv_path, audio_root, models, detailed_results_folder
 # Main script to run the models and transcriptions
 csv_path = "../data_processed/dataset_splitted.csv"
 audio_root = "../data_processed/audios"
-models = ["openai/whisper-medium", "openai/whisper-large", "openai/whisper-large-v2", "openai/whisper-large-v3"]
+models = ["openai/whisper-small"]
 detailed_results_folder = "../data_processed/detailed_wer_results"
 
 if not os.path.exists(detailed_results_folder):
