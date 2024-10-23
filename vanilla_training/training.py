@@ -12,7 +12,7 @@ import os
 
 # parse command-line arguments
 parser = argparse.ArgumentParser(description="Train Whisper model with a specified size.")
-parser.add_argument("model_size", type=str, choices=["tiny", "small", "medium", "large"], help="Size of the Whisper model to use.")
+parser.add_argument("model_size", type=str, choices=["tiny", "small", "medium", "large", "large-v3"], help="Size of the Whisper model to use.")
 args = parser.parse_args()
 
 model_map = {
@@ -20,6 +20,7 @@ model_map = {
     "small": "openai/whisper-small",
     "medium": "openai/whisper-medium",
     "large": "openai/whisper-large-v3",
+    "large-v3": "openai/whisper-large-v3"
 }
 model_id = model_map[args.model_size]
 
