@@ -15,11 +15,12 @@ def process_dataset(model_size):
         "tiny": "openai/whisper-tiny",
         "small": "openai/whisper-small",
         "medium": "openai/whisper-medium",
-        "large": "openai/whisper-large-v3"
+        "large": "openai/whisper-large-v3",
+        "large-v3": "openai/whisper-large-v3"
     }
 
     if model_size not in model_map:
-        raise ValueError("Model size must be one of 'tiny', 'small', 'medium', or 'large'.")
+        raise ValueError("Model size must be one of 'tiny', 'small', 'medium', 'large', or 'large-v3'.")
 
     model_name = model_map[model_size]
 
@@ -113,7 +114,7 @@ def process_dataset(model_size):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Prepare a dataset with Whisper model.")
-    parser.add_argument("model_size", type=str, choices=["tiny", "small", "medium", "large"],
+    parser.add_argument("model_size", type=str, choices=["tiny", "small", "medium", "large", "large-v3"],
                         help="Size of the Whisper model to use.")
     
     args = parser.parse_args()
