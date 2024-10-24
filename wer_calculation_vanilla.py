@@ -1,12 +1,13 @@
-# from jiwer import wer, Compose, ToLowerCase, RemovePunctuation
-# import pandas as pd
-# import inflect
+# example usgae: python3 wer_calculation_vanilla.py "../data_processed/detailed_wer_results/detailed_.._trained_models_whisper-small-vanilla_results.csv"
+
+import sys
 from wer_calculation import calculate_overall_wer_from_csv
 
+if len(sys.argv) != 2:
+    print("Usage: python3 wer_calculation_vanilla.py <detailed_wer_csv_path>")
+    sys.exit(1)
 
-models = ["openai/whisper-small_vanilla"]
-detailed_csv = "../data_processed/detailed_wer_results/detailed_openai_whisper-small_results.csv"
-summary_csv = "../data_processed/summary_wer_results.csv"
+detailed_csv = sys.argv[1]
 
 overall_wer = calculate_overall_wer_from_csv(detailed_csv)
 

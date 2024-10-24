@@ -62,24 +62,36 @@ python3 data_splitting.py
 
 # Baseline
 
-### Step 7: Calculating baseline WER
+### Step 7: calculating baseline WER
 ```
 python3 transcribe.py
 python3 wer_calculation.py
 ```
 
 # Vanilla fine-tuning
+
 ```
 cd Aphasic_speech_recognition/vanilla_training/
 ```
-### step 1: Prepare data
-prepare data, including loading audio files, compute log-Mel input features, and encode transcriptions to label ids
+### Step 1: prepare data
+
+Prepare data, including loading audio files, compute log-Mel input features, and encode transcriptions to label ids.
 ```
-python3 data_preparation.py "small"
-```
-Select model size from "tiny", "small", "medium" and "large".
-### step 2: train the model
-```
-python3 training.py "small"
+python3 data_preparation.py <model_size>
 ```
 Select model size from "tiny", "small", "medium" and "large".
+
+### Step 2: train the model
+```
+python3 training.py <model_size>
+```
+Select model size from "tiny", "small", "medium" and "large".
+
+### Step 3: evaluation
+
+After training, run the following commands step by step to get WER result.
+```
+cd ..
+python3 transcribe_vanilla.py <model_path>
+python3 wer_calculation_vanilla.py <detailed_wer_csv_path>
+```
