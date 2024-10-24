@@ -55,7 +55,8 @@ def run_all_transcriptions(csv_path, audio_root, models, detailed_results_folder
         model_pipeline = pipeline(
             "automatic-speech-recognition",
             model=model_name,
-            device="cuda:0" 
+            device="cuda:0",
+            framework="pt",# added by Liting
         )
         file_name = model_name.replace("/", "_")
         # Transcribe and save results for this model
@@ -64,14 +65,14 @@ def run_all_transcriptions(csv_path, audio_root, models, detailed_results_folder
 
         torch.cuda.empty_cache()
 
-# Main script to run the models and transcriptions
-csv_path = "../data_processed/dataset_splitted.csv"
-audio_root = "../data_processed/audios"
-models = ["openai/whisper-small"]
-detailed_results_folder = "../data_processed/detailed_wer_results"
+# # Main script to run the models and transcriptions
+# csv_path = "../data_processed/dataset_splitted.csv"
+# audio_root = "../data_processed/audios"
+# models = ["openai/whisper-small"]
+# detailed_results_folder = "../data_processed/detailed_wer_results"
 
-if not os.path.exists(detailed_results_folder):
-    os.makedirs(detailed_results_folder)
-    print(f"Directory '{detailed_results_folder}' created.")
+# if not os.path.exists(detailed_results_folder):
+#     os.makedirs(detailed_results_folder)
+#     print(f"Directory '{detailed_results_folder}' created.")
 
-run_all_transcriptions(csv_path, audio_root, models, detailed_results_folder)
+# run_all_transcriptions(csv_path, audio_root, models, detailed_results_folder)
