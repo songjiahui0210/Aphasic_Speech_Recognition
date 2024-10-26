@@ -6,9 +6,11 @@
 #SBATCH --job-name=gpu_run
 #SBATCH --mem=8GB                     # increase memory if needed for your model
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=6
 #SBATCH --output=myjob.%j.out
 #SBATCH --error=myjob.%j.err
 
-# Your code to run, for exampl
-python3 training.py "large-v3"              
+echo "Job started with job ID $SLURM_JOB_ID"
+python3 training.py "large-v3"
+echo "Job completed."
+             
