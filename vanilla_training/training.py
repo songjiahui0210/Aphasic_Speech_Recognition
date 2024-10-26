@@ -12,15 +12,14 @@ import os
 
 # parse command-line arguments
 parser = argparse.ArgumentParser(description="Train Whisper model with a specified size.")
-parser.add_argument("model_size", type=str, choices=["tiny", "small", "medium", "large", "large-v3"], help="Size of the Whisper model to use.")
+parser.add_argument("model_size", type=str, choices=["tiny", "small", "medium","large-v3"], help="Size of the Whisper model to use.")
 args = parser.parse_args()
 
 model_map = {
     "tiny": "openai/whisper-tiny", 
     "small": "openai/whisper-small",
     "medium": "openai/whisper-medium",
-    "large": "openai/whisper-large-v3",
-    "large-v3": "openai/whisper-large-v3"
+    "large-v3": "openai/whisper-large-v3",
 }
 model_id = model_map[args.model_size]
 
@@ -41,9 +40,12 @@ print("Data set loaded.")
 model = WhisperForConditionalGeneration.from_pretrained(model_id)
 model.to(device)
 
+# Disable use_cache for compatibility with gradient checkpointing
+model.config.use_cache = False
 model.generation_config.language = "English"
 model.generation_config.task = "transcribe"
 model.generation_config.forced_decoder_ids = None
+
 
 print(f"Model {model_id} set up finished.")
 
@@ -106,11 +108,11 @@ def get_training_args(model_size):
             push_to_hub=False,
             save_total_limit=5,
         )
-    elif model_size == "large":
+    elif model_size == "large-v3":
         return Seq2SeqTrainingArguments(
             output_dir=f"../../trained_models/whisper-{model_size}-vanilla",
-            per_device_train_batch_size=4,  # smaller batch size for larger models
-            gradient_accumulation_steps=4,
+            per_device_train_batch_size=1,  # smaller batch size for larger models
+            gradient_accumulation_steps=2,
             learning_rate=5e-6,
             warmup_steps=1000,
             max_steps=26000,  # more steps for large models
@@ -119,7 +121,7 @@ def get_training_args(model_size):
             eval_strategy="steps",
             per_device_eval_batch_size=8,
             predict_with_generate=True,
-            generation_max_length=225,
+            generation_max_length=150,
             save_steps=1000,
             eval_steps=1000,
             logging_steps=25,
@@ -155,9 +157,10 @@ trainer = Seq2SeqTrainer(
     train_dataset=train_dataset,
     eval_dataset=eval_dataset,
     data_collator=data_collator,
-    compute_metrics=lambda p: compute_metrics(p, processor.tokenizer),
-    tokenizer=processor.feature_extractor,
+    compute_metrics=lambda p: compute_metrics(p, processor.feature_extractor),
+    processing_class=processor.feature_extractor,  # Updated to use processing_class
 )
+
 
 processor.save_pretrained(training_args.output_dir)
 
