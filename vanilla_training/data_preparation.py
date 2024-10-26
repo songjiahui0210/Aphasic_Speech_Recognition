@@ -1,5 +1,5 @@
 # based on https://huggingface.co/blog/fine-tune-whisper
-# usage example: python3 data_preparation.py "small"
+# usage example: python3 data_preparation.py "large"
 # check number of cores (num_proc) before running
 
 import argparse

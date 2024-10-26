@@ -1,6 +1,6 @@
 # based on https://huggingface.co/blog/fine-tune-whisper
 # usage example no freezing: python3 training.py "small"
-# usage example freezing: python3 training.py small --freeze_layers 10
+# usage example freezing: python3 training.py "large" --freeze_layers 30
 
 from transformers import WhisperForConditionalGeneration, WhisperProcessor, Seq2SeqTrainingArguments, Seq2SeqTrainer
 from data_collator import DataCollatorSpeechSeq2SeqWithPadding
@@ -81,7 +81,7 @@ def get_training_args(model_size, freeze_layers):
             gradient_accumulation_steps=1,
             learning_rate=1.25e-5,
             warmup_steps=500,
-            max_steps=8000,
+            max_steps=14000,
             gradient_checkpointing=True,
             fp16=True,
             eval_strategy="steps",
@@ -125,20 +125,20 @@ def get_training_args(model_size, freeze_layers):
     elif model_size == "large":
         return Seq2SeqTrainingArguments(
             output_dir=output_dir,
-            per_device_train_batch_size=4,  # smaller batch size for larger models
+            per_device_train_batch_size=4,
             gradient_accumulation_steps=4,
             learning_rate=5e-6,
             warmup_steps=1000,
-            max_steps=26000,  # more steps for large models
+            max_steps=26000,  
             gradient_checkpointing=True,
-            fp16=True,
+            fp16=True,                 
             eval_strategy="steps",
-            per_device_eval_batch_size=8,
+            per_device_eval_batch_size=8, 
             predict_with_generate=True,
             generation_max_length=225,
-            save_steps=1000,
+            save_steps=1000, 
             eval_steps=1000,
-            logging_steps=25,
+            logging_steps=25,             
             report_to=["tensorboard"],
             load_best_model_at_end=True,
             metric_for_best_model="wer",
@@ -176,6 +176,7 @@ trainer = Seq2SeqTrainer(
 )
 
 processor.save_pretrained(training_args.output_dir)
+torch.cuda.empty_cache()
 
 print(f"Starting training for {model_id}...")
 start_time = time.time()
