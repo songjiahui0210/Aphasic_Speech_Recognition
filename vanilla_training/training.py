@@ -172,6 +172,8 @@ training_duration = end_time - start_time
 print(f"Training completed in {training_duration // 3600} hours, "
       f"{(training_duration % 3600) // 60} minutes, and {training_duration % 60:.2f} seconds.")
 
+trainer.save_model(training_args.output_dir)
+
 # after training
 print("Evaluating on the test dataset...")
 predictions = trainer.predict(test_dataset=test_dataset)

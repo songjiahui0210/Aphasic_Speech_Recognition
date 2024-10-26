@@ -3,6 +3,7 @@
 *.pyc
 __pycache__/
 */__pycache__/
+.DS_Store
 
 vanilla_training/baseline.py
 vanilla_training/check_audio_chunk.py
