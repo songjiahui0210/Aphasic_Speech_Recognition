@@ -13,5 +13,6 @@ vanilla_training/check_audio_chunk.py
 vanilla_training/*.csv
 vanilla_training/generated_transcripts_processing.py
 vanilla_training/wer.py
+vanilla_training/*.sh
 
 # ------------------------
