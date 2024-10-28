@@ -1,4 +1,4 @@
-# example usgae: python3 wer_calculation_vanilla.py "../data_processed/detailed_wer_results/detailed_.._trained_models_whisper-small-vanilla_results.csv"
+# example usgae: python3 wer_calculation_finetune.py "../data_processed/detailed_wer_results/detailed_.._trained_models_whisper-small-vanilla_results.csv"
 
 import sys
 from wer_calculation import calculate_overall_wer_from_csv

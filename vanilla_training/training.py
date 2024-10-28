@@ -105,7 +105,7 @@ def get_training_args(model_size, freeze_layers):
             gradient_accumulation_steps=2,
             learning_rate=6.25e-6,
             warmup_steps=500,
-            max_steps=14000,  # more steps for larger models
+            max_steps=14000, 
             gradient_checkpointing=True,
             fp16=True,
             eval_strategy="steps",
@@ -129,7 +129,7 @@ def get_training_args(model_size, freeze_layers):
             gradient_accumulation_steps=4,
             learning_rate=5e-6,
             warmup_steps=1000,
-            max_steps=26000,  
+            max_steps=14000,  
             gradient_checkpointing=True,
             fp16=True,                 
             eval_strategy="steps",
