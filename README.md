@@ -68,7 +68,7 @@ python3 transcribe.py
 python3 wer_calculation.py
 ```
 
-# Vanilla fine-tuning
+# Fine-tuning
 
 ```
 cd Aphasic_speech_recognition/vanilla_training/
@@ -82,16 +82,22 @@ python3 data_preparation.py <model_size>
 Select model size from "tiny", "small", "medium" and "large".
 
 ### Step 2: train the model
+
+Vanilla fine-tuning, select model size from "small", "medium" and "large":
 ```
 python3 training.py <model_size>
 ```
-Select model size from "tiny", "small", "medium" and "large".
+
+Fine-tuning with encoder freezing, select model size from "small", "medium" and "large" and set the number of encoder layers to freeze:
+```
+python3 training.py <model_size> --freeze_layers <number_of_encoder_layers_to_freeze>
+```
 
 ### Step 3: evaluation
 
 After training, run the following commands step by step to get WER result.
 ```
 cd ..
-python3 transcribe_vanilla.py <model_path>
-python3 wer_calculation_vanilla.py <detailed_wer_csv_path>
+python3 transcribe_finetune.py <model_path>
+python3 wer_calculation_finetune.py <detailed_wer_csv_path>
 ```

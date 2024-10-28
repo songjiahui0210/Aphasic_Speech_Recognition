@@ -1,5 +1,6 @@
 # based on https://huggingface.co/blog/fine-tune-whisper
-# usage example: python3 data_preparation.py "small"
+# usage example: python3 data_preparation.py "large"
+# check number of cores (num_proc) before running
 
 import argparse
 from transformers import WhisperFeatureExtractor
@@ -102,7 +103,7 @@ def process_dataset(model_size):
         return batch
 
     # prepare the datasets
-    dataset_dict = dataset_dict.map(prepare_dataset, num_proc=8)
+    dataset_dict = dataset_dict.map(prepare_dataset, num_proc=6)
 
     print("finished preparing dataset")
 
