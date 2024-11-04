@@ -4,12 +4,16 @@
 __pycache__/
 */__pycache__/
 .DS_Store
+*.log
+*.err
+*.out
 
 vanilla_training/baseline.py
 vanilla_training/check_audio_chunk.py
 vanilla_training/*.csv
 vanilla_training/generated_transcripts_processing.py
 vanilla_training/wer.py
+vanilla_training/*.sh
 
 # ------------------------
 vanilla_training/myjob.44890129.err

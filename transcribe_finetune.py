@@ -1,4 +1,4 @@
-# usage example: python3 transcribe_vanilla.py "../trained_models/whisper-small-vanilla"
+# usage example: python3 transcribe_finetune.py "../trained_models/whisper-small-vanilla"
 
 import os
 import sys

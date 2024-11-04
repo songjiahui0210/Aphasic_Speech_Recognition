@@ -1,5 +1,6 @@
 # based on https://huggingface.co/blog/fine-tune-whisper
-# usage example: python3 data_preparation.py "small"
+# usage example: python3 data_preparation.py "large"
+# check number of cores (num_proc) before running
 
 import argparse
 from transformers import WhisperFeatureExtractor
@@ -15,11 +16,11 @@ def process_dataset(model_size):
         "tiny": "openai/whisper-tiny",
         "small": "openai/whisper-small",
         "medium": "openai/whisper-medium",
-        "large-v3": "openai/whisper-large-v3",
+        "large": "openai/whisper-large-v3"
     }
 
     if model_size not in model_map:
-        raise ValueError("Model size must be one of 'tiny', 'small', 'medium', 'large-v3'.")
+        raise ValueError("Model size must be one of 'tiny', 'small', 'medium', or 'large'.")
 
     model_name = model_map[model_size]
 
@@ -101,8 +102,8 @@ def process_dataset(model_size):
             batch["labels"] = None
         return batch
 
-    # prepare the datasets（debug change num_proc=1）
-    dataset_dict = dataset_dict.map(prepare_dataset, num_proc=8) 
+    # prepare the datasets
+    dataset_dict = dataset_dict.map(prepare_dataset, num_proc=6)
 
     print("finished preparing dataset")
 
@@ -113,7 +114,7 @@ def process_dataset(model_size):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Prepare a dataset with Whisper model.")
-    parser.add_argument("model_size", type=str, choices=["tiny", "small", "medium", "large-v3"],
+    parser.add_argument("model_size", type=str, choices=["tiny", "small", "medium", "large"],
                         help="Size of the Whisper model to use.")
     
     args = parser.parse_args()
