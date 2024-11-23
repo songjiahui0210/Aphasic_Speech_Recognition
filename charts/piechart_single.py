@@ -11,15 +11,12 @@ rcParams['font.weight'] = 'medium'
 fontsize_title=26
 fontsize_text=24
 
-# Dataset 2: Training set distribution
+# Dataset
 labels = ['Mild', 'Moderate', 'Severe', 'Very Severe', 'Unknown']
 sizes = [53.24, 21.84, 3.91, 0.59, 20.42]
 colors = ['#C8102E', '#000000', '#A4804A', '#FF9999', '#666666']
 
-# Create figure
 plt.figure(figsize=(8, 8))
-
-# Training set distribution pie chart
 wedges, texts, autotexts = plt.pie(
     sizes,
     labels=labels,
@@ -49,7 +46,5 @@ texts[index_very_severe].set_position((texts[index_very_severe].get_position()[0
 
 plt.title('Severity Level Distribution', fontsize=fontsize_title)
 
-# Adjust layout
 plt.tight_layout()
-# plt.savefig("training_set_distribution_pie_chart.png")
 plt.show()

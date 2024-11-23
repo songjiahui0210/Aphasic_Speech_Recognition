@@ -56,7 +56,4 @@ ax.spines['top'].set_visible(False)
 ax.spines['right'].set_visible(False)
 
 plt.tight_layout()
-
-# Save and show
-# plt.savefig("encoder_freezing_dot_chart.png")
 plt.show()

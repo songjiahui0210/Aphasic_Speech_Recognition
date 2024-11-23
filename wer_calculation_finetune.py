@@ -4,7 +4,7 @@ import sys
 from wer_calculation import calculate_overall_wer_from_csv
 
 if len(sys.argv) != 2:
-    print("Usage: python3 wer_calculation_vanilla.py <detailed_wer_csv_path>")
+    print("Usage: python3 wer_calculation_finetune.py <detailed_wer_csv_path>")
     sys.exit(1)
 
 detailed_csv = sys.argv[1]

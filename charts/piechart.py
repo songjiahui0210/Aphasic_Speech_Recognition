@@ -45,7 +45,5 @@ axs[1].pie(
 )
 axs[1].set_title('Severity Level Distribution', fontsize=14)
 
-# Adjust layout
 plt.tight_layout()
-# plt.savefig("dataset_distribution_pie_charts.png")
 plt.show()

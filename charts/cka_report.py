@@ -15,7 +15,6 @@ cka_similarity = [
     0.5482, 0.5481, 0.5482, 0.5481, 0.5482, 0.5484, 0.5483, 0.5484
 ]
 
-# Plot
 plt.figure(figsize=(6, 3))
 plt.scatter(layers, cka_similarity, color="#000000", s=20, label="CKA Similarity")
 plt.plot(layers, cka_similarity, color="#000000", linestyle='-', linewidth=0.6)
@@ -34,8 +33,6 @@ ax = plt.gca()
 ax.spines['top'].set_visible(False)
 ax.spines['right'].set_visible(False)
 
-
-# Display
 # plt.grid(alpha=0.3)
 plt.tight_layout()
 plt.show()

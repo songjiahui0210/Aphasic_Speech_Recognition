@@ -36,6 +36,5 @@ for bars in [bars1, bars2]:
         height = bar.get_height()
         ax.text(bar.get_x() + bar.get_width() / 2, height, f"{height:.2f}", ha="center", va="bottom", fontsize=10)
 
-# Display the chart
 plt.tight_layout()
 plt.show()
