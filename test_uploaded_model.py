@@ -1,12 +1,14 @@
-# Use a pipeline as a high-level helper
 from transformers import pipeline
 import soundfile as sf
 from transformers import AutoProcessor, AutoModelForSpeechSeq2Seq
 
-pipe = pipeline("automatic-speech-recognition", model="LitingZhou/whisper-small-vanilla")
+# model_name="LitingZhou/whisper-small-vanilla" 
+model_name="LitingZhou/whisper-large-freezing-5" # change this to the model to be tested
 
-processor = AutoProcessor.from_pretrained("LitingZhou/whisper-small-vanilla")
-model = AutoModelForSpeechSeq2Seq.from_pretrained("LitingZhou/whisper-small-vanilla")
+pipe = pipeline("automatic-speech-recognition", model=model_name)
+
+processor = AutoProcessor.from_pretrained(model_name)
+model = AutoModelForSpeechSeq2Seq.from_pretrained(model_name)
 
 # Function to transcribe audio
 def transcribe_audio(audio_path):
