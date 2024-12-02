@@ -8,7 +8,7 @@ from cka import feature_space_linear_cka
 # Define CKA functions (as provided)
 # Add your CKA functions (gram_linear, gram_rbf, center_gram, cka, etc.) here
 
-# Load models
+# Load models （change finetuned_model_path accordingly）
 base_model_name = "openai/whisper-large-v3"
 finetuned_model_path = "trained_models/whisper-large-v3-vanilla/checkpoint-14001"
 device = "cuda" if torch.cuda.is_available() else "cpu"
