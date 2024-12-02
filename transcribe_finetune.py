@@ -10,7 +10,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 from transcribe import run_all_transcriptions
 
 if len(sys.argv) != 2:
-    print("Usage: python3 transcribe_vanilla.py <model_path>")
+    print("Usage: python3 transcribe_finetune.py <model_path>")
     sys.exit(1)
 
 model_path = sys.argv[1]
