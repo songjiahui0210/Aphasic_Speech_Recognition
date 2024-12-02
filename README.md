@@ -103,7 +103,8 @@ python3 wer_calculation_finetune.py <detailed_wer_csv_path>
 ```
 
 # CKA Analysis
-Brefore cka_analysis, if the dataset is in a subdirectory or parent directory of the cka_analysis.py, adjust the path accordingly.
+Before runing, python3 cka_analysis.py, adjust the path of finetuned_model_path accordingly on line 13.
+If the dataset is in a subdirectory or parent directory of the cka_analysis.py, adjust the path accordingly on line 22.
 ```
 cd cka
 python3 cka_analysis.py
