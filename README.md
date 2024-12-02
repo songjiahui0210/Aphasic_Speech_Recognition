@@ -101,3 +101,12 @@ cd ..
 python3 transcribe_finetune.py <model_path>
 python3 wer_calculation_finetune.py <detailed_wer_csv_path>
 ```
+
+# CKA Analysis
+Brefore cka_analysis, if the dataset is in a subdirectory or parent directory of the cka_analysis.py, adjust the path accordingly.
+```
+cd cka
+python3 cka_analysis.py
+```
+
+

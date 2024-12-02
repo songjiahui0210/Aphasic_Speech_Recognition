@@ -16,3 +16,5 @@ vanilla_training/wer.py
 vanilla_training/*.sh
 
 # ------------------------
+vanilla_training/myjob.44890129.err
+vanilla_training/myjob.44890129.out
