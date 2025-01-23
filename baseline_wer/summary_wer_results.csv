@@ -1,0 +1,4 @@
+model,wer
+openai/whisper-small,0.5115102333074766
+openai/whisper-medium,0.37794617817292203
+openai/whisper-large-v3,0.27163911927919326
