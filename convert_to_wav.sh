@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # define useful directory
-ORIGIN_AUDIOS_DIR="/work/van-speech-nlp/aphasia/English/Aphasia"
+ORIGIN_AUDIOS_DIR="/courses/CS7980.202530/data/aphasia/English/Aphasia"
 AUDIOS_DIR="../data_processed/audios"
 
 # create the audios folder if it does not exist

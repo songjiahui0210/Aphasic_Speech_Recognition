@@ -72,7 +72,7 @@ def run_all_transcriptions(csv_path, audio_root, models, detailed_results_folder
         torch.cuda.empty_cache() if device == "cuda" else None
 
 # # Main script to run the models and transcriptions
-csv_path = "/work/van-speech-nlp/jindaznb/jslpnb/mllm_experiments/aphasia/data_processed/dataset_splitted.csv"
+csv_path = "../data_processed/dataset_splitted.csv"
 audio_root = "../data_processed/audios"
 models = ["openai/whisper-small"]
 detailed_results_folder = "../data_processed/detailed_wer_results"
