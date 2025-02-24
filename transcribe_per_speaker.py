@@ -1,18 +1,22 @@
-# transcribe audio files using speech recognition models from Hugging Face's pipeline and save detailed transcription results to CSV files
-
-from transformers import pipeline
-import pandas as pd
-import torch
 import os
+import pandas as pd
+from transformers import pipeline
+import torch
 
-def transcribe_and_save(csv_path, audio_root, model_pipeline, detailed_csv):
+def transcribe_and_save_single_file(csv_path, audio_root, model_pipeline, detailed_csv):
     """
-    Transcribe audio and save the predictions in a CSV file using the Hugging Face pipeline.
+    Transcribe audio and save the predictions in a single CSV file, including all speakers.
     """
     # Load the dataset CSV
     df = pd.read_csv(csv_path)
     test_rows = df[df['split'] == 'test']
-    
+
+    # Ensure the output directory exists
+    output_dir = os.path.dirname(detailed_csv)
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+        print(f"Directory '{output_dir}' created.")
+
     # Process each row in the test set
     first_write = True  
     with open(detailed_csv, mode='a') as f:
@@ -33,6 +37,7 @@ def transcribe_and_save(csv_path, audio_root, model_pipeline, detailed_csv):
 
             # Collect data for detailed CSV
             output_data = {
+                "speaker": row['name_unique_speaker'],
                 "folder": folder_name,
                 "file_name": file_name,
                 "prediction": predicted_text,
@@ -46,9 +51,9 @@ def transcribe_and_save(csv_path, audio_root, model_pipeline, detailed_csv):
 
     print(f"Detailed results saved to {detailed_csv}")
 
-def run_all_transcriptions(csv_path, audio_root, models, detailed_results_folder):
+def run_all_transcriptions_single_file(csv_path, audio_root, models, detailed_csv):
     """
-    Run transcription for all models and save the results.
+    Run transcription for all models and save the results in a single file.
     """
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -60,25 +65,18 @@ def run_all_transcriptions(csv_path, audio_root, models, detailed_results_folder
             "automatic-speech-recognition",
             model=model_name,
             device=0 if device == "cuda" else -1,  # 0 for GPU, -1 for CPU
-            framework="pt",  # added by Liting
+            framework="pt",
         )
-        
-        file_name = model_name.replace("/", "_")
-        
-        # Transcribe and save results for this model
-        detailed_csv = f"{detailed_results_folder}/detailed_{file_name}_results.csv"
-        transcribe_and_save(csv_path, audio_root, model_pipeline, detailed_csv)
+
+        # Transcribe and save results for this model to a single file
+        transcribe_and_save_single_file(csv_path, audio_root, model_pipeline, detailed_csv)
 
         torch.cuda.empty_cache() if device == "cuda" else None
 
-# # Main script to run the models and transcriptions
-csv_path = "../data_processed/dataset_splitted.csv"
-audio_root = "../data_processed/audios"
-models = ["openai/whisper-large"]
-detailed_results_folder = "../data_processed/detailed_wer_results"
+if __name__ == "__main__":
+    csv_path = "../data_processed/dataset_splitted.csv"
+    audio_root = "../data_processed/audios"
+    models = ["openai/whisper-large"]
+    detailed_csv = "../data_processed/detailed_wer_results_all_speakers.csv"
 
-if not os.path.exists(detailed_results_folder):
-    os.makedirs(detailed_results_folder)
-    print(f"Directory '{detailed_results_folder}' created.")
-
-run_all_transcriptions(csv_path, audio_root, models, detailed_results_folder)
+    run_all_transcriptions_single_file(csv_path, audio_root, models, detailed_csv)
