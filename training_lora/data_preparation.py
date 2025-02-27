@@ -25,14 +25,27 @@ def prepare_dataset(dataset, feature_extractor):
 
 def main():
     parser = argparse.ArgumentParser(description="Prepare a dataset with Whisper model.")
-    parser.add_argument("model_size", type=str, choices=["small", "large-v3"],
+    parser.add_argument("model_size", type=str, choices=["small", "large"],
                         help="Size of the Whisper model to use.")
     args = parser.parse_args()
 
     feature_extractor = WhisperFeatureExtractor.from_pretrained(f"openai/whisper-{args.model_size}")
     csv_file_path = '../../data_processed/dataset_splitted.csv'
     df = pd.read_csv(csv_file_path)
-    dataset = Dataset.from_pandas(df)
+
+    # Calculate duration for each utterance in milliseconds
+    df['utterance_duration'] = df['mark_end'] - df['mark_start']
+    
+    # Sum durations by speaker or file
+    speaker_durations = df.groupby('name')['utterance_duration'].sum().reset_index()
+
+    # Filter speakers by total duration > 480,000 milliseconds (8 minutes)
+    valid_speakers = speaker_durations[speaker_durations['utterance_duration'] > 480000]['name']
+    
+    # Filter the original dataframe to include only valid speakers
+    df_filtered = df[df['name'].isin(valid_speakers)]
+
+    dataset = Dataset.from_pandas(df_filtered)
     dataset = dataset.map(process_audio_file)
     dataset = prepare_dataset(dataset, feature_extractor)
     dataset.save_to_disk(f"../../data_processed/processed_dataset_{args.model_size}")

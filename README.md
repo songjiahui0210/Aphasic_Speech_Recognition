@@ -79,7 +79,7 @@ python3 wer_calculation.py
 # Fine-tuning
 
 ```
-cd Aphasic_speech_recognition/training/
+cd Aphasic_speech_recognition/training_lora/
 ```
 
 ### Step 1: prepare data
@@ -90,11 +90,11 @@ Prepare data, including loading audio files, compute log-Mel input features, and
 python3 data_preparation.py <model_size>
 ```
 
-Select model size from "tiny", "small", "medium" and "large".
+Select model size from "small" and "large-v3".
 
 ### Step 2: train the model
 
-**Vanilla fine-tuning**, select model size from "small", "medium" and "large":
+**Vanilla fine-tuning**, select model size from "small" and "large":
 
 ```
 python3 training.py <model_size>
