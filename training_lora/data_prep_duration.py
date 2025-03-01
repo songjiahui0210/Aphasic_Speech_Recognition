@@ -39,7 +39,7 @@ def prepare_dataset(dataset, feature_extractor):
                 processed_data['input_features'].append(None)
         return processed_data
 
-    return dataset.map(prepare, batched=True, batch_size=50, num_proc=4)
+    return dataset.map(prepare, batched=True, batch_size=50)
 
 def main():
     parser = argparse.ArgumentParser(description="Prepare a dataset with Whisper model.")

@@ -9,24 +9,36 @@ import numpy as np
 
 
 def process_audio_file(batch):
-    audio_file_path = os.path.join("../../data_processed/audios", batch["folder_name"], batch["file_cut"])
-    if os.path.exists(audio_file_path):
-        audio, sample_rate = sf.read(audio_file_path)
-        audio_list = audio.tolist() if isinstance(audio, np.ndarray) else audio
-        return {"audio": {"array": audio_list, "sampling_rate": int(sample_rate)}}
-    else:
-        return {"audio": None}
-
+    results = {'audio_array': [], 'sample_rate': []}
+    for folder_name, file_cut in zip(batch['folder_name'], batch['file_cut']):
+        audio_file_path = os.path.join("../../data_processed/audios", folder_name, file_cut)
+        if os.path.exists(audio_file_path):
+            try:
+                audio, sample_rate = sf.read(audio_file_path)
+                results['audio_array'].append(audio.tolist() if isinstance(audio, np.ndarray) else audio)
+                results['sample_rate'].append(int(sample_rate))
+            except Exception as e:
+                print(f"Error loading {audio_file_path}: {e}")
+                results['audio_array'].append(None)
+                results['sample_rate'].append(None)
+        else:
+            print(f"File not found: {audio_file_path}")
+            results['audio_array'].append(None)
+            results['sample_rate'].append(None)
+    return results
 
 def prepare_dataset(dataset, feature_extractor):
     def prepare(batch):
         audio = batch["audio"]
-        if audio:
-            input_features = feature_extractor(audio["array"], sampling_rate=audio["sampling_rate"]).input_features[0]
-            return {"input_features": input_features}
-        else:
-            return {"input_features": None}
-    return dataset.map(prepare)
+        if audio and audio["array"] is not None:
+            try:
+                return {"input_features": feature_extractor(audio["array"], sampling_rate=audio["sampling_rate"]).input_features[0]}
+            except Exception as e:
+                print(f"Error processing audio: {e}")
+                return {"input_features": None}
+        return {"input_features": None}
+
+    return dataset.map(prepare, batched=True, batch_size=50)
 
 def main():
     parser = argparse.ArgumentParser(description="Prepare a dataset with Whisper model.")
@@ -47,12 +59,17 @@ def main():
     # Filter speakers by total duration > 480,000 milliseconds (8 minutes)
     valid_speakers = speaker_durations[speaker_durations['utterance_duration'] > 480000]['name_unique_speaker']
     
-    # Filter the original dataframe to include only valid speakers
-    df_filtered = df[df['name_unique_speaker'].isin(valid_speakers)]
-
+    # Ensure valid_speakers is defined and used correctly
+    if 'name_unique_speaker' in df.columns and valid_speakers is not None:
+        # Filter the original dataframe to include only valid speakers
+        df_filtered = df[df['name_unique_speaker'].isin(valid_speakers)]
+    else:
+        print("Error: 'name_unique_speaker' not in DataFrame or 'valid_speakers' not defined")
+        return  
     dataset = Dataset.from_pandas(df_filtered)
-    dataset = dataset.map(process_audio_file)
+    dataset = dataset.map(process_audio_file, batched=True, batch_size=50)
     dataset = prepare_dataset(dataset, feature_extractor)
+
     dataset.save_to_disk(f"../../data_processed/processed_dataset_{args.model_size}")
 
 if __name__ == "__main__":
