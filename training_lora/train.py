@@ -4,7 +4,7 @@ from data_collator import DataCollatorSpeechSeq2SeqWithPadding
 import torch
 
 def load_datasets():
-    return load_from_disk("../../data_processed/processed_dataset_large-v3")
+    return load_from_disk("../../data_processed/processed_dataset_large")
 
 def train_model(model, dataset_dict):
     training_args = Seq2SeqTrainingArguments(
