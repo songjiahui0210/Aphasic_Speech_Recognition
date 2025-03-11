@@ -1,6 +1,12 @@
 from datasets import load_from_disk
 import os
 
+
+
+dataset = load_from_disk("../../data_processed/processed_dataset_large")
+print("Available columns in dataset:", dataset.column_names)
+
+
 dataset_path = "../../data_processed/processed_dataset_large"
 dataset = load_from_disk(dataset_path)
 

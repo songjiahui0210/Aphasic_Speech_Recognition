@@ -18,7 +18,7 @@ def process_audio_file(batch):
 
 def prepare_dataset(dataset, feature_extractor):
     def prepare(batch):
-        processed_data = {'input_features': []}
+        processed_data = {'input_features': [], 'labels': [], 'split':batch['split'] }
         # Ensure that 'audio' is in batch and is iterable
         if 'audio' in batch and isinstance(batch['audio'], list):
             for audio_info in batch['audio']:
@@ -34,7 +34,15 @@ def prepare_dataset(dataset, feature_extractor):
         else:
             print("Batch does not contain 'audio' key or 'audio' key does not have the correct structure.")
             # Handling cases where 'audio' is not correctly formatted or missing
-            processed_data['input_features'] = [None] * len(batch)  
+            processed_data['input_features'] = [None] * len(batch)
+
+        
+        # ensure label exit
+        if 'text_transcription' in batch:
+            processed_data['labels'] = batch['text_transcription']
+        else:
+            raise KeyError("Dataset is missing 'text_transcription' for labels.")
+  
         return processed_data
 
     return dataset.map(prepare, batched=True, batch_size=50)
@@ -55,6 +63,16 @@ def main():
     feature_extractor = WhisperFeatureExtractor.from_pretrained(f"openai/whisper-{args.model_size}")
     csv_file_path = '../../data_processed/set1_w_cohort.csv'
     df = pd.read_csv(csv_file_path)
+
+    print(f"CSV Columns: {list(df.columns)}")
+
+    # use 'transcriptions' as text_transcription
+    if 'transcriptions' not in df.columns:
+        raise KeyError(f"Expected 'transcriptions' in dataset, but found: {list(df.columns)}")
+    if 'split' not in df.columns:
+        raise KeyError(f"Expected 'split' in dataset, but found: {list(df.columns)}")
+
+
     df['utterance_duration'] = (df['mark_end'] - df['mark_start']).astype(int)
     
     # Sum durations by speaker or file
@@ -65,6 +83,10 @@ def main():
     
     # Filter the original dataframe to include only valid speakers
     df_filtered = df[df['name_unique_speaker'].isin(valid_speakers)]
+
+    # ensure df_filtered include transcriptions
+    df_filtered = df_filtered[['folder_name', 'file_cut', 'transcriptions', 'split']].copy()
+    df_filtered.rename(columns={'transcriptions': 'text_transcription'}, inplace=True)
 
     dataset = Dataset.from_pandas(df_filtered)
     dataset = dataset.map(process_audio_file)
