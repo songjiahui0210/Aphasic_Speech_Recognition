@@ -38,10 +38,10 @@ def prepare_dataset(dataset, feature_extractor):
 
         
         # ensure label exit
-        if 'text_transcription' in batch:
-            processed_data['labels'] = batch['text_transcription']
+        if 'transcriptions' in batch:
+            processed_data['labels'] = batch['transcriptions']
         else:
-            raise KeyError("Dataset is missing 'text_transcription' for labels.")
+            raise KeyError("Dataset is missing 'transcriptions' for labels.")
   
         return processed_data
 
@@ -66,7 +66,6 @@ def main():
 
     print(f"CSV Columns: {list(df.columns)}")
 
-    # use 'transcriptions' as text_transcription
     if 'transcriptions' not in df.columns:
         raise KeyError(f"Expected 'transcriptions' in dataset, but found: {list(df.columns)}")
     if 'split' not in df.columns:
