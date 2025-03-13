@@ -66,8 +66,8 @@ def prepare_dataset(dataset, processor):
     return dataset.map(
         prepare,
         batched=True,
-        batch_size=10,
-        num_proc=6 
+        batch_size=5,
+        num_proc=4 
     )
 
 def save_missing_files(missing_files):
@@ -87,6 +87,7 @@ def main():
 
     csv_file_path = '../../data_processed/set1_w_cohort.csv'
     df = pd.read_csv(csv_file_path)
+    df = 
 
     # keep only speakers with total utterance_duration > 8 minutes
     df['utterance_duration'] = (df['mark_end'] - df['mark_start']).astype(int)
@@ -97,7 +98,7 @@ def main():
     dataset = Dataset.from_pandas(df_filtered)
     dataset = dataset.map(process_audio_file)
     dataset = prepare_dataset(dataset, processor)
-    dataset.save_to_disk(f"../../data_processed/processed_dataset2_{args.model_size}")
+    dataset.save_to_disk(f"../../data_processed/processed_dataset_{args.model_size}")
 
 if __name__ == "__main__":
     main()
