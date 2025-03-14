@@ -19,6 +19,7 @@ from peft import LoraConfig, get_peft_model
 # eval_dataset = dataset.filter(lambda x: x["split"] == "test", num_proc=4)
 
 #subset size = 50
+torch.cuda.empty_cache()
 
 # check if GPU is available
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
@@ -43,8 +44,8 @@ whisper_model = WhisperForConditionalGeneration.from_pretrained(model_id)
 whisper_model.config.use_cache = False
 
 lora_config = LoraConfig(
-    r=32,                   
-    lora_alpha=32,         
+    r=24,                   
+    lora_alpha=36,         
     lora_dropout=0.1,
     target_modules=["q_proj", "v_proj"],
     bias="none"
@@ -65,7 +66,7 @@ processor = WhisperProcessor.from_pretrained(model_id, language="English", task=
 
 training_args = Seq2SeqTrainingArguments(
     output_dir="../../models/whisper_lora",  
-    per_device_train_batch_size=2,
+    per_device_train_batch_size=1,
     gradient_accumulation_steps=4,
     learning_rate=5e-6,
     warmup_steps=1000,
@@ -75,9 +76,9 @@ training_args = Seq2SeqTrainingArguments(
     fp16=False,
     bf16=True,
     evaluation_strategy="steps", 
-    eval_steps=5000,
-    save_steps=5000,
-    logging_steps=500,
+    eval_steps=500,
+    save_steps=500,
+    logging_steps=100,
     # eval_steps = 50,
     # save_steps=50,
     # logging_steps=10,
@@ -86,10 +87,24 @@ training_args = Seq2SeqTrainingArguments(
     metric_for_best_model="wer",
     greater_is_better=False,
     push_to_hub=False,
-    save_total_limit=5,
+    save_total_limit=3,
     # save_total_limit=3,
     predict_with_generate=True
 )
+
+checkpoint_dir = "../../models/whisper_lora"
+latest_checkpoint = None
+
+if os.path.isdir(checkpoint_dir):
+    checkpoints = [d for d in os.listdir(checkpoint_dir) if d.startswith("checkpoint-")]
+    if checkpoints:
+        latest_checkpoint = os.path.join(checkpoint_dir, max(checkpoints, key=lambda x: int(x.split("-")[-1])))
+        print(f"Resuming training from checkpoint: {latest_checkpoint}")
+    else:
+        print("No checkpoint found. Starting from scratch.")
+else:
+    print("No checkpoint directory found. Training from scratch.")
+
 
 data_collator = DataCollatorSpeechSeq2SeqWithPadding(
     processor = processor,
@@ -106,9 +121,8 @@ trainer = Seq2SeqTrainer(
     compute_metrics=lambda p: compute_metrics(p, processor.tokenizer)
 )
 
-torch.cuda.empty_cache()
 
-trainer.train()
+trainer.train(resume_from_checkpoint=latest_checkpoint)
 
 whisper_model.save_pretrained("../../models/whisper_lora")
 processor.save_pretrained("../../models/whisper_lora")
