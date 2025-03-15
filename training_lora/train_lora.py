@@ -6,7 +6,8 @@ from transformers import (
     WhisperForConditionalGeneration, 
     WhisperProcessor,
     Seq2SeqTrainer,
-    Seq2SeqTrainingArguments
+    Seq2SeqTrainingArguments,
+    TrainerCallback
 )
 from data_collator import DataCollatorSpeechSeq2SeqWithPadding
 from compute_metrics import compute_metrics
@@ -93,21 +94,21 @@ training_args = Seq2SeqTrainingArguments(
     predict_with_generate=True
 )
 
-# Create output directory if it does not exist
-os.makedirs(output_dir, exist_ok=True)
-checkpoint_dir = "../../models/whisper_lora2"
+# Function to find the latest checkpoint
+def get_latest_checkpoint(output_dir):
+    if os.path.isdir(output_dir):
+        checkpoints = [d for d in os.listdir(output_dir) if d.startswith("checkpoint-")]
+        if checkpoints:
+            latest = max(checkpoints, key=lambda x: int(x.split("-")[-1]))
+            return os.path.join(output_dir, latest)
+    return None
 
-# Check for latest checkpoint
-latest_checkpoint = None
-if os.path.isdir(checkpoint_dir):
-    checkpoints = [d for d in os.listdir(checkpoint_dir) if d.startswith("checkpoint-")]
-    if checkpoints:
-        latest_checkpoint = os.path.join(checkpoint_dir, max(checkpoints, key=lambda x: int(x.split("-")[-1])))
-        print(f"Resuming training from checkpoint: {latest_checkpoint}")
-    else:
-        print("No checkpoint found. Starting from scratch.")
+# Check if a checkpoint exists
+latest_checkpoint = get_latest_checkpoint(output_dir)
+if latest_checkpoint:
+    print(f"Resuming training from checkpoint: {latest_checkpoint}")
 else:
-    print("No checkpoint directory found. Training from scratch.")
+    print("No checkpoint found. Training from scratch.")
 
 
 
@@ -128,11 +129,15 @@ trainer = Seq2SeqTrainer(
     compute_metrics=lambda p: compute_metrics(p, processor.tokenizer)
 )
 
-# Save a manual checkpoint at step 10 for debugging
-if trainer.state.global_step == 10:
-    manual_checkpoint_path = os.path.join(output_dir, "manual_checkpoint")
-    trainer.save_model(manual_checkpoint_path)
-    print(f"Manual checkpoint saved at step 10: {manual_checkpoint_path}")
+class SaveManualCheckpointCallback:
+    def on_step_end(self, args, state, control, **kwargs):
+        if state.global_step == 10:
+            manual_checkpoint_path = os.path.join(output_dir, "manual_checkpoint")
+            trainer.save_model(manual_checkpoint_path)
+            print(f"Manual checkpoint saved at step {state.global_step}: {manual_checkpoint_path}")
+
+trainer.add_callback(SaveManualCheckpointCallback())
+
 
 # Start or Resume Training
 trainer.train(resume_from_checkpoint=latest_checkpoint)
