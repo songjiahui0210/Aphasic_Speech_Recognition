@@ -129,7 +129,7 @@ trainer = Seq2SeqTrainer(
     compute_metrics=lambda p: compute_metrics(p, processor.tokenizer)
 )
 
-class SaveManualCheckpointCallback:
+class SaveManualCheckpointCallback(TrainerCallback):
     def on_step_end(self, args, state, control, **kwargs):
         if state.global_step == 10:
             manual_checkpoint_path = os.path.join(output_dir, "manual_checkpoint")
