@@ -55,7 +55,7 @@ whisper_model = get_peft_model(whisper_model, lora_config)
 for param in whisper_model.parameters():
     param.requires_grad = True
 
-processor = WhisperProcessor.from_pretrained(model_id, language="English", task="transcribe")
+processor = WhisperProcessor.from_pretrained(model_id, language="en", task="transcribe")
 
 #reduce max steps for smaller sample size
 # num_train_samples = len(train_dataset)
