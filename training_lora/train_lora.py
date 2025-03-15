@@ -12,13 +12,7 @@ from data_collator import DataCollatorSpeechSeq2SeqWithPadding
 from compute_metrics import compute_metrics
 from peft import LoraConfig, get_peft_model
 
-# dataset_path = "../../data_processed/processed_dataset_large"
-# dataset = load_from_disk(dataset_path)
 
-# train_dataset = dataset.filter(lambda x: x["split"] == "train", num_proc=4)
-# eval_dataset = dataset.filter(lambda x: x["split"] == "test", num_proc=4)
-
-#subset size = 50
 torch.cuda.empty_cache()
 
 # check if GPU is available
@@ -39,10 +33,12 @@ print(len(train_dataset))
 
 #####
 
+# Load model
 model_id = "openai/whisper-large"  
 whisper_model = WhisperForConditionalGeneration.from_pretrained(model_id)
 whisper_model.config.use_cache = False
 
+# Apply LoRA (Low-Rank Adaptation)
 lora_config = LoraConfig(
     r=24,                   
     lora_alpha=36,         
@@ -52,9 +48,11 @@ lora_config = LoraConfig(
 )
 whisper_model = get_peft_model(whisper_model, lora_config)
 
+# Ensure parameters require gradients
 for param in whisper_model.parameters():
     param.requires_grad = True
 
+# Load processor
 processor = WhisperProcessor.from_pretrained(model_id, language="en", task="transcribe")
 
 #reduce max steps for smaller sample size
@@ -64,8 +62,11 @@ processor = WhisperProcessor.from_pretrained(model_id, language="en", task="tran
 
 #########
 
+# Training Arguments
+output_dir = "../../models/whisper_lora2"  
+
 training_args = Seq2SeqTrainingArguments(
-    output_dir="../../models/whisper_lora",  
+    output_dir=output_dir,  
     per_device_train_batch_size=1,
     gradient_accumulation_steps=4,
     learning_rate=5e-6,
@@ -78,7 +79,7 @@ training_args = Seq2SeqTrainingArguments(
     evaluation_strategy="steps", 
     eval_steps=500,
     save_steps=500,
-    logging_steps=100,
+    logging_steps=25,
     # eval_steps = 50,
     # save_steps=50,
     # logging_steps=10,
@@ -92,9 +93,12 @@ training_args = Seq2SeqTrainingArguments(
     predict_with_generate=True
 )
 
-checkpoint_dir = "../../models/whisper_lora"
-latest_checkpoint = None
+# Create output directory if it does not exist
+os.makedirs(output_dir, exist_ok=True)
+checkpoint_dir = "../../models/whisper_lora2"
 
+# Check for latest checkpoint
+latest_checkpoint = None
 if os.path.isdir(checkpoint_dir):
     checkpoints = [d for d in os.listdir(checkpoint_dir) if d.startswith("checkpoint-")]
     if checkpoints:
@@ -106,11 +110,14 @@ else:
     print("No checkpoint directory found. Training from scratch.")
 
 
+
+# Initialize Data Collator
 data_collator = DataCollatorSpeechSeq2SeqWithPadding(
     processor = processor,
     decoder_start_token_id = whisper_model.config.decoder_start_token_id
 )
 
+# Initialize Trainer
 trainer = Seq2SeqTrainer(
     model=whisper_model,
     args=training_args,
@@ -121,10 +128,24 @@ trainer = Seq2SeqTrainer(
     compute_metrics=lambda p: compute_metrics(p, processor.tokenizer)
 )
 
+# Save a manual checkpoint at step 10 for debugging
+if trainer.state.global_step == 10:
+    manual_checkpoint_path = os.path.join(output_dir, "manual_checkpoint")
+    trainer.save_model(manual_checkpoint_path)
+    print(f"Manual checkpoint saved at step 10: {manual_checkpoint_path}")
 
+# Start or Resume Training
 trainer.train(resume_from_checkpoint=latest_checkpoint)
 
-whisper_model.save_pretrained("../../models/whisper_lora")
-processor.save_pretrained("../../models/whisper_lora")
+# Save the final checkpoint
+final_checkpoint_path = os.path.join(output_dir, f"checkpoint-{trainer.state.global_step}")
+trainer.save_model(final_checkpoint_path)
+print(f"Final checkpoint saved at {final_checkpoint_path}")
 
-print("LoRA fine-tuning saved to '../../models/whisper_lora'")
+trainer.save_model(f"../../models/whisper_lora/checkpoint-{trainer.state.global_step}")
+
+# Save the trained model
+whisper_model.save_pretrained(output_dir)
+processor.save_pretrained(output_dir)
+
+print(f"LoRA fine-tuning saved to '{output_dir}'")

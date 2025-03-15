@@ -19,3 +19,4 @@ training/*.sh
 # ------------------------
 training/myjob.44890129.err
 training/myjob.44890129.out
+training_lora/train_log.txt
