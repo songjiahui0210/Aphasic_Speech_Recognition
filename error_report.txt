@@ -1,0 +1,30 @@
+=== Uncaught Exception in train_lora.py ===
+Traceback (most recent call last):
+  File "training_lora/train_lora.py", line 137, in <module>
+    trainer.train(resume_from_checkpoint=latest_checkpoint)
+  File "/home/liu.lian1/envs/pylangacq_env/lib/python3.11/site-packages/transformers/trainer.py", line 2171, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/liu.lian1/envs/pylangacq_env/lib/python3.11/site-packages/transformers/trainer.py", line 2480, in _inner_training_loop
+    batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/liu.lian1/envs/pylangacq_env/lib/python3.11/site-packages/transformers/trainer.py", line 5153, in get_batch_samples
+    batch_samples += [next(epoch_iterator)]
+                      ^^^^^^^^^^^^^^^^^^^^
+  File "/home/liu.lian1/envs/pylangacq_env/lib/python3.11/site-packages/accelerate/data_loader.py", line 575, in __iter__
+    next_batch = next(dataloader_iter)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/liu.lian1/envs/pylangacq_env/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/liu.lian1/envs/pylangacq_env/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 757, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/liu.lian1/envs/pylangacq_env/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/liu.lian1/Aphasic_Speech_Recognition/training_lora/data_collator.py", line 30, in __call__
+    raise ValueError("All input_features are None. Check dataset or feature extractor pipeline.")
+ValueError: All input_features are None. Check dataset or feature extractor pipeline.
+
+
