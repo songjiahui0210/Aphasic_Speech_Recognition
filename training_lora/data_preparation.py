@@ -87,7 +87,6 @@ def main():
 
     csv_file_path = '../../data_processed/set1_w_cohort.csv'
     df = pd.read_csv(csv_file_path)
-    df = 
 
     # keep only speakers with total utterance_duration > 8 minutes
     df['utterance_duration'] = (df['mark_end'] - df['mark_start']).astype(int)

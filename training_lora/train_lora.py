@@ -9,63 +9,48 @@ from transformers import (
     Seq2SeqTrainingArguments,
     TrainerCallback
 )
+from transformers.trainer_utils import PREFIX_CHECKPOINT_DIR
 from data_collator import DataCollatorSpeechSeq2SeqWithPadding
 from compute_metrics import compute_metrics
 from peft import LoraConfig, get_peft_model
+import types
 
 
+# Clear GPU cache
 torch.cuda.empty_cache()
 
-# check if GPU is available
+# Check device
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
+# Load dataset
 train_dataset = load_from_disk("../../data_processed/train_dataset_filtered")
 eval_dataset = load_from_disk("../../data_processed/eval_dataset_filtered")
-
 print(len(train_dataset))
-#######
-# subset_size = 3
-# train_subset = train_dataset.select(range(min(len(train_dataset), 500)))
-# eval_subset = eval_dataset.select(range(min(len(eval_dataset), 500)))
-
-# train_dataset = train_subset
-# eval_dataset = eval_subset
-
-#####
 
 # Load model
-model_id = "openai/whisper-large"  
+model_id = "openai/whisper-small"  
 whisper_model = WhisperForConditionalGeneration.from_pretrained(model_id)
 whisper_model.config.use_cache = False
 
-# Apply LoRA (Low-Rank Adaptation)
+# Apply LoRA
 lora_config = LoraConfig(
-    r=24,                   
-    lora_alpha=36,         
+    r=8,                   
+    lora_alpha=18,         
     lora_dropout=0.1,
     target_modules=["q_proj", "v_proj"],
     bias="none"
 )
 whisper_model = get_peft_model(whisper_model, lora_config)
 
-# Ensure parameters require gradients
 for param in whisper_model.parameters():
     param.requires_grad = True
 
 # Load processor
 processor = WhisperProcessor.from_pretrained(model_id, language="en", task="transcribe")
 
-#reduce max steps for smaller sample size
-# num_train_samples = len(train_dataset)
-# num_epochs = 3  
-# steps_per_epoch = num_train_samples // training_args.per_device_train_batch_size
-
-#########
-
-# Training Arguments
-output_dir = "../../models/whisper_lora2"  
-
+# Training arguments
+output_dir = "../../models/whisper_lora_small"  
 training_args = Seq2SeqTrainingArguments(
     output_dir=output_dir,  
     per_device_train_batch_size=1,
@@ -73,7 +58,6 @@ training_args = Seq2SeqTrainingArguments(
     learning_rate=5e-6,
     warmup_steps=1000,
     max_steps=3000,
-    # max_steps=300,
     gradient_checkpointing=True,
     fp16=False,
     bf16=True,
@@ -81,76 +65,97 @@ training_args = Seq2SeqTrainingArguments(
     eval_steps=500,
     save_steps=500,
     logging_steps=25,
-    # eval_steps = 50,
-    # save_steps=50,
-    # logging_steps=10,
     report_to=["tensorboard"],
     load_best_model_at_end=True,
     metric_for_best_model="wer",
     greater_is_better=False,
     push_to_hub=False,
     save_total_limit=3,
-    # save_total_limit=3,
     predict_with_generate=True
 )
 
-# Function to find the latest checkpoint
-def get_latest_checkpoint(output_dir):
-    if os.path.isdir(output_dir):
-        checkpoints = [d for d in os.listdir(output_dir) if d.startswith("checkpoint-")]
-        if checkpoints:
-            latest = max(checkpoints, key=lambda x: int(x.split("-")[-1]))
-            return os.path.join(output_dir, latest)
-    return None
+# Resume from checkpoint
+def get_resume_checkpoint(output_dir):
+ 
+    if not os.path.isdir(output_dir):
+        return None
 
-# Check if a checkpoint exists
-latest_checkpoint = get_latest_checkpoint(output_dir)
-if latest_checkpoint:
-    print(f"Resuming training from checkpoint: {latest_checkpoint}")
+    checkpoints = [
+        os.path.join(output_dir, d)
+        for d in os.listdir(output_dir)
+        if d.startswith("checkpoint-") and os.path.isfile(os.path.join(output_dir, d, "trainer_state.json"))
+    ]
+    if not checkpoints:
+        return None
+
+    latest = max(checkpoints, key=lambda x: int(x.split("-")[-1]))
+    return latest
+
+
+resume_checkpoint = get_resume_checkpoint(output_dir)
+if resume_checkpoint:
+    print(f"Resuming training from checkpoint: {resume_checkpoint}")
 else:
     print("No checkpoint found. Training from scratch.")
 
-
-
-# Initialize Data Collator
+# Data collator
 data_collator = DataCollatorSpeechSeq2SeqWithPadding(
     processor = processor,
     decoder_start_token_id = whisper_model.config.decoder_start_token_id
 )
 
-# Initialize Trainer
+# Trainer
 trainer = Seq2SeqTrainer(
     model=whisper_model,
     args=training_args,
     train_dataset=train_dataset,
     eval_dataset=eval_dataset,
     data_collator=data_collator,
-    tokenizer=processor.feature_extractor,  
+    tokenizer=processor,
     compute_metrics=lambda p: compute_metrics(p, processor.tokenizer)
 )
 
+def patched_load_rng_state(self, checkpoint_path):
+    import os
+    import torch
+    rng_file = os.path.join(checkpoint_path, "rng_state.pth")
+    if os.path.isfile(rng_file):
+        try:
+            rng_state = torch.load(rng_file, weights_only=False)
+            self._rng_state = rng_state
+            print(f"[DEBUG] RNG state loaded from: {rng_file}")
+        except Exception as e:
+            print(f"[WARNING] Failed to load rng_state.pth: {e}")
+
+trainer._load_rng_state = types.MethodType(patched_load_rng_state, trainer)
+
+
+# Custom callback for manual checkpoint
 class SaveManualCheckpointCallback(TrainerCallback):
     def on_step_end(self, args, state, control, **kwargs):
         if state.global_step == 10:
-            manual_checkpoint_path = os.path.join(output_dir, "manual_checkpoint")
-            trainer.save_model(manual_checkpoint_path)
-            print(f"Manual checkpoint saved at step {state.global_step}: {manual_checkpoint_path}")
+            checkpoint_dir = os.path.join(output_dir, f"{PREFIX_CHECKPOINT_DIR}-manual")
+            os.makedirs(checkpoint_dir, exist_ok=True)
+            trainer.save_model(checkpoint_dir)  
+            processor.save_pretrained(checkpoint_dir)
+            print(f"[DEBUG] Manual checkpoint saved at: {checkpoint_dir}")
 
 trainer.add_callback(SaveManualCheckpointCallback())
 
-
-# Start or Resume Training
-trainer.train(resume_from_checkpoint=latest_checkpoint)
-
-# Save the final checkpoint
+trainer.train(resume_from_checkpoint=resume_checkpoint)
+# Save final checkpoint (transformers format)
 final_checkpoint_path = os.path.join(output_dir, f"checkpoint-{trainer.state.global_step}")
 trainer.save_model(final_checkpoint_path)
 print(f"Final checkpoint saved at {final_checkpoint_path}")
 
-trainer.save_model(f"../../models/whisper_lora/checkpoint-{trainer.state.global_step}")
+# # Manual save with torch
+# manual_checkpoint_dir = os.path.join(output_dir, f"{PREFIX_CHECKPOINT_DIR}-final")
+# os.makedirs(manual_checkpoint_dir, exist_ok=True)
+# torch.save(whisper_model.state_dict(), os.path.join(manual_checkpoint_dir, "pytorch_model.bin"))
+# # torch.save(trainer.state, os.path.join(manual_checkpoint_dir, "trainer_state.pt"))
+# print(f"[DEBUG] Manual final checkpoint saved to: {manual_checkpoint_dir}")
 
-# Save the trained model
+# Save model and processor for inference
 whisper_model.save_pretrained(output_dir)
 processor.save_pretrained(output_dir)
-
 print(f"LoRA fine-tuning saved to '{output_dir}'")

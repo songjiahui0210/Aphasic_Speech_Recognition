@@ -16,6 +16,14 @@ class DataCollatorSpeechSeq2SeqWithPadding:
         input_features = [{"input_features": feature["input_features"]} for feature in features]
         batch = self.processor.feature_extractor.pad(input_features, return_tensors="pt")
 
+        # Debug: 
+        for i, feat in enumerate(features):
+            if "input_features" in feat:
+                feat_shape = torch.tensor(feat["input_features"]).shape
+                print(f"[DEBUG Collator] feature[{i}] shape={feat_shape}")
+            else:
+                print(f"[DEBUG Collator] feature[{i}] missing 'input_features' key!")
+
         # compute the attention mask for the input features
         batch["attention_mask"] = torch.ones(batch["input_features"].shape[:-1], dtype=torch.long)
 
