@@ -1,5 +1,6 @@
 import os
 import torch
+import numpy as np
 from datasets import load_from_disk
 from transformers import (
     WhisperForConditionalGeneration, 
@@ -20,13 +21,65 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
 # --------------------------------
-# 2) Load preprocessed and filtered datasets
+# 2) Load datasets
+#    Assumes we already have train/eval splits saved to separate paths
 # --------------------------------
 train_dataset = load_from_disk("../../data_processed/train_dataset_filtered_small")
 eval_dataset = load_from_disk("../../data_processed/eval_dataset_filtered_small")
 
 print(f"Train dataset size: {len(train_dataset)}")
 print(f"Eval dataset size:  {len(eval_dataset)}")
+
+# --------------------------------
+# 2.1) Convert nested lists to numpy arrays
+# --------------------------------
+def convert_nested_lists_to_numpy(example):
+    """Convert nested lists to numpy arrays"""
+    if "input_features" in example and example["input_features"] is not None:
+        if isinstance(example["input_features"], list):
+            # Try to convert nested lists to numpy arrays
+            try:
+                example["input_features"] = np.array(example["input_features"], dtype=np.float32)
+                # Not necessary but helpful for debugging - shows if shapes meet expectations
+                if len(example["input_features"].shape) > 1:
+                    print(f"Converted input_features shape: {example['input_features'].shape}")
+            except Exception as e:
+                print(f"Error converting input_features: {e}")
+    return example
+
+print("Converting nested lists to numpy arrays...")
+train_dataset = train_dataset.map(convert_nested_lists_to_numpy)
+eval_dataset = eval_dataset.map(convert_nested_lists_to_numpy)
+
+# --------------------------------
+# 2.2) Check and filter invalid samples
+# --------------------------------
+def validate_features(example):
+    """Check if sample features are valid"""
+    valid = True
+    if "input_features" not in example or example["input_features"] is None:
+        valid = False
+    elif isinstance(example["input_features"], np.ndarray):
+        if example["input_features"].size == 0:
+            valid = False
+    elif isinstance(example["input_features"], list) and len(example["input_features"]) == 0:
+        valid = False
+    
+    return valid
+
+# Filter invalid samples
+print("Filtering invalid samples...")
+train_valid_count = sum(validate_features(sample) for sample in train_dataset)
+eval_valid_count = sum(validate_features(sample) for sample in eval_dataset)
+print(f"Valid training samples: {train_valid_count}/{len(train_dataset)}")
+print(f"Valid validation samples: {eval_valid_count}/{len(eval_dataset)}")
+
+if train_valid_count < len(train_dataset) or eval_valid_count < len(eval_dataset):
+    print("Invalid samples found, starting filtering...")
+    train_dataset = train_dataset.filter(validate_features)
+    eval_dataset = eval_dataset.filter(validate_features)
+    print(f"After filtering - Training set size: {len(train_dataset)}")
+    print(f"After filtering - Validation set size: {len(eval_dataset)}")
 
 # (Optional) For testing/debugging with smaller dataset
 # subset_size = 500
@@ -44,7 +97,7 @@ whisper_model = WhisperForConditionalGeneration.from_pretrained(model_id)
 whisper_model.config.use_cache = False  # Can reduce errors in some cases, but uses more VRAM
 
 lora_config = LoraConfig(
-    r=8,                   
+    r=24,                   
     lora_alpha=36,         
     lora_dropout=0.1,
     target_modules=["q_proj", "v_proj"],
@@ -60,6 +113,9 @@ whisper_model.print_trainable_parameters()
 # for param in whisper_model.parameters():
 #     param.requires_grad = True
 
+# View trainable parameter count (optional)
+# whisper_model.print_trainable_parameters()
+
 processor = WhisperProcessor.from_pretrained(model_id, language="en", task="transcribe")
 
 # --------------------------------
@@ -72,7 +128,7 @@ training_args = Seq2SeqTrainingArguments(
     learning_rate=5e-6,
     warmup_steps=1000,
     max_steps=3000,
-    # gradient_checkpointing=True,  # Optional: Use gradient checkpointing to save VRAM
+    # gradient_checkpointing=True,
     # Note: bf16=True only if GPU supports BF16, otherwise use fp16=True, bf16=False
     fp16=True,
     bf16=False,
@@ -88,7 +144,7 @@ training_args = Seq2SeqTrainingArguments(
     push_to_hub=False,
     save_total_limit=3,
     predict_with_generate=True,
-    generation_max_length=225  # Set maximum generation length here
+    generation_max_length=225  # Moved this parameter here
 )
 
 # --------------------------------
@@ -129,6 +185,7 @@ trainer = Seq2SeqTrainer(
     # If compute_metrics(p, tokenizer) internally uses tokenizer.decode,
     # then pass processor.tokenizer to it
     compute_metrics=lambda p: compute_metrics(p, processor.tokenizer)
+    # Removed generation_max_length=225 from here
 )
 
 # ========== Debug section ==========
