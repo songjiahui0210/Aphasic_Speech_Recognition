@@ -1,165 +1,161 @@
 import os
 import torch
-from datasets import load_from_disk
+import numpy as np
+from datasets import load_from_disk  
 from transformers import (
     WhisperForConditionalGeneration, 
     WhisperProcessor,
     Seq2SeqTrainer,
-    Seq2SeqTrainingArguments
+    Seq2SeqTrainingArguments,
+    TrainerCallback
 )
+from transformers.trainer_utils import PREFIX_CHECKPOINT_DIR
 from data_collator import DataCollatorSpeechSeq2SeqWithPadding
 from compute_metrics import compute_metrics
 from peft import LoraConfig, get_peft_model
+import types
 
-# --------------------------------
-# 1) Environment setup
-# --------------------------------
+
+# Clear GPU cache
 torch.cuda.empty_cache()
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
+# Check device
+device = "cuda:0" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
-# --------------------------------
-# 2) Load preprocessed and filtered datasets
-# --------------------------------
-train_dataset = load_from_disk("../../data_processed/train_dataset_filtered_small")
-eval_dataset = load_from_disk("../../data_processed/eval_dataset_filtered_small")
+# Load dataset
+train_dataset = load_from_disk("../../data_processed/train_dataset_filtered_large")
+eval_dataset = load_from_disk("../../data_processed/eval_dataset_filtered_large")
+print(len(train_dataset))
 
-print(f"Train dataset size: {len(train_dataset)}")
-print(f"Eval dataset size:  {len(eval_dataset)}")
-
-# (Optional) For testing/debugging with smaller dataset
-# subset_size = 500
-# train_dataset = train_dataset.select(range(min(len(train_dataset), subset_size)))
-# eval_dataset = eval_dataset.select(range(min(len(eval_dataset), subset_size)))
-
-# --------------------------------
-# 3) Load base model & configure LoRA
-#    Note: If your processed data used 'whisper-small' for preprocessing,
-#          you should also use 'openai/whisper-small' here to ensure tokenizer compatibility.
-# --------------------------------
-model_id = "openai/whisper-small"
-
+# Load model
+model_id = "openai/whisper-large"  
 whisper_model = WhisperForConditionalGeneration.from_pretrained(model_id)
-whisper_model.config.use_cache = False  # Can reduce errors in some cases, but uses more VRAM
+whisper_model.config.use_cache = False
 
+# Apply LoRA
 lora_config = LoraConfig(
-    r=8,                   
-    lora_alpha=36,         
+    r=4,                   
+    lora_alpha=8,         
     lora_dropout=0.1,
     target_modules=["q_proj", "v_proj"],
     bias="none"
 )
 whisper_model = get_peft_model(whisper_model, lora_config)
 
-whisper_model.print_trainable_parameters()
+for param in whisper_model.parameters():
+    param.requires_grad = True
 
-# If you only want to train LoRA, don't use the loop below;
-# LoRA plugin automatically makes LoRA parameters trainable while freezing the base model.
-# If you want full fine-tuning + LoRA, keep this loop.
-# for param in whisper_model.parameters():
-#     param.requires_grad = True
-
+# Load processor
 processor = WhisperProcessor.from_pretrained(model_id, language="en", task="transcribe")
 
-# --------------------------------
-# 4) Training hyperparameters
-# --------------------------------
+# Training arguments
+output_dir = "../../models/whisper_lora_large"  
 training_args = Seq2SeqTrainingArguments(
-    output_dir="../../models/whisper_lora",  
+    output_dir=output_dir,  
     per_device_train_batch_size=1,
     gradient_accumulation_steps=4,
     learning_rate=5e-6,
     warmup_steps=1000,
     max_steps=3000,
-    # gradient_checkpointing=True,  # Optional: Use gradient checkpointing to save VRAM
-    # Note: bf16=True only if GPU supports BF16, otherwise use fp16=True, bf16=False
-    fp16=True,
-    bf16=False,
-    remove_unused_columns=False,
+    gradient_checkpointing=True,
+    fp16=False,
+    bf16=True,
     evaluation_strategy="steps", 
     eval_steps=500,
     save_steps=500,
-    logging_steps=100,
+    logging_steps=25,
     report_to=["tensorboard"],
     load_best_model_at_end=True,
     metric_for_best_model="wer",
     greater_is_better=False,
     push_to_hub=False,
     save_total_limit=3,
-    predict_with_generate=True,
-    generation_max_length=225  # Set maximum generation length here
+    predict_with_generate=True
 )
 
-# --------------------------------
-# 5) Resume from checkpoint if available
-# --------------------------------
-checkpoint_dir = training_args.output_dir
-latest_checkpoint = None
+# Resume from checkpoint
+def get_resume_checkpoint(output_dir):
+ 
+    if not os.path.isdir(output_dir):
+        return None
 
-if os.path.isdir(checkpoint_dir):
-    checkpoints = [d for d in os.listdir(checkpoint_dir) if d.startswith("checkpoint-")]
-    if checkpoints:
-        latest_checkpoint = os.path.join(
-            checkpoint_dir,
-            max(checkpoints, key=lambda x: int(x.split("-")[-1]))
-        )
-        print(f"Resuming training from checkpoint: {latest_checkpoint}")
-    else:
-        print("No checkpoint found. Starting from scratch.")
+    checkpoints = [
+        os.path.join(output_dir, d)
+        for d in os.listdir(output_dir)
+        if d.startswith("checkpoint-") and os.path.isfile(os.path.join(output_dir, d, "trainer_state.json"))
+    ]
+    if not checkpoints:
+        return None
+
+    latest = max(checkpoints, key=lambda x: int(x.split("-")[-1]))
+    return latest
+
+
+resume_checkpoint = get_resume_checkpoint(output_dir)
+if resume_checkpoint:
+    print(f"Resuming training from checkpoint: {resume_checkpoint}")
 else:
-    print("No checkpoint directory found. Training from scratch.")
+    print("No checkpoint found. Training from scratch.")
 
-# --------------------------------
-# 6) DataCollator & Trainer
-# --------------------------------
+# Data collator
 data_collator = DataCollatorSpeechSeq2SeqWithPadding(
-    processor=processor,
-    decoder_start_token_id=whisper_model.config.decoder_start_token_id
+    processor = processor,
+    decoder_start_token_id = whisper_model.config.decoder_start_token_id
 )
 
+# Trainer
 trainer = Seq2SeqTrainer(
     model=whisper_model,
     args=training_args,
     train_dataset=train_dataset,
     eval_dataset=eval_dataset,
     data_collator=data_collator,
-    # Important: must use processor.tokenizer, not processor.feature_extractor
-    tokenizer=processor.tokenizer,
-    # If compute_metrics(p, tokenizer) internally uses tokenizer.decode,
-    # then pass processor.tokenizer to it
+    tokenizer=processor,
     compute_metrics=lambda p: compute_metrics(p, processor.tokenizer)
 )
 
-# ========== Debug section ==========
-# Check first batch integrity
-try:
-    train_dataloader = trainer.get_train_dataloader()
-    first_batch = next(iter(train_dataloader))
-    
-    print("First batch keys:", first_batch.keys())
-    if "input_features" in first_batch:
-        print("Input features shape:", first_batch["input_features"].shape)
-        print("Input features data type:", first_batch["input_features"].dtype)
-        print("Input features contains NaN:", torch.isnan(first_batch["input_features"]).any())
-    if "attention_mask" in first_batch:
-        print("Attention mask shape:", first_batch["attention_mask"].shape)
-    if "labels" in first_batch:
-        print("Labels shape:", first_batch["labels"].shape)
-    
-    print("Training batch check successful!")
-except Exception as e:
-    print(f"Error checking training batch: {e}")
+def patched_load_rng_state(self, checkpoint_path):
+    import os
+    import torch
+    rng_file = os.path.join(checkpoint_path, "rng_state.pth")
+    if os.path.isfile(rng_file):
+        try:
+            rng_state = torch.load(rng_file, weights_only=False)
+            self._rng_state = rng_state
+            print(f"[DEBUG] RNG state loaded from: {rng_file}")
+        except Exception as e:
+            print(f"[WARNING] Failed to load rng_state.pth: {e}")
 
-# --------------------------------
-# 7) Start training
-# --------------------------------
-trainer.train(resume_from_checkpoint=latest_checkpoint)
+trainer._load_rng_state = types.MethodType(patched_load_rng_state, trainer)
 
-# --------------------------------
-# 8) Save model
-# --------------------------------
-trainer.save_model(training_args.output_dir)
-processor.save_pretrained(training_args.output_dir)
 
-print(f"LoRA fine-tuning saved to '{training_args.output_dir}'")
+# Custom callback for manual checkpoint
+class SaveManualCheckpointCallback(TrainerCallback):
+    def on_step_end(self, args, state, control, **kwargs):
+        if state.global_step == 10:
+            checkpoint_dir = os.path.join(output_dir, f"{PREFIX_CHECKPOINT_DIR}-manual")
+            os.makedirs(checkpoint_dir, exist_ok=True)
+            trainer.save_model(checkpoint_dir)  
+            processor.save_pretrained(checkpoint_dir)
+            print(f"[DEBUG] Manual checkpoint saved at: {checkpoint_dir}")
+
+trainer.add_callback(SaveManualCheckpointCallback())
+
+trainer.train(resume_from_checkpoint=resume_checkpoint)
+# Save final checkpoint (transformers format)
+final_checkpoint_path = os.path.join(output_dir, f"checkpoint-{trainer.state.global_step}")
+trainer.save_model(final_checkpoint_path)
+print(f"Final checkpoint saved at {final_checkpoint_path}")
+
+# # Manual save with torch
+# manual_checkpoint_dir = os.path.join(output_dir, f"{PREFIX_CHECKPOINT_DIR}-final")
+# os.makedirs(manual_checkpoint_dir, exist_ok=True)
+# torch.save(whisper_model.state_dict(), os.path.join(manual_checkpoint_dir, "pytorch_model.bin"))
+# # torch.save(trainer.state, os.path.join(manual_checkpoint_dir, "trainer_state.pt"))
+# print(f"[DEBUG] Manual final checkpoint saved to: {manual_checkpoint_dir}")
+
+# Save model and processor for inference
+whisper_model.save_pretrained(output_dir)
+processor.save_pretrained(output_dir)
+print(f"LoRA fine-tuning saved to '{output_dir}'")

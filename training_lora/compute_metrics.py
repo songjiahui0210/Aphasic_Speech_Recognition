@@ -39,4 +39,4 @@ def compute_metrics(pred, tokenizer):
         print(f"Prediction shape: {pred_ids.shape if hasattr(pred_ids, 'shape') else 'unknown'}")
         print(f"Label shape: {label_ids.shape if hasattr(label_ids, 'shape') else 'unknown'}")
         # Return placeholder value in case of error
-        return {"wer": 999.0}v
+        return {"wer": 999.0}
