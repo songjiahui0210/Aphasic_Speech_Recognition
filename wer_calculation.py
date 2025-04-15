@@ -66,7 +66,7 @@ def run_all_wer_calculations(models, detailed_results_folder, summary_csv):
 
 # Main script to calculate WER from the saved transcriptions
 #, "openai/whisper-large", "openai/whisper-large-v2", "openai/whisper-large-v3"
-models = ["openai/whisper-large"]
+models = ["openai/whisper-medium"]
 detailed_results_folder = "../data_processed/detailed_wer_results"
 summary_csv = "../data_processed/summary_wer_results.csv"
 

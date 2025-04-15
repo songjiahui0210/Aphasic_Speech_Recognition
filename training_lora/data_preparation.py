@@ -86,8 +86,8 @@ def main():
     parser.add_argument(
         "model_size",
         type=str,
-        choices=["small", "large"],
-        help="Size of the Whisper model to use (e.g., 'small' or 'large')."
+        choices=["small","medium", "large"],
+        help="Size of the Whisper model to use (e.g., 'small' or 'large' or 'medium')."
     )
     args = parser.parse_args()
 
@@ -95,7 +95,7 @@ def main():
     processor = WhisperProcessor.from_pretrained(f"openai/whisper-{args.model_size}")
 
     # 2) Read CSV file
-    csv_file_path = "../../data_processed/set1_w_cohort.csv"
+    csv_file_path = "../../data_processed/set2_validation.csv"
     df = pd.read_csv(csv_file_path)
 
     # 3) Filter speakers (example: keep only those with total duration > 480000 ms)
@@ -125,7 +125,7 @@ def main():
     print("Sample 0:", dataset[0])
 
     # 8) Save to disk (includes input_features, labels, etc.)
-    output_path = f"../../data_processed/processed_dataset_{args.model_size}_1"
+    output_path = f"../../data_processed/processed_set2_validation_{args.model_size}"
     dataset.save_to_disk(output_path)
 
     print(f"All done! Dataset with 'input_features' and 'labels' is saved at: {output_path}")
