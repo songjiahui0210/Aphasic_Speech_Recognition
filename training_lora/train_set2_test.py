@@ -29,17 +29,13 @@ eval_dataset = load_from_disk("/home/lian/data_processed/eval_dataset_ft_set2_te
 print(f"Train dataset size: {len(train_dataset)}")
 print(f"Eval dataset size:  {len(eval_dataset)}")
 
-# (Optional) For testing/debugging with smaller dataset
-# subset_size = 500
-# train_dataset = train_dataset.select(range(min(len(train_dataset), subset_size)))
-# eval_dataset = eval_dataset.select(range(min(len(eval_dataset), subset_size)))
 
 # --------------------------------
 # 3) Load base model & configure LoRA
-#    Note: If your processed data used 'whisper-small' for preprocessing,
-#          you should also use 'openai/whisper-small' here to ensure tokenizer compatibility.
+#    Note: If  processed data used 'whisper-small' for preprocessing,
+#          should also use 'openai/whisper-small' here to ensure tokenizer compatibility.
 # --------------------------------
-# 改这里
+# change here
 #model_id = "/home/lian/data_processed/models/lora_validation_personalized_speaker001"
 model_id = "openai/whisper-small"
 #whisper_model = WhisperForConditionalGeneration.from_pretrained(model_id)
@@ -60,11 +56,6 @@ adapter_path = "/home/lian/data_processed/models/lora_personalized_speaker001_sm
 whisper_model = PeftModel.from_pretrained(base_model, adapter_path)
 whisper_model.print_trainable_parameters()
 
-# If you only want to train LoRA, don't use the loop below;
-# LoRA plugin automatically makes LoRA parameters trainable while freezing the base model.
-# If you want full fine-tuning + LoRA, keep this loop.
-# for param in whisper_model.parameters():
-#     param.requires_grad = True
 
 processor = WhisperProcessor.from_pretrained(model_id, language="en", task="transcribe")
 
@@ -72,7 +63,7 @@ processor = WhisperProcessor.from_pretrained(model_id, language="en", task="tran
 # 4) Training hyperparameters
 # --------------------------------
 training_args = Seq2SeqTrainingArguments(
-    # 改这
+    # change here
     output_dir="/home/lian/data_processed/models/lora_test_personalized_speaker001",
     save_strategy="steps",
     per_device_train_batch_size=1,
