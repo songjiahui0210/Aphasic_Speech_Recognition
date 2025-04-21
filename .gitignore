@@ -19,3 +19,4 @@ training/*.sh
 # ------------------------
 training/myjob.44890129.err
 training/myjob.44890129.out
+models/

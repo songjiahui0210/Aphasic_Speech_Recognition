@@ -10,6 +10,7 @@ from transformers import (
 from data_collator import DataCollatorSpeechSeq2SeqWithPadding
 from compute_metrics import compute_metrics
 from peft import LoraConfig, get_peft_model
+from peft import PeftModel
 
 # --------------------------------
 # 1) Environment setup
@@ -22,56 +23,61 @@ print(f"Using device: {device}")
 # --------------------------------
 # 2) Load preprocessed and filtered datasets
 # --------------------------------
-train_dataset = load_from_disk("/home/lian/data_processed/train_dataset_ft_set2_enrollment_medium")
-eval_dataset  = load_from_disk("/home/lian/data_processed/eval_dataset_ft_set2_enrollment_medium")
-
+train_dataset = load_from_disk("/home/lian/data_processed/train_dataset_ft_set2_validation_small")
+eval_dataset  = load_from_disk("/home/lian/data_processed/eval_dataset_ft_set2_validation_small")
+ 
 
 print(f"Train dataset size: {len(train_dataset)}")
 print(f"Eval dataset size:  {len(eval_dataset)}")
 
-# (Optional) For testing/debugging with smaller dataset
-# subset_size = 500
-# train_dataset = train_dataset.select(range(min(len(train_dataset), subset_size)))
-# eval_dataset = eval_dataset.select(range(min(len(eval_dataset), subset_size)))
 
 # --------------------------------
 # 3) Load base model & configure LoRA
+#    Note: If  processed data used 'whisper-small' for preprocessing,
+#          should also use 'openai/whisper-small' here to ensure tokenizer compatibility.
 # --------------------------------
-model_id = "openai/whisper-medium"
+# change here
+#model_id = "/home/lian/data_processed/models/lora_personalized_speaker001_small10r18a"
+model_id = "openai/whisper-small"
+#whisper_model = WhisperForConditionalGeneration.from_pretrained(model_id)
+#whisper_model.config.use_cache = False  # Can reduce errors in some cases, but uses more VRAM
 
-whisper_model = WhisperForConditionalGeneration.from_pretrained(model_id)
-whisper_model.config.use_cache = False  # Can reduce errors in some cases, but uses more VRAM
+#lora_config = LoraConfig(
+ #   r=10,                   
+  #  lora_alpha=18,         
+   # lora_dropout=0.1,
+    #target_modules=["q_proj", "v_proj"],
+    #bias="none"
+#)
+#whisper_model = get_peft_model(whisper_model, lora_config)
 
-lora_config = LoraConfig(
-    r=16,                   
-    lora_alpha=24,         
-    lora_dropout=0.1,
-    target_modules=["q_proj", "v_proj"],
-    bias="none"
-)
-whisper_model = get_peft_model(whisper_model, lora_config)
+#whisper_model.print_trainable_parameters()
+# 1) loading orignal model
+base_model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-small")
+base_model.config.use_cache = False
 
+# 2) using adapter（r=8,α=16）
+adapter_path = "/home/lian/data_processed/models/lora_personalized_speaker001_small10r18a"
+whisper_model = PeftModel.from_pretrained(base_model, adapter_path)
 whisper_model.print_trainable_parameters()
 
-# If you only want to train LoRA, don't use the loop below;
-# LoRA plugin automatically makes LoRA parameters trainable while freezing the base model.
-# If you want full fine-tuning + LoRA, keep this loop.
-# for param in whisper_model.parameters():
-#     param.requires_grad = True
 
 processor = WhisperProcessor.from_pretrained(model_id, language="en", task="transcribe")
+
 
 # --------------------------------
 # 4) Training hyperparameters
 # --------------------------------
 training_args = Seq2SeqTrainingArguments(
-    output_dir="/home/lian/data_processed/models/whisper_lora_medium_16r24a",  
+    # change here
+    output_dir="/home/lian/data_processed/models/lora_validation_personalized_speaker001_small10r18a",
+    save_strategy="steps",
     per_device_train_batch_size=1,
     gradient_accumulation_steps=4,
     learning_rate=5e-6,
     warmup_steps=1000,
     max_steps=3000,
-    # gradient_checkpointing=True,  # Optional: Use gradient checkpointing to save VRAM
+    # gradient_checkpointing=True,
     # Note: bf16=True only if GPU supports BF16, otherwise use fp16=True, bf16=False
     fp16=True,
     bf16=False,
@@ -87,7 +93,7 @@ training_args = Seq2SeqTrainingArguments(
     push_to_hub=False,
     save_total_limit=3,
     predict_with_generate=True,
-    generation_max_length=225  # Set maximum generation length here
+    generation_max_length=100  # Set maximum generation length here
 )
 
 # --------------------------------
@@ -153,11 +159,12 @@ except Exception as e:
 # --------------------------------
 # 7) Start training
 # --------------------------------
-trainer.train(resume_from_checkpoint=latest_checkpoint)
-
+#trainer.train(resume_from_checkpoint=latest_checkpoint)
+metrics = trainer.evaluate()
+print(f"Validation metrics: {metrics}")
 # --------------------------------
 # 8) Save model
 # --------------------------------
-trainer.save_model(training_args.output_dir)
-processor.save_pretrained(training_args.output_dir)
-print(f"LoRA fine-tuning saved to '{training_args.output_dir}'")
+#trainer.save_model(training_args.output_dir)
+#processor.save_pretrained(training_args.output_dir)
+#print(f"LoRA fine-tuning saved to '{training_args.output_dir}'")

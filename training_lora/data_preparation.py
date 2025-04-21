@@ -1,104 +1,135 @@
 import argparse
-import pandas as pd
 import os
-import soundfile as sf
+import pandas as pd
 import numpy as np
+import soundfile as sf
 
-from datasets import Dataset, load_from_disk
+from datasets import Dataset
 from transformers import WhisperProcessor
 
-def process_audio_file(batch):
 
+def process_audio_file(batch):
+    """
+    For each record, construct the audio path from "folder_name" and "file_cut".
+    If audio exists, read and store in batch["audio"] field as:
+      batch["audio"] = {
+          "array": [...],
+          "sampling_rate": 16000
+      }
+    Otherwise, audio = None
+    """
     audio_file_path = os.path.join("../../data_processed/audios", batch["folder_name"], batch["file_cut"])
     if os.path.exists(audio_file_path):
         audio, sample_rate = sf.read(audio_file_path)
+        # If audio is numpy.ndarray, convert to list to avoid serialization issues
         audio_list = audio.tolist() if isinstance(audio, np.ndarray) else audio
-        return {
-            "audio": {
-                "array": audio_list,
-                "sampling_rate": int(sample_rate)
-            }
+        batch["audio"] = {
+            "array": audio_list,
+            "sampling_rate": int(sample_rate)
         }
     else:
-        return {"audio": None}
+        batch["audio"] = None
+    return batch
+
 
 def prepare_dataset(dataset, processor):
- 
+    """
+    For each sample in the dataset, use WhisperProcessor to generate:
+      - batch["input_features"] (mel spectrogram)
+      - batch["labels"] (token ids)
+
+    Note: Processing one sample at a time (batched=False)
+    For large datasets, consider changing to batched=True
+    """
 
     def prepare(batch):
-        processed_data = {
-            "input_features": [],
-            "labels": []
-        }
+        try:
+            audio_info = batch.get("audio", None)
+            if audio_info and "array" in audio_info and audio_info["array"] is not None:
+                # (1) Extract audio features using WhisperFeatureExtractor
+                feats = processor.feature_extractor(
+                    audio_info["array"],
+                    sampling_rate=audio_info["sampling_rate"]
+                ).input_features[0]
+                batch["input_features"] = feats
+            else:
+                batch["input_features"] = None
 
-        audio_list = batch.get("audio", [])
-        if isinstance(audio_list, list):
-            for audio_info in audio_list:
-                if audio_info and "array" in audio_info and audio_info["array"] is not None:
-                    try:
-                        feats = processor.feature_extractor(
-                            audio_info["array"],
-                            sampling_rate=audio_info["sampling_rate"]
-                        ).input_features[0]
-                        processed_data["input_features"].append(feats)
-                    except Exception as e:
-                        print(f"Error processing audio: {e}")
-                        processed_data["input_features"].append(None)
-                else:
-                    processed_data["input_features"].append(None)
-        else:
-            print("Batch does not contain a valid 'audio' field.")
-            processed_data["input_features"] = [None] * len(batch["transcriptions"])
+            # (2) Text -> labels (token ids)
+            text = batch.get("transcriptions", "")
+            if isinstance(text, str) and len(text.strip()) > 0:
+                tokenized = processor.tokenizer(text)
+                batch["labels"] = tokenized["input_ids"]
+            else:
+                batch["labels"] = []
+        except Exception as e:
+            # Log errors and mark as None if processing fails
+            error_message = (
+                f"Error processing sample with folder_name={batch.get('folder_name')} "
+                f"file_cut={batch.get('file_cut')} : {e}"
+            )
+            print(error_message)
+            with open("error_report.txt", "a") as f:
+                f.write(error_message + "\n")
 
-        text_list = batch.get("transcriptions", [])
-        if isinstance(text_list, list):
-            for text in text_list:
-                if text is not None and isinstance(text, str):
-                    tokenized = processor.tokenizer(text)
-                    processed_data["labels"].append(tokenized["input_ids"])
-                else:
-                    processed_data["labels"].append([])
-        else:
-            processed_data["labels"] = [[] for _ in range(len(batch.get("audio", [])))]
+            batch["input_features"] = None
+            batch["labels"] = []
+        return batch
 
-        return processed_data
+    # Apply prepare function to each sample
+    dataset = dataset.map(prepare, batched=False, num_proc=1)
+    return dataset
 
-    return dataset.map(
-        prepare,
-        batched=True,
-        batch_size=5,
-        num_proc=4 
-    )
-
-def save_missing_files(missing_files):
-    if missing_files:
-        missing_files_df = pd.DataFrame(missing_files, columns=["missing_file_path"])
-        missing_files_df.to_csv("../../data_processed/missing_audio_files.csv", index=False)
-        print("Missing audio files saved to 'missing_audio_files.csv'.")
-    else:
-        print("No missing audio files detected.")
 
 def main():
     parser = argparse.ArgumentParser(description="Prepare a dataset with Whisper model.")
-    parser.add_argument("model_size", type=str, choices=["small", "large"], help="Size of the Whisper model to use.")
+    parser.add_argument(
+        "model_size",
+        type=str,
+        choices=["small","medium", "large"],
+        help="Size of the Whisper model to use (e.g., 'small' or 'large' or 'medium')."
+    )
     args = parser.parse_args()
 
+    # 1) Load Processor (WhisperTokenizer + WhisperFeatureExtractor)
     processor = WhisperProcessor.from_pretrained(f"openai/whisper-{args.model_size}")
 
-    csv_file_path = '../../data_processed/set1_w_cohort.csv'
+    # 2) Read CSV file
+    csv_file_path = "../../data_processed/set2_validation.csv"
     df = pd.read_csv(csv_file_path)
-    df = 
 
-    # keep only speakers with total utterance_duration > 8 minutes
-    df['utterance_duration'] = (df['mark_end'] - df['mark_start']).astype(int)
-    speaker_durations = df.groupby('name_unique_speaker')['utterance_duration'].sum().reset_index()
-    valid_speakers = speaker_durations[speaker_durations['utterance_duration'] > 480000]['name_unique_speaker']
-    df_filtered = df[df['name_unique_speaker'].isin(valid_speakers)]
+    # 3) Filter speakers (example: keep only those with total duration > 480000 ms)
+    df["utterance_duration"] = (df["mark_end"] - df["mark_start"]).astype(int)
+    speaker_durations = df.groupby("name_unique_speaker")["utterance_duration"].sum().reset_index()
+    valid_speakers = speaker_durations[speaker_durations["utterance_duration"] > 480000]["name_unique_speaker"]
+    df_filtered = df[df["name_unique_speaker"].isin(valid_speakers)]
+    print(f"Original CSV: {len(df)} rows, after filtering: {len(df_filtered)} rows.")
 
+    # 4) Convert to Hugging Face Dataset
     dataset = Dataset.from_pandas(df_filtered)
-    dataset = dataset.map(process_audio_file)
+
+    # 5) Read audio into dataset["audio"]
+    dataset = dataset.map(process_audio_file, batched=False)
+    print(f"After attaching audio info, dataset size: {len(dataset)}")
+
+    # 6) Generate input_features + labels using WhisperProcessor
     dataset = prepare_dataset(dataset, processor)
-    dataset.save_to_disk(f"../../data_processed/processed_dataset_{args.model_size}")
+    print(f"After prepare_dataset, dataset size: {len(dataset)}")
+
+    # 7) Filter out samples where input_features is None
+    #    Avoid "All input_features are None" error during training
+    dataset = dataset.filter(lambda x: (x.get("input_features") is not None) and (len(x["input_features"]) > 0))
+    print(f"After filtering None input_features, dataset size: {len(dataset)}")
+
+    # (Optional) Print first sample fields
+    print("Sample 0:", dataset[0])
+
+    # 8) Save to disk (includes input_features, labels, etc.)
+    output_path = f"../../data_processed/processed_set2_validation_{args.model_size}"
+    dataset.save_to_disk(output_path)
+
+    print(f"All done! Dataset with 'input_features' and 'labels' is saved at: {output_path}")
+
 
 if __name__ == "__main__":
     main()

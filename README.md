@@ -61,67 +61,85 @@ nohup python3 data_cleaning_and_statistics.py > output.log 2>&1 &
 
 ### Step 6: split data
 
-Split the dataset into training (80%), validation (10%), and test (10%) sets based on the unique speakers within each WAB_AQ_category
+We split the full dataset into two main sets and then further partition Set 2 for enrollment, validation, and testing.
+**Divide speakers into Set 1 and Set 2**  
+   - Randomly assign 70 % of valid speakers to **Set 1** (cohort-based adaptation).  
+   - Assign remaining 30 % to **Set 2** (personalized-adapter experiments).
+**Further split Set 2**  
+   - **Enrollment (train)**: 80 % of Set 2 speakers. 
+     - **Validation** (10 % of original Set 2)  
+     - **Test** (10 % of original Set 2)
 
 ```
-nohup python3 data_splitting.py > output.log 2>&1 &
+nohup python3 training_lora/data_splitting_lora.py
 ```
 
 # Baseline
 
-### Calculating baseline WER
-
+### Calculating baseline WER for whole dataset, and WER of Set 1, Set 2(validation, test:
 ```
+cd ..
 python3 transcribe.py
 python3 wer_calculation.py
 ```
+### Calculating baseline WER of Set 1, Set 2(validation, test:
+```
+python3 training_lora/baseline_wer.py
+```
 
-# Fine-tuning
+
+# Fine-tuning in Set 1: cohort training 
 
 ```
 cd Aphasic_speech_recognition/training_lora/
 ```
 
-### Step 1: prepare data
+### Step 1: prepare data for set 1
 
-Prepare data, including loading audio files, compute log-Mel input features, and encode transcriptions to label ids.
+Generate log‑Mel inputs and tokenized transcripts for cohort training. 
 
 ```
 python3 data_preparation.py <model_size>
 ```
 
-Select model size from "small" and "large-v3".
+Select model size from "small" and "medium".
 
-### Step 2: train the model
-
-**Vanilla fine-tuning**, select model size from "small" and "large":
+### Step 2: split & filter Set 1 (W_cohort)
 
 ```
-python3 training.py <model_size>
+python3 filter.py
+python3 filter_process_dataset.py
 ```
 
-**Fine-tuning with encoder freezing**, select model size from "small", "medium" and "large" and set the number of encoder layers to freeze:
+**Fine-tuning in Set 1: will get the model after fine-tuning
 
 ```
-python3 training.py <model_size> --freeze_layers <number_of_encoder_layers_to_freeze>
+python3 train_lora.py 
 ```
+# Fine-tuning in Set 2: Personalized Adaptation
 
-### Step 3: evaluation
+### Step 3: enrollment, validation and test
 
-After training, run the following commands step by step to get WER result.
-
-```
-cd ..
-python3 transcribe_finetune.py <model_path>
-python3 wer_calculation_finetune.py <detailed_wer_csv_path>
-```
-
-# CKA Analysis
-
-Before runing, python3 cka_analysis.py, adjust the path of finetuned_model_path accordingly on line 13.
-If the dataset is in a subdirectory or parent directory of the cka_analysis.py, adjust the path accordingly on line 22.
+After training in set 1, run the following commands step by step to get the WER of enrollment, validation, and test results.
 
 ```
-cd cka
-python3 cka_analysis.py
+python3 tran_set2_lora.py
+```
+After running the enrollment, save the model path and change in the tran_set2_validation.py and tran_set2_test.py:
+
+```
+python3 tran_set2_validation.py
+python3 tran_set2_test.py
+```
+
+# Step 4: Parameter Adjustment
+
+Before runing, adjust the path of model path to the model save after step 2, and change the rank r and alpha a.
+```
+python3 train_enrollment.py
+```
+After running the enrollment, save the model path and change in the train_validation.py and train_test.py:
+```
+python3 train_validation.py
+python3 train_test.py
 ```

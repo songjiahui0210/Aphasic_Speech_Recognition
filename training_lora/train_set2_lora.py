@@ -22,22 +22,20 @@ print(f"Using device: {device}")
 # --------------------------------
 # 2) Load preprocessed and filtered datasets
 # --------------------------------
-train_dataset = load_from_disk("/home/lian/data_processed/train_dataset_ft_set2_enrollment_medium")
-eval_dataset  = load_from_disk("/home/lian/data_processed/eval_dataset_ft_set2_enrollment_medium")
-
+train_dataset = load_from_disk("/home/lian/data_processed/train_dataset_ft_set2_enrollment_small")
+eval_dataset  = load_from_disk("/home/lian/data_processed/eval_dataset_ft_set2_enrollment_small")
 
 print(f"Train dataset size: {len(train_dataset)}")
 print(f"Eval dataset size:  {len(eval_dataset)}")
 
-# (Optional) For testing/debugging with smaller dataset
-# subset_size = 500
-# train_dataset = train_dataset.select(range(min(len(train_dataset), subset_size)))
-# eval_dataset = eval_dataset.select(range(min(len(eval_dataset), subset_size)))
 
 # --------------------------------
 # 3) Load base model & configure LoRA
+#    Note: If processed data used 'whisper-small' for preprocessing,
+#         should also use 'openai/whisper-small' here to ensure tokenizer compatibility.
 # --------------------------------
-model_id = "openai/whisper-medium"
+# change here
+model_id ="/home/lian/data_processed/models/lora_personalized_speaker001"
 
 whisper_model = WhisperForConditionalGeneration.from_pretrained(model_id)
 whisper_model.config.use_cache = False  # Can reduce errors in some cases, but uses more VRAM
@@ -53,11 +51,6 @@ whisper_model = get_peft_model(whisper_model, lora_config)
 
 whisper_model.print_trainable_parameters()
 
-# If you only want to train LoRA, don't use the loop below;
-# LoRA plugin automatically makes LoRA parameters trainable while freezing the base model.
-# If you want full fine-tuning + LoRA, keep this loop.
-# for param in whisper_model.parameters():
-#     param.requires_grad = True
 
 processor = WhisperProcessor.from_pretrained(model_id, language="en", task="transcribe")
 
@@ -65,18 +58,22 @@ processor = WhisperProcessor.from_pretrained(model_id, language="en", task="tran
 # 4) Training hyperparameters
 # --------------------------------
 training_args = Seq2SeqTrainingArguments(
-    output_dir="/home/lian/data_processed/models/whisper_lora_medium_16r24a",  
+    # change here
+    output_dir="/home/lian/data_processed/models/lora_personalized_speaker001_small16r24a",
+    eval_strategy="steps",
+    save_strategy="steps",
+
+
     per_device_train_batch_size=1,
     gradient_accumulation_steps=4,
     learning_rate=5e-6,
     warmup_steps=1000,
     max_steps=3000,
-    # gradient_checkpointing=True,  # Optional: Use gradient checkpointing to save VRAM
-    # Note: bf16=True only if GPU supports BF16, otherwise use fp16=True, bf16=False
+    # gradient_checkpointing=True,
+    # bf16=True only if GPU supports BF16, otherwise use fp16=True, bf16=False
     fp16=True,
     bf16=False,
     remove_unused_columns=False,
-    eval_strategy="steps",
     eval_steps=500,
     save_steps=500,
     logging_steps=100,
@@ -123,7 +120,7 @@ trainer = Seq2SeqTrainer(
     train_dataset=train_dataset,
     eval_dataset=eval_dataset,
     data_collator=data_collator,
-    # Important: must use processor.tokenizer, not processor.feature_extractor
+    # must use processor.tokenizer, not processor.feature_extractor
     tokenizer=processor.tokenizer,
     # If compute_metrics(p, tokenizer) internally uses tokenizer.decode,
     # then pass processor.tokenizer to it
