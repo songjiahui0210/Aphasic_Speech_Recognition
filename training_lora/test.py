@@ -1,10 +1,10 @@
 from datasets import load_from_disk
 import numpy as np
 
-# 加载数据集
+# load dataset
 train_dataset = load_from_disk("../../data_processed/train_dataset_filtered_small")
 
-# 检查前10个样本
+# check first ten
 
 for i in range(min(10, len(train_dataset))):
     sample = train_dataset[i]
