@@ -13,7 +13,7 @@ from compute_metrics import compute_metrics
 from peft import LoraConfig, get_peft_model, PeftModel
 
 # ==============================
-# 修补 PeftModel.forward，丢弃 num_items_in_batch
+# Fix PeftModel.forward, drop num_items_in_batch
 # ==============================
 _orig_forward = PeftModel.forward
 def _patched_forward(self, *args, **kwargs):
@@ -22,29 +22,29 @@ def _patched_forward(self, *args, **kwargs):
 PeftModel.forward = _patched_forward
 
 # --------------------------------
-# 1) 环境 & 设备
+# 1) Environment & device
 # --------------------------------
 torch.cuda.empty_cache()
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
 # --------------------------------
-# 2) 加载 Set2 Enrollment 数据
+# 2)Loading Set2 Enrollment data
 # --------------------------------
 train_dataset = load_from_disk("/home/lian/data_processed/train_dataset_ft_set2_enrollment_small")
 eval_dataset  = load_from_disk("/home/lian/data_processed/eval_dataset_ft_set2_enrollment_small")
 print(f"Train size: {len(train_dataset)}, Eval size: {len(eval_dataset)}")
 
 # --------------------------------
-# 3) 加载基础模型 + 初始化 LoRA
+# 3) Load basic model + initialize LoRA
 # --------------------------------
-# ① 先加载在 Set1 上训练好的 cohort adapter（r=8, α=16）
+# ① First load the cohort adapter trained on Set1 (r=8, α=16)
 base_model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-small").to(device)
 base_model.config.use_cache = False
 adapter_cohort = "/home/lian/data_processed/models/lora_personalized_speaker001"
 model = PeftModel.from_pretrained(base_model, adapter_cohort).to(device)
 
-# ② 再给它贴上这次要训练的新 adapter（r=16, α=24）
+# ② Then attach the new adapter to be trained this time (r=16, α=24)
 lora_cfg = LoraConfig(
     r=16,
     lora_alpha=24,
@@ -102,12 +102,12 @@ trainer = Seq2SeqTrainer(
 )
 
 # --------------------------------
-# 6) 开始训练
+# 6) start trainning 
 # --------------------------------
 trainer.train()
 
 # --------------------------------
-# 7) 保存 Adapter
+# 7) saving Adapter
 # --------------------------------
 trainer.save_model(training_args.output_dir)
 processor.save_pretrained(training_args.output_dir)
