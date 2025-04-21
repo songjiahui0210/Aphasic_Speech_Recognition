@@ -22,8 +22,8 @@ print(f"Using device: {device}")
 # --------------------------------
 # 2) Load preprocessed and filtered datasets
 # --------------------------------
-train_dataset = load_from_disk("../../data_processed/train_dataset_ft_set2_enrollment_small")
-eval_dataset = load_from_disk("../../data_processed/eval_dataset_ft_set2_enrollment_small")
+train_dataset = load_from_disk("/home/lian/data_processed/train_dataset_ft_set2_enrollment_small")
+eval_dataset  = load_from_disk("/home/lian/data_processed/eval_dataset_ft_set2_enrollment_small")
 
 print(f"Train dataset size: {len(train_dataset)}")
 print(f"Eval dataset size:  {len(eval_dataset)}")
@@ -39,14 +39,14 @@ print(f"Eval dataset size:  {len(eval_dataset)}")
 #          you should also use 'openai/whisper-small' here to ensure tokenizer compatibility.
 # --------------------------------
 # 改这里
-model_id = "../../models/whisper_lora_small"
+model_id ="/home/lian/data_processed/models/lora_personalized_speaker001"
 
 whisper_model = WhisperForConditionalGeneration.from_pretrained(model_id)
 whisper_model.config.use_cache = False  # Can reduce errors in some cases, but uses more VRAM
 
 lora_config = LoraConfig(
-    r=8,                   
-    lora_alpha=16,         
+    r=16,                   
+    lora_alpha=24,         
     lora_dropout=0.1,
     target_modules=["q_proj", "v_proj"],
     bias="none"
@@ -68,7 +68,11 @@ processor = WhisperProcessor.from_pretrained(model_id, language="en", task="tran
 # --------------------------------
 training_args = Seq2SeqTrainingArguments(
     # 改这
-    output_dir="../../models/lora_personalized_speaker001",  
+    output_dir="/home/lian/data_processed/models/lora_personalized_speaker001_small16r24a",
+    eval_strategy="steps",
+    save_strategy="steps",
+
+
     per_device_train_batch_size=1,
     gradient_accumulation_steps=4,
     learning_rate=5e-6,
@@ -79,7 +83,6 @@ training_args = Seq2SeqTrainingArguments(
     fp16=True,
     bf16=False,
     remove_unused_columns=False,
-    evaluation_strategy="steps", 
     eval_steps=500,
     save_steps=500,
     logging_steps=100,

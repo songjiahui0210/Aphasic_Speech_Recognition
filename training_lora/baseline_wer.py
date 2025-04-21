@@ -1,12 +1,10 @@
-import torch
-from transformers import WhisperForConditionalGeneration, WhisperProcessor
-import pandas as pd
-from jiwer import wer, Compose, ToLowerCase, RemovePunctuation
 import os
-import inflect
+import torch
+import pandas as pd
 import librosa
-import numpy as np
-
+import inflect
+from transformers import WhisperForConditionalGeneration, WhisperProcessor
+from jiwer import wer, Compose, ToLowerCase, RemovePunctuation
 
 def convert_numbers_to_words(text):
     """
@@ -14,170 +12,119 @@ def convert_numbers_to_words(text):
     """
     p = inflect.engine()
     words = text.split()
-    
-    converted_text = ""
-    
-    for word in words:
-        if word.isdigit():
+    out = []
+    for w in words:
+        if w.isdigit():
             try:
-                word = p.number_to_words(word)
+                w = p.number_to_words(w)
             except inflect.NumOutOfRangeError:
                 pass
-        converted_text += word + " "
-    
-    return converted_text.strip()
+        out.append(w)
+    return " ".join(out)
 
 def calculate_wer(csv_path, audio_root, model, processor, detailed_csv, device):
     """
-    Calculate WER for the given model and dataset, process transcriptions, and save detailed results.
+    Calculate per-file WER and save detailed results to a CSV.
     """
-    # Load the dataset CSV
     df = pd.read_csv(csv_path)
-    
-    # Open CSV in append mode
-    with open(detailed_csv, mode='a') as f:
-        first_write = True 
+    first_write = True
 
-        # Process each row in the dataset
-        for index, row in df.iterrows():
-            file_name = row['file_cut']
-            transcription = row['transcriptions']
-            folder_name = row['folder_name']
-            audio_root = "../../data_processed/audios"
-            audio_path = os.path.join(audio_root, folder_name, file_name)
+    with open(detailed_csv, "w") as _:
+        pass  # truncate existing file
 
-            if not os.path.exists(audio_path):
-                print(f"Audio file {audio_path} not found")
-                continue
+    for _, row in df.iterrows():
+        file_name     = row["file_cut"]
+        transcription = row["transcriptions"]
+        folder_name   = row["folder_name"]
+        audio_path    = os.path.join(audio_root, folder_name, file_name)
 
-            # Transcribe audio using Whisper via transformers
-            print(f"Transcribing {audio_path}")
-            
-            try:
-                # Load audio with librosa
-                audio_array, sampling_rate = librosa.load(audio_path, sr=16000)
-                
-                # Process audio with Whisper processor
-                input_features = processor(audio_array, sampling_rate=16000, return_tensors="pt").input_features
-                
-                # Generate token ids
-                with torch.no_grad():
-                    predicted_ids = model.generate(input_features.to(device))
-                
-                # Decode token ids to text
-                predicted_text = processor.batch_decode(predicted_ids, skip_special_tokens=True)[0]
+        if not os.path.exists(audio_path):
+            print(f"[WARN] Audio not found: {audio_path}")
+            continue
 
-                # Normalize the prediction and transcription text
-                transformation = Compose([ToLowerCase(), RemovePunctuation()])
-                predicted_text = transformation(predicted_text)
-                transcription = transformation(transcription)
+        # load audio
+        wav, sr = librosa.load(audio_path, sr=16000)
+        inputs  = processor(wav, sampling_rate=sr, return_tensors="pt")
+        feats   = inputs.input_features.to(device)
 
-                # Convert numbers in the predicted text to words
-                predicted_text = convert_numbers_to_words(predicted_text)
+        # generate
+        with torch.no_grad():
+            ids = model.generate(feats)
+        pred = processor.batch_decode(ids, skip_special_tokens=True)[0]
 
-                # Collect data for detailed CSV
-                output_data = {
-                    "folder": folder_name,
-                    "file_name": file_name,
-                    "prediction": predicted_text,
-                    "reference": transcription,
-                    "wer": wer([transcription], [predicted_text])
-                }
+        # normalize
+        norm = Compose([ToLowerCase(), RemovePunctuation()])
+        ref_clean  = norm(transcription)
+        pred_clean = norm(pred)
+        pred_clean = convert_numbers_to_words(pred_clean)
 
-                # Write data row-by-row to the CSV file
-                output_df = pd.DataFrame([output_data])
-                output_df.to_csv(f, mode='a', header=first_write, index=False)
-                first_write = False
-                
-            except Exception as e:
-                print(f"Error processing {audio_path}: {e}")
-                continue
+        score = wer([ref_clean], [pred_clean])
 
-    print(f"Detailed results saved to {detailed_csv}")
+        out = {
+            "folder":     folder_name,
+            "file":       file_name,
+            "reference":  ref_clean,
+            "prediction": pred_clean,
+            "wer":        score
+        }
+        pd.DataFrame([out]).to_csv(
+            detailed_csv, mode="a", header=first_write, index=False
+        )
+        first_write = False
 
+    print(f"[INFO] Details written to {detailed_csv}")
 
 def calculate_overall_wer_from_csv(detailed_csv):
     """
-    Calculate the overall WER from the detailed CSV file after all predictions are made.
+    Read the detailed CSV and compute overall WER.
     """
     df = pd.read_csv(detailed_csv)
-    references = [str(ref) if not pd.isna(ref) else "" for ref in df["reference"]]
-    predictions = [str(pred) if not pd.isna(pred) else "" for pred in df["prediction"]]
+    refs  = df["reference"].tolist()
+    preds = df["prediction"].tolist()
+    return wer(refs, preds)
 
-    # Calculate overall WER using the list of references and predictions
-    overall_wer = wer(references, predictions)
-    return overall_wer
-
-
-def run_baseline_evaluation(model_size, validation_csv, test_csv, audio_root, results_folder):
+def run_baseline_evaluation(model_size, csv_path, audio_root, results_folder):
     """
-    Run baseline WER calculations for validation and test sets.
+    Run baseline WER on a single CSV (used for both validation and test).
     """
-    # Avoid memory issues
     torch.cuda.empty_cache()
-    
-    # Set device
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(f"Using device: {device}")
-
-    # Load model
-    model_id = f"openai/whisper-{model_size}"
-    print(f"Loading {model_id} model...")
-    model = WhisperForConditionalGeneration.from_pretrained(model_id).to(device)
+    device    = "cuda" if torch.cuda.is_available() else "cpu"
+    model_id  = f"openai/whisper-{model_size}"
+    print(f"[INFO] Loading model {model_id} on {device}...")
+    model     = WhisperForConditionalGeneration.from_pretrained(model_id).to(device)
     processor = WhisperProcessor.from_pretrained(model_id, language="en", task="transcribe")
-    
-    # Process validation set
-    validation_output_csv = f"{results_folder}/baseline_{model_size}_validation_results.csv"
-    print(f"Processing validation set...")
-    calculate_wer(validation_csv, audio_root, model, processor, validation_output_csv, device)
-    validation_wer = calculate_overall_wer_from_csv(validation_output_csv)
-    print(f"Validation WER for {model_size}: {validation_wer}")
-    
-    # Process test set
-    test_output_csv = f"{results_folder}/baseline_{model_size}_test_results.csv"
-    print(f"Processing test set...")
-    calculate_wer(test_csv, audio_root, model, processor, test_output_csv, device)
-    test_wer = calculate_overall_wer_from_csv(test_output_csv)
-    print(f"Test WER for {model_size}: {test_wer}")
-    
-    # Save summary results
-    summary_data = {
-        "model": model_size,
-        "validation_wer": validation_wer,
-        "test_wer": test_wer
-    }
-    
-    summary_df = pd.DataFrame([summary_data])
-    summary_csv = f"{results_folder}/baseline_{model_size}_summary.csv"
-    summary_df.to_csv(summary_csv, index=False)
-    print(f"Summary results saved to {summary_csv}")
-    
-    # Explicitly delete the model to free up memory
+
+    os.makedirs(results_folder, exist_ok=True)
+    detailed_csv = os.path.join(results_folder, f"baseline_{model_size}_results.csv")
+
+    print(f"[INFO] Processing {csv_path} ...")
+    calculate_wer(csv_path, audio_root, model, processor, detailed_csv, device)
+
+    overall = calculate_overall_wer_from_csv(detailed_csv)
+    print(f"[RESULT] {model_size} WER on {os.path.basename(csv_path)}: {overall*100:.2f}%")
+
+    # cleanup
     del model
     torch.cuda.empty_cache()
-    
-    return validation_wer, test_wer
+    return overall
 
-# Main script settings
-model_size = "medium"  # Change this to the model size that want to evaluate
-validation_csv = "../../data_processed/set2_validation.csv"
-test_csv = "../../data_processed/set2_test.csv"
-audio_root = "../../data_processed/audios"
-results_folder = "../../data_processed/baseline_wer_results"
+if __name__ == "__main__":
+     # Common settings
+    validation_csv = "/home/lian/data_processed/set1_w_cohort.csv"
+    test_csv       = validation_csv
+    audio_root     = "/home/lian/data_processed/audios"
 
-if not os.path.exists(results_folder):
-    os.makedirs(results_folder)
-    print(f"Directory '{results_folder}' created.")
+    for model_size in ["small", "medium"]:
+        results_folder = f"/home/lian/data_processed/baseline_set1_whisper_{model_size}"
+        print(f"\n===== Running baseline for whisper-{model_size} =====")
+        val_wer = run_baseline_evaluation(
+            model_size, validation_csv, audio_root, results_folder
+        )
+        test_wer = run_baseline_evaluation(
+            model_size, test_csv, audio_root, results_folder
+        )
+        print(
+            f">>> whisper-{model_size} → Validation WER: {val_wer*100:.2f}%  "
+            f"Test WER: {test_wer*100:.2f}%"
+    )
 
-# Run the evaluation
-validation_wer, test_wer = run_baseline_evaluation(
-    model_size, 
-    validation_csv, 
-    test_csv, 
-    audio_root, 
-    results_folder
-)
-
-print(f"\nFinal Results for {model_size} model:")
-print(f"Validation WER: {validation_wer}")
-print(f"Test WER: {test_wer}")

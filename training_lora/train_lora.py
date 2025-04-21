@@ -22,8 +22,9 @@ print(f"Using device: {device}")
 # --------------------------------
 # 2) Load preprocessed and filtered datasets
 # --------------------------------
-train_dataset = load_from_disk("../../data_processed/train_dataset_filter_small")
-eval_dataset = load_from_disk("../../data_processed/eval_dataset_filter_small")
+train_dataset = load_from_disk("/home/lian/data_processed/train_dataset_ft_set2_enrollment_medium")
+eval_dataset  = load_from_disk("/home/lian/data_processed/eval_dataset_ft_set2_enrollment_medium")
+
 
 print(f"Train dataset size: {len(train_dataset)}")
 print(f"Eval dataset size:  {len(eval_dataset)}")
@@ -36,14 +37,14 @@ print(f"Eval dataset size:  {len(eval_dataset)}")
 # --------------------------------
 # 3) Load base model & configure LoRA
 # --------------------------------
-model_id = "openai/whisper-small"
+model_id = "openai/whisper-medium"
 
 whisper_model = WhisperForConditionalGeneration.from_pretrained(model_id)
 whisper_model.config.use_cache = False  # Can reduce errors in some cases, but uses more VRAM
 
 lora_config = LoraConfig(
     r=16,                   
-    lora_alpha=32,         
+    lora_alpha=24,         
     lora_dropout=0.1,
     target_modules=["q_proj", "v_proj"],
     bias="none"
@@ -64,7 +65,7 @@ processor = WhisperProcessor.from_pretrained(model_id, language="en", task="tran
 # 4) Training hyperparameters
 # --------------------------------
 training_args = Seq2SeqTrainingArguments(
-    output_dir="../../models/whisper_lora_small_16r32a",  
+    output_dir="/home/lian/data_processed/models/whisper_lora_medium_16r24a",  
     per_device_train_batch_size=1,
     gradient_accumulation_steps=4,
     learning_rate=5e-6,
@@ -75,7 +76,7 @@ training_args = Seq2SeqTrainingArguments(
     fp16=True,
     bf16=False,
     remove_unused_columns=False,
-    evaluation_strategy="steps", 
+    eval_strategy="steps",
     eval_steps=500,
     save_steps=500,
     logging_steps=100,
