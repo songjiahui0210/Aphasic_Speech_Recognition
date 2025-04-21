@@ -7,6 +7,7 @@ __pycache__/
 *.log
 *.err
 *.out
+.vscode
 output.log
 
 training/baseline.py
