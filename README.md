@@ -143,3 +143,10 @@ After running the enrollment, save the model path and change in the train_valida
 python3 train_validation.py
 python3 train_test.py
 ```
+
+
+# Model & Data
+
+- **Whisper‑small LoRA (r=8, α=16)**  
+  https://huggingface.co/liulian26/aphasic-whisper-small-lora
+  
