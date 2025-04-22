@@ -29,7 +29,7 @@ eval_dataset  = load_from_disk("/home/lian/data_processed/eval_dataset_ft_set2_e
 print(f"Train dataset size: {len(train_dataset)}")
 print(f"Eval dataset size:  {len(eval_dataset)}")
 
-# (Optional) For testing/debugging with smaller dataset
+# For testing/debugging with smaller dataset
 # subset_size = 500
 # train_dataset = train_dataset.select(range(min(len(train_dataset), subset_size)))
 # eval_dataset = eval_dataset.select(range(min(len(eval_dataset), subset_size)))
@@ -53,11 +53,6 @@ whisper_model = get_peft_model(whisper_model, lora_config)
 
 whisper_model.print_trainable_parameters()
 
-# If you only want to train LoRA, don't use the loop below;
-# LoRA plugin automatically makes LoRA parameters trainable while freezing the base model.
-# If you want full fine-tuning + LoRA, keep this loop.
-# for param in whisper_model.parameters():
-#     param.requires_grad = True
 
 processor = WhisperProcessor.from_pretrained(model_id, language="en", task="transcribe")
 
@@ -71,7 +66,7 @@ training_args = Seq2SeqTrainingArguments(
     learning_rate=5e-6,
     warmup_steps=1000,
     max_steps=3000,
-    # gradient_checkpointing=True,  # Optional: Use gradient checkpointing to save VRAM
+    # gradient_checkpointing=True, 
     # Note: bf16=True only if GPU supports BF16, otherwise use fp16=True, bf16=False
     fp16=True,
     bf16=False,
