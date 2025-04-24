@@ -1,3 +1,17 @@
+# Aphasic Speech Recognition
+
+This repository contains code for fine-tuning Whisper ASR models for improved speech recognition on aphasic speech using Low-Rank Adaptation (LoRA).
+
+## Project Overview
+
+Aphasia affects speech production while cognitive abilities remain intact. Standard ASR systems perform poorly on atypical speech patterns common in aphasia. This project implements a two-stage Low-Rank Adaptation approach:
+
+1. **Wcohort Training**: Adapts Whisper to general aphasic speech patterns using LoRA
+2. **Speaker-Specific Adaptation**: Further personalizes the model for individual speakers
+
+Our approach significantly reduces Word Error Rate (WER) for aphasic speech recognition while maintaining computational efficiency through parameter-efficient fine-tuning.
+
+
 # Data processing
 
 After git clone the repo, enter the directory
