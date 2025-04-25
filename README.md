@@ -56,7 +56,11 @@ Processed: ACWT01a_127.379_3.55.wav   WER: 0.0000
 Overall WER: 0.4456 (calculated on 19 files)
 ## Summary Results
 On 19 demo samples, the average WER of the whisper-small LoRA adapter is 44.56%.
+To perform a full training run, use the training_lora/train_lora.py script.
+For personalized adaptation, use the two-stage approach described below.
 
+## Demo Run
+https://youtu.be/PSaKiOekw0s
 
 # Data processing
 
@@ -212,4 +216,5 @@ python3 train_test.py
 
 - **Whisper‑medium LoRA (r=16, α=24)**
      https://huggingface.co/songjiahui0210/aphasic_whisper_medium_lora/tree/main
+
 
