@@ -210,6 +210,6 @@ python3 train_test.py
 - **Whisper‑small LoRA (r=8, α=16)**  
   https://huggingface.co/liulian26/aphasic-whisper-small-lora
 
-- **Whisper‑medium LoRA (r=16, α=24)** 
-  https://huggingface.co/songjiahui0210/aphasic_whisper_medium_lora/tree/main
+- **Whisper‑medium LoRA (r=16, α=24)**
+     https://huggingface.co/songjiahui0210/aphasic_whisper_medium_lora/tree/main
 
