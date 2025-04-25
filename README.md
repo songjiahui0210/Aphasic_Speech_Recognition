@@ -11,6 +11,49 @@ Aphasia affects speech production while cognitive abilities remain intact. Stand
 
 Our approach significantly reduces Word Error Rate (WER) for aphasic speech recognition while maintaining computational efficiency through parameter-efficient fine-tuning.
 
+## Installation
+
+### 1. Clone the repository  
+```
+git clone https://github.com/your-org/Aphasic_Speech_Recognition.git
+```
+### 2.Prerequisites
+- Python ≥ 3.8
+
+- FFmpeg (for audio processing)
+
+- NVIDIA driver + CUDA 12+ + cuDNN (for GPU acceleration)
+  
+### 3.Create a virtual environment & install Python dependencies
+- Create and activate a venv:
+```
+python3 -m venv venv
+source venv/bin/activate     # Linux/macOS
+# .\venv\Scripts\activate    # Windows
+```
+- Upgrade pip and install from requirements.txt:
+```
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+### 4.Install PyTorch with CUDA support
+- Ubuntu / Debian
+  ```
+  pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu12
+  ```
+
+### 5.Install system packages (if FFmpeg is missing)
+- Ubuntu / Debian
+  ```
+  sudo apt-get update && sudo apt-get install -y ffmpeg
+  ```
+- macOS (Homebrew)
+  ```
+  brew install ffmpeg
+  ```
+
+
 ## Quick Demo
 
 You can quickly test a trained model on your audio files using the provided test scripts.
