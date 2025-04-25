@@ -35,11 +35,27 @@ python test_lora_model.py --audio_path "data_processed/audios/ACWT/ACWT01a_144.8
 ```
 python test_lora_model.py --audio_path "data_processed/audios/ACWT/ACWT01a_144.813_2.78.wav" --base_model "openai/whisper-small" --adapter_path "models/lora_personalized_speaker001"
 ```
-### Process all audio files in a directory and calculate WER
+### Process first 20 audio files in a directory and calculate WER
 
 ```
 python test_lora_model_with_wer.py --audio_path "data_processed/audios/ACWT" --base_model "openai/whisper-small" --adapter_path "models/lora_personalized_speaker001"  --batch_mode --output_file "results/transcriptions_with_wer.txt" --reference_csv "data_processed/clean_dataset.csv"
 ```
+
+## Expected Output
+
+```
+$ bash run_demo.sh small
+Loading base model: openai/whisper-small
+Applying LoRA adapter from: models/lora_personalized_speaker001
+…  
+Processed: ACWT01a_116.781_0.86.wav    WER: 0.5000  
+Processed: ACWT01a_118.178_6.55.wav   WER: 0.6667  
+Processed: ACWT01a_126.379_0.50.wav   WER: 0.0000  
+Processed: ACWT01a_127.379_3.55.wav   WER: 0.0000  
+``` 
+Overall WER: 0.4456 (calculated on 19 files)
+## Summary Results
+On 19 demo samples, the average WER of the whisper-small LoRA adapter is 44.56%.
 
 
 # Data processing
