@@ -1,0 +1,41 @@
+{
+  "citation": "",
+  "description": "",
+  "features": {
+    "file_path": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "input_features": {
+      "feature": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "_type": "Sequence"
+    },
+    "labels": {
+      "feature": {
+        "dtype": "int64",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    },
+    "transcription": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "file_cut": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "folder_name": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": ""
+}

@@ -159,6 +159,8 @@ def main():
             for file in files:
                 if file.endswith(('.wav', '.mp3', '.flac', '.ogg')):
                     audio_files.append(os.path.join(root, file))
+        audio_files = audio_files[:20]
+        print(f"Processing first 20 audio files out of {len(audio_files)} found")
         
         if not audio_files:
             print(f"No audio files found in {args.audio_path}")

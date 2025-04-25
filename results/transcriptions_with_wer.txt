@@ -1,0 +1,149 @@
+Audio File | Reference | Transcription | WER
+----------------------------------------------------------------------------------------------------
+ACWT01a.wav | N/A |  I'm going to be asking you to do some talking. Yeah, well. How do you think your speech is these days? I, yeah. Ta-da, ta-da. Anything else? Do you remember when you had your stroke? Yes. It's 2000. | N/A
+ACWT01a_116.781_0.86.wav | oh yes |  Yes. | 0.5000
+ACWT01a_118.178_6.55.wav | turkey to china |  No, Terracotta China. | 0.6667
+ACWT01a_126.379_0.5.wav | china |  China. | 0.0000
+ACWT01a_127.379_3.55.wav | oh oh yes |  Oh, oh, yes. | 0.0000
+ACWT01a_131.441_7.8.wav | up at beijing |  I thought, you know, | 1.3333
+ACWT01a_142.142_2.17.wav | yes yes oh |  Yes, yes. Oh. | 0.0000
+ACWT01a_144.813_2.78.wav | and line walk on the wall |  in a walled girder wall. | 0.8333
+ACWT01a_148.061_3.7.wav | yes oh god i loved it |  Yes, oh god, I loved it. | 0.0000
+ACWT01a_15.731_4.28.wav | i yeah you know so |  I, yeah. | 0.6000
+ACWT01a_152.289_4.61.wav | yes oh oh just amazing |  Yes, oh, oh, just amazing. | 0.0000
+ACWT01a_157.36_1.95.wav | oh just amazing |  Oh, just amazing. | 0.0000
+ACWT01a_160.197_1.71.wav | oh i just oh |  Oh, I just... | 0.2500
+ACWT01a_162.535_0.23.wav | yeah |  Yeah. | 0.0000
+ACWT01a_165.221_1.46.wav | oh yes |  Oh, yes. | 0.0000
+ACWT01a_191.636_1.11.wav | kicking the ball |  Picking the ball. | 0.3333
+ACWT01a_193.596_2.11.wav | window |  and our window. | 2.0000
+ACWT01a_196.847_6.35.wav | accident window broken |  access to window | 1.0000
+ACWT01a_205.24_3.45.wav | and it's all big yeah |  and it's all very, yeah. | 0.2000
+ACWT01a_209.475_5.31.wav | and the window broken and a ball yeah |  and then Mindo broke and Paul—yeah. | 0.7500
+ACWT01a_230.121_5.22.wav | oh i |  I | 0.5000
+ACWT01a_24.786_8.33.wav | yes it's two thousand two days |  Yes, it's two thousand two days | 0.0000
+ACWT01a_241.592_0.44.wav | no |  Uh, | 1.0000
+ACWT01a_243.646_1.54.wav | i don't want it |  I don't know it. | 0.2500
+ACWT01a_246.814_0.9.wav | hmhm |  Mmm. | 1.0000
+ACWT01a_248.8_2.29.wav | and rain |  and rain. | 0.0000
+ACWT01a_251.755_3.58.wav | yes rain rain rain |  Yes, rain, rain, rain. | 0.0000
+ACWT01a_256.156_1.081.wav | yes oh no |  Oh no! | 0.3333
+ACWT01a_257.64_2.78.wav | no no no |  No, no, no. | 0.0000
+ACWT01a_261.625_7.421.wav | yes mother looking at son |  Yes, they're looking at sun. | 0.4000
+ACWT01a_269.467_3.5.wav | and son gets a umbrella |  in Shenbrook, Delaware. | 1.0000
+ACWT01a_295.803_9.16.wav | cat up the tree |  Yeah. Cat up the tree. | 0.2500
+ACWT01a_307.328_4.55.wav | darling get cat out the tree |  Darling, don't get out of the tree. | 0.5000
+ACWT01a_313.148_3.66.wav | ladder broken |  are broken, uh, fence broken. | 2.0000
+ACWT01a_317.137_3.25.wav | there's a up the tree |  and there's a laughter tree. | 0.6000
+ACWT01a_321.51_9.35.wav | tree barking no |  G, sharp it now. | 1.3333
+ACWT01a_33.725_0.3.wav | no |  Yeah. | 1.0000
+ACWT01a_331.494_5.46.wav | oh barking yeah |  So, um, yeah. | 0.6667
+ACWT01a_339.004_9.59.wav | andgets mother to down the tree |  And the other, no, Senator gets Mother to hand down the tree. | 1.1667
+ACWT01a_34.8_6.92.wav | after new year's day two thousand |  After New Day, 2000, | 0.5000
+ACWT01a_361.497_0.29.wav | yep |  care. | 1.0000
+ACWT01a_380.747_0.13.wav | oh |  Thank you. | 2.0000
+ACWT01a_503.723_8.39.wav | well cinderella was a poor child in in |  Well, Cinderella was a poor child in | 0.1250
+ACWT01a_51.986_4.26.wav | i don't remember |  I don't know, Bamboo. | 0.6667
+ACWT01a_514.636_0.711.wav | oh god |  Oh, God. | 0.0000
+ACWT01a_516.182_4.03.wav | cinderella poor child in in |  Cinderella, more child and bird. | 0.6000
+ACWT01a_525.134_6.11.wav | to do many things in |  I'd be to do anything. | 1.0000
+ACWT01a_531.543_6.18.wav | and |  and | 0.0000
+ACWT01a_539.741_0.78.wav | oh god |  Oh, God. | 0.0000
+ACWT01a_542.548_4.1.wav | oh and you |  And you, uh... | 0.6667
+ACWT01a_551.975_12.13.wav | troll child in stepchildren |  a troll child and a deaf children. | 1.2500
+ACWT01a_56.47_3.56.wav | i don't remember |  I don't remember. | 0.0000
+ACWT01a_567.671_0.88.wav | oh god |  Oh, God. | 0.0000
+ACWT01a_569.941_5.61.wav | stepchildren wanted to go to dance |  um, chapter than wanted to do today. | 1.0000
+ACWT01a_576.25_5.71.wav | and beautiful |  beautiful da da da da da da da | 4.0000
+ACWT01a_582.561_11.42.wav | and cinderella weren't sure of about going to dance |  and it's really very true, at least, you know, about 10 to 10 | 1.1111
+ACWT01a_594.76_2.84.wav | and and |  in the armed | 1.5000
+ACWT01a_599.597_2.79.wav | oh god i just |  Oh God, I just... | 0.0000
+ACWT01a_615.635_12.92.wav | she got to go to the dance in shoes and |  She got to go to the dance and choose and | 0.2000
+ACWT01a_629.504_0.9.wav | oh god |  Oh, god. | 0.0000
+ACWT01a_632.051_7.52.wav | oh god |  Oh, God. | 0.0000
+ACWT01a_641.04_1.22.wav | dance and yeah |  and see then what happens. | 1.6667
+ACWT01a_642.657_9.06.wav | and she was dancing around midnight |  and she was dancing around at midnight. | 0.1667
+ACWT01a_652.111_5.51.wav | and she supposed to be somewhere else |  and she goes to be somewhere else. | 0.1429
+ACWT01a_658.051_17.92.wav | and and she put her foot in the |  She put her foot in the glasses. | 0.3750
+ACWT01a_677.561_0.37.wav | so |  Thank you. | 2.0000
+ACWT01a_68.972_6.6.wav | oh yeah |  Oh yeah. | 0.0000
+ACWT01a_680.583_4.03.wav | and she rode off with the prince |  And she rolled off her plates. | 0.5714
+ACWT01a_701.829_2.63.wav | oh bread |  Stop. Bunch of bread. | 1.5000
+ACWT01a_706.282_1.55.wav | two pieces of bread |  Two pieces of bread. | 0.0000
+ACWT01a_708.73_2.99.wav | and |  in Jerusalem. | 2.0000
+ACWT01a_718.055_8.06.wav | jelly and peanut butter |  jelly and peanut butter. | 0.0000
+ACWT01a_726.892_6.55.wav | and turn them over and make a peanut butter sandwich |  and told them, oh, I'll make a bigger butter. | 0.5000
+ACWT01a_78.683_4.05.wav | i aphasia aphasia |  I have phasor, a phasor. | 1.3333
+ACWT01a_82.936_2.57.wav | oh yes yes yes |  Oh, yes, yes, yes. | 0.0000
+ACWT01a_9.96_2.41.wav | yeah well |  Yeah, well. | 0.0000
+ACWT01a_99.342_0.06.wav | yeah |  and the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state of the state | 444.0000
+ACWT02a.wav | N/A |  I'm going to be asking you to do some talking. Okay. Tell me how you think your speech is these days. Good. Not real good, but good. Do you remember when you had your stroke? | N/A
+ACWT02a_10.947_5.41.wav | good not real good but good |  Good. Not real good, but good. | 0.0000
+ACWT02a_1010.226_5.77.wav | and she dance and dance and dance all night |  And she dance and dance and dance all night. | 0.0000
+ACWT02a_1016.609_1.98.wav | and her one |  and her one | 0.0000
+ACWT02a_1018.642_3.84.wav | oh then she remembered |  Oh, then she were men through | 0.7500
+ACWT02a_1023.126_7.64.wav | oh i hafta get back by twelve o'clock |  Oh, I have to get back by fear of cause. | 0.6250
+ACWT02a_1031.489_3.25.wav | and she's running and running |  and cheese running and running. | 0.2000
+ACWT02a_1035.47_7.83.wav | and she left her glass shoes behind |  And she left her glass chewed, she climbed. | 0.4286
+ACWT02a_1044.513_7.341.wav | and |  And, um, uh... | 2.0000
+ACWT02a_1053.02_0.76.wav | i don't know |  I don't know. | 0.0000
+ACWT02a_1053.912_9.96.wav | but somebody else came and showed her the glass slipper |  But some of God's eels came and showed her the glass prickler. | 0.5000
+ACWT02a_1064.95_3.31.wav | and she was away |  And she was away. | 0.0000
+ACWT02a_1070.41_6.05.wav | but the other shoes they don't fit |  but the other shoes they don't fit. | 0.0000
+ACWT02a_1077.978_10.86.wav | but the other shoe seemed to fit on cinderella |  But the other two seem to fit on the cremarylla. | 0.4444
+ACWT02a_108.908_4.45.wav | june fourteenth |  June 14. | 0.5000
+ACWT02a_1089.277_4.05.wav | and she got married to the prince |  And she got mammoth. | 0.5714
+ACWT02a_1096.604_0.4.wav | okay |  Okay. | 0.0000
+ACWT02a_1098.019_1.44.wav | whoo |  Uuuuh | 1.0000
+ACWT02a_1111.254_5.99.wav | well bread |  Well, bread. | 0.0000
+ACWT02a_1118.611_2.96.wav | and get out the |  and get out, superb friends. | 0.5000
+ACWT02a_1122.302_1.67.wav | two slices |  2 slices | 0.5000
+ACWT02a_1124.514_9.91.wav | and now i have to do this with my left hand |  And now I cast you through this with my blessed hand. | 0.3636
+ACWT02a_1135.549_7.56.wav | and i get out the peanut butter |  and I bit out the pinlock buzzer. | 0.4286
+ACWT02a_1143.592_3.23.wav | and spread it on the sandwich |  and credit on third standard. | 0.6667
+ACWT02a_1147.25_2.02.wav | and close it up |  and close it up. | 0.0000
+ACWT02a_1149.573_3.26.wav | and then cut it in half |  and then cut it in half. | 0.0000
+ACWT02a_1153.223_1.49.wav | and i eat it |  and I've heated. | 0.7500
+ACWT02a_1170.411_0.55.wav | house |  Ow. | 1.0000
+ACWT02a_1179.104_0.45.wav | comb |  phone. | 1.0000
+ACWT02a_1182.575_9.06.wav | toothbrush |  Toothbrush | 0.0000
+ACWT02a_1193.521_2.41.wav | octopus |  Ask the prog first. | 4.0000
+ACWT02a_1201.313_1.53.wav | you want me to |  you want being | 0.5000
+ACWT02a_1204.516_0.09.wav | okay |  MBC 뉴스 김성현입니다. | 3.0000
+ACWT02a_1205.182_0.3.wav | okay |  Okay. | 0.0000
+ACWT02a_1206.354_1.9.wav | bench |  Binch. | 1.0000
+ACWT02a_1213.242_1.89.wav | volcano |  called claim low | 3.0000
+ACWT02a_1222.307_4.81.wav | canoe no canoe |  Col... no. Col... new. | 1.0000
+ACWT02a_123.511_4.39.wav | okay whoo |  Okay. | 0.5000
+ACWT02a_1232.542_0.83.wav | beaver |  Be per. | 2.0000
+ACWT02a_1240.858_0.58.wav | beaver |  be burnt. | 2.0000
+ACWT02a_1242.076_2.14.wav | cactus |  Catched. | 1.0000
+ACWT02a_1252.228_1.9.wav | hammock |  a hem | 2.0000
+ACWT02a_1256.844_0.46.wav | golly |  Lee. | 1.0000
+ACWT02a_1262.981_1.28.wav | stethoscope |  Cat sock. | 2.0000
+ACWT02a_1273.991_2.2.wav | unicorn |  Unicorn. | 0.0000
+ACWT02a_1278.692_6.92.wav | oh god |  Oh, let me give you a break. | 3.0000
+ACWT02a_1287.743_0.88.wav | tripod |  POD. | 1.0000
+ACWT02a_1300.26_1.63.wav | what is that |  What is that? | 0.0000
+ACWT02a_1301.908_1.71.wav | sphinx |  thing | 1.0000
+ACWT02a_131.269_4.68.wav | okay |  Okay | 0.0000
+ACWT02a_1311.348_0.98.wav | palette |  pallet | 1.0000
+ACWT02a_1313.574_0.09.wav | okay |  MBC 뉴스 김성현입니다. | 3.0000
+ACWT02a_137.41_6.53.wav | five weeks i went to the |  Five weeks, I went to the home. | 0.1667
+ACWT02a_146.155_8.96.wav | but i got five weeks worth of care in the hospital |  but I got five weeks worth of care in the hospital. | 0.0000
+ACWT02a_156.283_3.44.wav | and then i went home |  And then I went home. | 0.0000
+ACWT02a_160.14_23.23.wav | and four weeks or five weeks i went to the physical andand one more |  And four breaks or five breaks, I went to the septicule and mammal and one more. | 0.4286
+ACWT02a_1624.781_0.46.wav | okay |  Amen. | 1.0000
+ACWT02a_1642.091_0.001.wav | mkay |  you | 1.0000
+ACWT02a_1647.087_0.089.wav | okay okay |  here. | 1.0000
+ACWT02a_1652.412_0.56.wav | duck |  Так. | 1.0000
+ACWT02a_1656.375_1.78.wav | bird can |  her can. | 0.5000
+ACWT02a_1671.19_0.63.wav | food |  food. | 0.0000
+ACWT02a_1676.078_2.64.wav | food sock |  Food talk. | 0.5000
+ACWT02a_1687.291_9.14.wav | food sock night |  Booth, chock, a... night. | 1.0000
+ACWT02a_1706.422_7.31.wav | food sock night thumb |  food, stock, night, thumb. | 0.2500
+ACWT02a_1727.49_8.67.wav | food sock night thumb jail |  Food, suck, night, thumb, jail. | 0.2000
+ACWT02a_1749.431_9.1.wav | food sock night thumb jail rose |  Food, stock, night, tum, jail, rose. | 0.3333
+ACWT02a_1772.399_25.93.wav | food sock night jail no two thumb jail rose coin |  Food, salt, night, jail? No. To, pum, jail, rose, corn, | 0.4000
+ACWT02a_1816.297_24.9.wav | food sock night thumb jail rose coin witch |  Food, suck, night, thumb, gel, rose, corn, witch, | 0.3750
+ACWT02a_186.702_0.33.wav | yeah |  Yeah. | 0.0000
