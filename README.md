@@ -15,6 +15,15 @@ Our approach significantly reduces Word Error Rate (WER) for aphasic speech reco
 
 You can quickly test a trained model on your audio files using the provided test scripts.
 
+### Sample run
+```
+cd Aphasic_Speech_Recognition/demo/
+python create_data_subset.py --num_speakers 5 --samples_per_speaker 20 --output_dir demo_data
+python prepare_data_for_demo.py --csv_path demo_data/demo_subset.csv --model_size small
+python demo_run.py --model_size small --demo_steps 5 --data_subset 20
+bash run_demo.sh small
+```
+
 ### Test with a single audio file
 
 ### Test a base Whisper model
@@ -184,4 +193,5 @@ python3 train_test.py
 
 - **Whisper‑small LoRA (r=8, α=16)**  
   https://huggingface.co/liulian26/aphasic-whisper-small-lora
-  
+- **Whisper‑medium LoRA (r=16, α=24)** 
+  https://huggingface.co/songjiahui0210/aphasic_whisper_medium_lora/tree/main
