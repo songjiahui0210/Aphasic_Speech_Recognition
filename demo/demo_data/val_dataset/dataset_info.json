@@ -1,0 +1,97 @@
+{
+  "citation": "",
+  "description": "",
+  "features": {
+    "mark_start": {
+      "dtype": "float64",
+      "_type": "Value"
+    },
+    "mark_end": {
+      "dtype": "float64",
+      "_type": "Value"
+    },
+    "transcriptions": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "name": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "sex": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "age": {
+      "dtype": "float64",
+      "_type": "Value"
+    },
+    "file": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "WAB_AQ": {
+      "dtype": "float64",
+      "_type": "Value"
+    },
+    "aphasia_type": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "file_cut": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "WAB_AQ_category": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "fluency_speech": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "folder_name": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "difference": {
+      "dtype": "float64",
+      "_type": "Value"
+    },
+    "original_file_length": {
+      "dtype": "float64",
+      "_type": "Value"
+    },
+    "name_extracted_from_filename": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "name_unique_speaker": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "split": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "input_features": {
+      "feature": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "_type": "Sequence"
+    },
+    "labels": {
+      "feature": {
+        "dtype": "int64",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    }
+  },
+  "homepage": "",
+  "license": ""
+}
