@@ -96,7 +96,7 @@ cd ..
 python3 transcribe.py
 python3 wer_calculation.py
 ```
-### Calculating baseline WER of Set 1, Set 2(validation, test:
+### Calculating baseline WER of Set 1, Set 2(validation, test):
 ```
 python3 training_lora/baseline_wer.py
 ```
