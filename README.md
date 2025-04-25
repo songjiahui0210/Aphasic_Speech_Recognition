@@ -17,16 +17,20 @@ You can quickly test a trained model on your audio files using the provided test
 
 ### Test with a single audio file
 
-```bash
 # Test a base Whisper model
+```
 python test_lora_model.py --audio_path "data_processed/audios/ACWT/ACWT01a_144.813_2.78.wav"  --base_model "openai/whisper-small"
+```
 
 # Test with a trained LoRA adapter
+```
 python test_lora_model.py --audio_path "data_processed/audios/ACWT/ACWT01a_144.813_2.78.wav" --base_model "openai/whisper-small" --adapter_path "models/lora_personalized_speaker001"
-
-
+```
 # Process all audio files in a directory and calculate WER
+
+```
 python test_lora_model_with_wer.py --audio_path "data_processed/audios/ACWT" --base_model "openai/whisper-small" --adapter_path "models/lora_personalized_speaker001"  --batch_mode --output_file "results/transcriptions_with_wer.txt" --reference_csv "data_processed/clean_dataset.csv"
+```
 
 
 # Data processing
