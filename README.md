@@ -251,6 +251,21 @@ python3 train_validation.py
 python3 train_test.py
 ```
 
+# Results Summary
+
+Our two-stage LoRA approach demonstrates significant improvements in speech recognition for people with aphasia:
+
+| Model | Baseline WER | After W_cohort Training | Relative Improvement |
+|-------|--------------|------------------------|----------------------|
+| Whisper-small | 51.15% | 39.76% (r=8, α=16) | 22.3% |
+| Whisper-medium | 37.79% | 26.00% (r=16, α=24) | 31.2% |
+| Whisper-large | 34.61% | (results pending) | - |
+
+After speaker-specific personalization on top of Wcohort training:
+- Average test WER further reduced to ~36.7% for Whisper-small
+- Speaker-specific adaptation shows consistently stable performance across different hyperparameter configurations (r, α)
+- Larger base models (Whisper-medium) benefit more from LoRA adaptation than smaller ones
+
 
 # Model & Data
 
